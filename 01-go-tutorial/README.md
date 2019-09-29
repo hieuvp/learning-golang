@@ -9,6 +9,10 @@
 - [Program Structure](#program-structure)
 - [Data Types](#data-types)
 - [Variables](#variables)
+  - [Static Type Declaration](#static-type-declaration)
+  - [Dynamic Type Declaration / Type Inference](#dynamic-type-declaration--type-inference)
+  - [Mixed Variable Declaration](#mixed-variable-declaration)
+  - [The lvalues and the rvalues](#the-lvalues-and-the-rvalues)
 - [Constants](#constants)
 - [Operators](#operators)
 - [Decision Making](#decision-making)
@@ -75,6 +79,14 @@ $ go run hello.go
 
 
 ## Variables
+
+### Static Type Declaration
+
+### Dynamic Type Declaration / Type Inference
+
+### Mixed Variable Declaration
+
+### The lvalues and the rvalues
 
 
 ## Constants
