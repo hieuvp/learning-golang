@@ -6,9 +6,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Home](#home)
-- [Overview](#overview)
-- [Environment Setup](#environment-setup)
 - [Program Structure](#program-structure)
 - [Basic Syntax](#basic-syntax)
 - [Data Types](#data-types)
@@ -33,15 +30,6 @@
 - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
-## Home
-
-
-## Overview
-
-
-## Environment Setup
 
 
 ## Program Structure
