@@ -34,17 +34,25 @@
 
 ## Program Structure
 
-[hello.go](hello.go)
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.go) -->
+<!-- The below code snippet is automatically added from ./hello.go -->
+```go
+package main
 
-[include](File:hello.go)
+import "fmt"
 
-{{hello.go}}
+func main() {
+	/* This is my first sample program. */
+	fmt.Println("Hello, World!")
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END *-->
 
-{1:9}(hello.go)
 
 ```bash
 $ go run hello.go
 ```
+
 
 ## Basic Syntax
 
