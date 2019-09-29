@@ -7,7 +7,6 @@
 
 
 - [Program Structure](#program-structure)
-- [Basic Syntax](#basic-syntax)
 - [Data Types](#data-types)
 - [Variables](#variables)
 - [Constants](#constants)
@@ -54,10 +53,12 @@ $ go run hello.go
 ```
 
 
-## Basic Syntax
-
-
 ## Data Types
+
+1. Basic type: Number (Integer, Float), String, and Boolean.
+1. Aggregate type: Array and Struct.
+1. Reference type: Pointer, Slice, Map, Function, and Channel.
+1. Interface type.
 
 
 ## Variables
