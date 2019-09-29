@@ -56,20 +56,20 @@ $ go run hello.go
 ## Data Types
 
 1. Basic type
-  - Number (Integer, Float)
-  - String
-  - Boolean
+    - Number (Integer, Float)
+    - String
+    - Boolean
 
 1. Aggregate type
-  - Array
-  - Struct
+    - Array
+    - Struct
 
 1. Reference type
-  - Pointer
-  - Slice
-  - Map
-  - Function
-  - Channel
+    - Pointer
+    - Slice
+    - Map
+    - Function
+    - Channel
 
 1. Interface type
 
