@@ -40,6 +40,8 @@
 
 {{hello.go}}
 
+{1:9}(hello.go)
+
 ```bash
 $ go run hello.go
 ```
