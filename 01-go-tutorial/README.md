@@ -34,6 +34,15 @@
 
 ## Program Structure
 
+[hello.go](hello.go)
+
+[include](File:hello.go)
+
+{{hello.go}}
+
+```bash
+$ go run hello.go
+```
 
 ## Basic Syntax
 
