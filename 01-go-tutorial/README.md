@@ -55,10 +55,23 @@ $ go run hello.go
 
 ## Data Types
 
-1. Basic type: Number (Integer, Float), String, and Boolean.
-1. Aggregate type: Array and Struct.
-1. Reference type: Pointer, Slice, Map, Function, and Channel.
-1. Interface type.
+1. **Basic** type
+	- **Number** (**Integer**, **Float**)
+	- **String**
+	- **Boolean**
+
+1. **Aggregate** type
+	- **Array**
+	- **Struct**
+
+1. **Reference** type
+	- **Pointer**
+	- **Slice**
+	- **Map**
+	- **Function**
+	- **Channel**
+
+1. **Interface** type
 
 
 ## Variables
