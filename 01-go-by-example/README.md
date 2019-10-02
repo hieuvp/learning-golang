@@ -113,6 +113,27 @@ $ ./hello-world
 
 ## Values
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=values.go) -->
+<!-- The below code snippet is automatically added from values.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("go" + "lang")
+
+	fmt.Println("1+1 =", 1+1)
+	fmt.Println("7.0/3.0 =", 7.0/3.0)
+
+	fmt.Println(true && false)
+	fmt.Println(true || false)
+	fmt.Println(!true)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+
 ## Variables
 
 ## Constants
