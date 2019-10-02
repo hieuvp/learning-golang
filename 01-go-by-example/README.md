@@ -196,6 +196,18 @@ $ go run variables.go
 
 ## Constants
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=constants.go) -->
+<!-- The below code snippet is automatically added from constants.go -->
+```go
+package main
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run constants.go
+```
+
+
 ## For
 
 ## If/Else
