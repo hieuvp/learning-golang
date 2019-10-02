@@ -230,7 +230,7 @@ func main() {
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
-$ go run constants.go                                                                                                                                  2 ↵
+$ go run constants.go
 
 # constant
 # 6e+11
