@@ -87,6 +87,30 @@
 
 ## Hello World
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=hello-world.go) -->
+<!-- The below code snippet is automatically added from hello-world.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World")
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run hello-world.go
+```
+
+```bash
+# Build our program into a binary file
+$ go build hello-world.go
+$ ./hello-world
+```
+
+
 ## Values
 
 ## Variables
