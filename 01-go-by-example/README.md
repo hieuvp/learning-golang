@@ -95,7 +95,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello world")
+	fmt.Println("Hello, World")
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
