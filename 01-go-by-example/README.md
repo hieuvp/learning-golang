@@ -105,6 +105,7 @@ $ go run hello-world.go
 ```
 
 ```bash
+# Build our program into a binary file
 $ go build hello-world.go
 $ ./hello-world
 ```
