@@ -1,6 +1,6 @@
 # Learning Golang
 
-1. [Go Tutorial](01-go-tutorial/README.md)
+1. [Go by Example](01-go-by-example/README.md)
 1. [Go: The Big Picture](02-go-the-big-picture/README.md)
 1. [Go: Getting Started](03-go-getting-started/README.md)
 1. [Concurrent Programming with Go](04-concurrent-programming-with-go/README.md)
