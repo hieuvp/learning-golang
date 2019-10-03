@@ -188,6 +188,7 @@ import "fmt"
 func main() {
 
 	// The most basic type, with a single condition
+	fmt.Println()
 	i := 1
 	for i <= 3 {
 		fmt.Println(i)
@@ -195,6 +196,7 @@ func main() {
 	}
 
 	// A classic initial/condition/after for loop
+	fmt.Println()
 	for j := 7; j <= 9; j++ {
 		fmt.Println(j)
 	}
@@ -202,12 +204,14 @@ func main() {
 	// "for" without a condition will loop repeatedly
 	// until you "break" out of the loop
 	// or return from the enclosing function
+	fmt.Println()
 	for {
 		fmt.Println("loop")
 		break
 	}
 
 	// You can also "continue" to the next iteration of the loop
+	fmt.Println()
 	for n := 0; n <= 5; n++ {
 		if n%2 == 0 {
 			continue
@@ -224,10 +228,13 @@ $ go run for.go
 # 1
 # 2
 # 3
+
 # 7
 # 8
 # 9
+
 # loop
+
 # 1
 # 3
 # 5
