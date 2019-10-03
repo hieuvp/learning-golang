@@ -268,6 +268,10 @@ func main() {
 
 ```bash
 $ go run if-else.go
+
+# 7 is odd
+# 8 is divisible by 4
+# 9 has 1 digit
 ```
 
 
@@ -330,6 +334,13 @@ func main() {
 
 ```bash
 $ go run switch.go
+
+# Write 2 as two
+# It's a weekday
+# It's after noon
+# I'm a bool
+# I'm an int
+# Don't know type string
 ```
 
 
