@@ -201,10 +201,7 @@ $ go run variables.go
 ```go
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
 // "const" declares a constant value
 const s string = "constant"
@@ -218,9 +215,7 @@ func main() {
 	// Constant expressions perform arithmetic with arbitrary precision
 	const d = 3e20 / n
 	fmt.Println(d)
-
 	fmt.Println(int64(d))
-	fmt.Println(math.Sin(n))
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -230,9 +225,7 @@ $ go run constants.go
 
 # constant
 # 6e+11
-
 # 600000000000
-# -0.28470407323754404
 ```
 
 
