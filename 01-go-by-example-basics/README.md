@@ -236,7 +236,77 @@ $ go run for.go
 
 ## If/Else
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=if-else.go) -->
+<!-- The below code snippet is automatically added from if-else.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	if 7%2 == 0 {
+		fmt.Println("7 is even")
+	} else {
+		fmt.Println("7 is odd")
+	}
+
+	if 8%4 == 0 {
+		fmt.Println("8 is divisible by 4")
+	}
+
+	if num := 9; num < 0 {
+		fmt.Println(num, "is negative")
+	} else if num < 10 {
+		fmt.Println(num, "has 1 digit")
+	} else {
+		fmt.Println(num, "has multiple digits")
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run if-else.go
+```
+
+
 ## Switch
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=if-else.go) -->
+<!-- The below code snippet is automatically added from if-else.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	if 7%2 == 0 {
+		fmt.Println("7 is even")
+	} else {
+		fmt.Println("7 is odd")
+	}
+
+	if 8%4 == 0 {
+		fmt.Println("8 is divisible by 4")
+	}
+
+	if num := 9; num < 0 {
+		fmt.Println(num, "is negative")
+	} else if num < 10 {
+		fmt.Println(num, "has 1 digit")
+	} else {
+		fmt.Println(num, "has multiple digits")
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run switch.go
+```
+
 
 ## Arrays
 
