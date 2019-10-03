@@ -4,12 +4,12 @@ import "fmt"
 
 func main() {
 
-	// The most basic type, with a single condition
+	// Single condition
 	fmt.Println()
 	i := 1
 	for i <= 3 {
 		fmt.Println(i)
-		i = i + 1
+		i += 1
 	}
 
 	// A classic initial/condition/after for loop

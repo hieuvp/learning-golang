@@ -187,7 +187,7 @@ import "fmt"
 
 func main() {
 
-	// The most basic type, with a single condition
+	// Single condition
 	fmt.Println()
 	i := 1
 	for i <= 3 {
