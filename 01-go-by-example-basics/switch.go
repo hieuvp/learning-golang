@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	// Here's a basic "switch"
+	// The basic "switch"
 	i := 2
 	fmt.Print("Write ", i, " as ")
 	switch i {
@@ -19,19 +19,19 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// You can use commas "," to separate multiple expressions in the same "case" statement
-	// We use the optional "default" case in this example as well
+	// Use commas "," to separate multiple expressions in the same "case" statement
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
+	// The optional "default" case
 	default:
 		fmt.Println("It's a weekday")
 	}
 
 	// "switch" without an expression is an alternate way to express "if/else" logic
-	// Here we also show how the case expressions can be non-constants
 	t := time.Now()
 	switch {
+	// The "case" expressions can be non-constants
 	case t.Hour() < 12:
 		fmt.Println("It's before noon")
 	default:
@@ -39,11 +39,11 @@ func main() {
 	}
 
 	// A "type switch" compares types instead of values
-	// You can use this to discover the concrete type of an "interface value"
+	// Use this to discover the concrete type of an "interface value"
 	whatAmI := func(i interface{}) {
 
 		// The variable t will have the type corresponding to its clause
-		// The syntax will only work in "switch" statement
+		// This syntax will only work in "switch" statement
 		switch t := i.(type) {
 		case bool:
 			fmt.Println("I'm a bool")
