@@ -339,7 +339,7 @@ func main() {
 	whatAmI := func(i interface{}) {
 
 		// The variable t will have the type corresponding to its clause
-		// The syntax will only work in switch statement
+		// The syntax will only work in "switch" statement
 		switch t := i.(type) {
 		case bool:
 			fmt.Println("I'm a bool")
