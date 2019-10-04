@@ -338,6 +338,11 @@ func main() {
 	// You can use this to discover the type of an interface value
 	// In this example, the variable t will have the type corresponding to its clause
 	whatAmI := func(i interface{}) {
+
+		// This can be done using Type switch
+		// The syntax for type switch is similar to type assertion and it is i.(type)where i is interface and type is a fixed keyword
+		// Using this we can get the concrete type of the interface instead of value
+		// But this syntax will only work in switch statement
 		switch t := i.(type) {
 		case bool:
 			fmt.Println("I'm a bool")
