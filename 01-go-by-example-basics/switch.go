@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	// Here's a basic switch
+	// Here's a basic "switch"
 	i := 2
 	fmt.Print("Write ", i, " as ")
 	switch i {
@@ -19,8 +19,8 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// You can use commas to separate multiple expressions in the same case statement
-	// We use the optional default case in this example as well
+	// You can use commas to separate multiple expressions in the same "case" statement
+	// We use the optional "default" case in this example as well
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
@@ -28,7 +28,7 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-	// switch without an expression is an alternate way to express if/else logic
+	// "switch" without an expression is an alternate way to express "if/else" logic
 	// Here we also show how the case expressions can be non-constants
 	t := time.Now()
 	switch {
