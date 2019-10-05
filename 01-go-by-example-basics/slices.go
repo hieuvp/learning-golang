@@ -25,13 +25,13 @@ func main() {
 	// Note that we need to accept a return value from append as we may get a new slice value
 	s = append(s, "d")
 	s = append(s, "e", "f")
-	fmt.Println("apd:", s)
+	fmt.Println("Append:", s)
 
 	// Slices can also be copy'd
 	// Here we create an empty slice c of the same length as s and copy into c from s
 	c := make([]string, len(s))
 	copy(c, s)
-	fmt.Println("cpy:", c)
+	fmt.Println("Copy:", c)
 
 	// Slices support a "slice" operator with the syntax slice[low:high]
 	// For example, this gets a slice of the elements s[2], s[3], and s[4]
