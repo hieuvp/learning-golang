@@ -32,7 +32,7 @@ func main() {
 	fmt.Println("Copy:", c)
 
 	// Support a "slice operator" with the syntax slice[low:high]
-	// e.g. this gets a slice of the elements s[2], s[3], and s[4]
+	// e.g. To get a slice of the elements s[2], s[3], and s[4]
 	fmt.Println("s[2:5] =", s[2:5])
 
 	// Slice up to (but excluding) s[5]
