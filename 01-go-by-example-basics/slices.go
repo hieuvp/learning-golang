@@ -20,7 +20,7 @@ func main() {
 	fmt.Println("len:", len(s))
 
 	// The built-in "append", which returns a slice containing one or more new values
-	// Note that we need to accept a return value from append as we may get a new slice value
+	// Note that we need to accept a return value from "append" as we may get a new slice value
 	s = append(s, "d")
 	s = append(s, "e", "f")
 	fmt.Println("Append:", s)
