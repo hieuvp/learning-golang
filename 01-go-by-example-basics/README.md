@@ -495,17 +495,18 @@ func main() {
 ```bash
 $ go run slices.go
 
-# emp: [  ]
-# set: [a b c]
-# get: c
+# Empty: [  ]
+# Set: [a b c]
+# Get: c
 # len: 3
-# apd: [a b c d e f]
-# cpy: [a b c d e f]
-# sl1: [c d e]
-# sl2: [a b c d e]
-# sl3: [c d e f]
-# dcl: [g h i]
-# 2d:  [[0] [1 2] [2 3 4]]
+# Append: [a b c d e f]
+# New length: 6
+# Copy: [a b c d e f]
+# s[2:5] = [c d e]
+# s[:5] = [a b c d e]
+# s[2:] = [c d e f]
+# Init: [g h i]
+# 2D slice:  [[0] [1 2] [2 3 4]]
 ```
 
 
