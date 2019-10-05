@@ -286,7 +286,7 @@ $ go run if-else.go
 # 9 has 1 digit
 ```
 
-- There is no **Ternary Conditional Operator** (`condition ? exprIfTrue : exprIfFalse`) in Go, so you'll need to use a full if statement even for basic conditions.
+- There is no **Ternary Conditional Operator** (`condition ? exprIfTrue : exprIfFalse`) in Go, so you will need to use a full if statement even for basic conditions.
 
 
 ## Switch
