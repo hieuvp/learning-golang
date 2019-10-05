@@ -360,8 +360,9 @@ func main() {
 $ go run switch.go
 
 # Write 2 as two
-# It's a weekday
-# It's after noon
+# It's the weekend
+# It's before noon
+
 # I'm a bool
 # I'm an int
 # Don't know type string
