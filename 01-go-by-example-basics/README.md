@@ -319,7 +319,7 @@ func main() {
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
-	// The optional "default" case
+	// Optional "default" case
 	default:
 		fmt.Println("It's a weekday")
 	}
@@ -327,7 +327,7 @@ func main() {
 	// "switch" without an expression is an alternate way to express "if/else" logic
 	t := time.Now()
 	switch {
-	// The "case" expressions can be non-constants
+	// "case" expressions can be non-constants
 	case t.Hour() < 12:
 		fmt.Println("It's before noon")
 	default:
@@ -338,8 +338,8 @@ func main() {
 	// Use this to discover the concrete type of an "interface value"
 	whatAmI := func(i interface{}) {
 
-		// The variable t will have the type corresponding to its clause
-		// This syntax will only work in "switch" statement
+		// Variable "t" will have the type corresponding to its clause
+		// This syntax only works in "switch" statement
 		switch t := i.(type) {
 		case bool:
 			fmt.Println("I'm a bool")
