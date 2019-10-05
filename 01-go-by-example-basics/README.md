@@ -451,29 +451,27 @@ func main() {
 	// "len" returns the length of the slice
 	fmt.Println("len:", len(s))
 
-	// Unlike arrays, slices can be resized using the built-in append function
-	// In addition to these basic operations, slices support several more that make them richer than arrays
-	// One is the builtin append, which returns a slice containing one or more new values
+	// The built-in "append", which returns a slice containing one or more new values
 	// Note that we need to accept a return value from append as we may get a new slice value
 	s = append(s, "d")
 	s = append(s, "e", "f")
 	fmt.Println("Append:", s)
-	fmt.Println("len:", len(s))
+	fmt.Println("New length:", len(s))
 
-	// Slices can also be copy'd
+	// Slices can also be copied
 	// Here we create an empty slice c of the same length as s and copy into c from s
 	c := make([]string, len(s))
 	copy(c, s)
 	fmt.Println("Copy:", c)
 
-	// Slices support a "slice" operator with the syntax slice[low:high]
-	// For example, this gets a slice of the elements s[2], s[3], and s[4]
+	// Support a "slice" operator with the syntax slice[low:high]
+	// e.g. this gets a slice of the elements s[2], s[3], and s[4]
 	fmt.Println("s[2:5] =", s[2:5])
 
-	// This slices up to (but excluding) s[5]
+	// Slice up to (but excluding) s[5]
 	fmt.Println("s[:5] =", s[:5])
 
-	// And this slices up from (and including) s[2]
+	// Slice up from (and including) s[2]
 	fmt.Println("s[2:] =", s[2:])
 
 	// Declare and initialize a variable for slice in a single line
