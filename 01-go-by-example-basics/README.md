@@ -414,12 +414,12 @@ func main() {
 ```bash
 $ go run arrays.go
 
-# emp: [0 0 0 0 0]
-# set: [0 0 0 0 100]
-# get: 100
+# Empty: [0 0 0 0 0]
+# Set: [0 0 0 0 100]
+# Get: 100
 # len: 5
-# dcl: [1 2 3 4 5]
-# 2d:  [[0 1 2] [1 2 3]]
+# Declare: [1 2 3 4 5]
+# 2D Array: [[0 1 2] [1 2 3]]
 ```
 
 
