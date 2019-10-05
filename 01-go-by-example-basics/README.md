@@ -441,7 +441,7 @@ func main() {
 	s := make([]string, 3)
 	fmt.Println("Empty:", s)
 
-	// Set and get just like with arrays
+	// Set and Get just like with arrays
 	s[0] = "a"
 	s[1] = "b"
 	s[2] = "c"
@@ -459,7 +459,6 @@ func main() {
 	fmt.Println("New length:", len(s))
 
 	// Slices can also be copied
-	// Here we create an empty slice c of the same length as s and copy into c from s
 	c := make([]string, len(s))
 	copy(c, s)
 	fmt.Println("Copy:", c)
