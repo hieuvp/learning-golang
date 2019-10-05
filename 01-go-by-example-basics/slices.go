@@ -41,7 +41,8 @@ func main() {
 	// Slice up from (and including) s[2]
 	fmt.Println("s[2:] =", s[2:])
 
-	// Declare and initialize a variable for slice in a single line
+	// Declare and initialize a variable for a slice in a single line
+	// Just like an array, except we leave out the element count
 	t := []string{"g", "h", "i"}
 	fmt.Println("Init:", t)
 
