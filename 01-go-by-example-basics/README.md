@@ -414,6 +414,13 @@ func main() {
 
 ```bash
 $ go run arrays.go
+
+# emp: [0 0 0 0 0]
+# set: [0 0 0 0 100]
+# get: 100
+# len: 5
+# dcl: [1 2 3 4 5]
+# 2d:  [[0 1 2] [1 2 3]]
 ```
 
 
@@ -493,6 +500,18 @@ func main() {
 
 ```bash
 $ go run slices.go
+
+# emp: [  ]
+# set: [a b c]
+# get: c
+# len: 3
+# apd: [a b c d e f]
+# cpy: [a b c d e f]
+# sl1: [c d e]
+# sl2: [a b c d e]
+# sl3: [c d e f]
+# dcl: [g h i]
+# 2d:  [[0] [1 2] [2 3 4]]
 ```
 
 
@@ -544,10 +563,19 @@ func main() {
 
 ```bash
 $ go run maps.go
+
+# map: map[k1:7 k2:13]
+# v1:  7
+# len: 2
+# map: map[k1:7]
+# prs: false
+# map: map[bar:2 foo:1]
 ```
 
 
 ## Range
+
+- `range` iterates over elements in a variety of data structures.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range.go) -->
 <!-- The below code snippet is automatically added from range.go -->
@@ -558,6 +586,8 @@ import "fmt"
 
 func main() {
 
+	// Here we use range to sum the numbers in a slice
+	// Arrays work like this too
 	nums := []int{2, 3, 4}
 	sum := 0
 	for _, num := range nums {
@@ -565,21 +595,28 @@ func main() {
 	}
 	fmt.Println("sum:", sum)
 
+	// range on arrays and slices provides both the index and value for each entry
+	// Above we didn't need the index, so we ignored it with the blank identifier _
+	// Sometimes we actually want the indexes though
 	for i, num := range nums {
 		if num == 3 {
 			fmt.Println("index:", i)
 		}
 	}
 
+	// range on map iterates over key/value pairs
 	kvs := map[string]string{"a": "apple", "b": "banana"}
 	for k, v := range kvs {
 		fmt.Printf("%s -> %s\n", k, v)
 	}
 
+	// range can also iterate over just the keys of a map
 	for k := range kvs {
 		fmt.Println("key:", k)
 	}
 
+	// range on strings iterates over Unicode code points
+	// The first value is the starting byte index of the rune and the second the rune itself
 	for i, c := range "go" {
 		fmt.Println(i, c)
 	}
@@ -589,6 +626,15 @@ func main() {
 
 ```bash
 $ go run range.go
+
+# sum: 9
+# index: 1
+# a -> apple
+# b -> banana
+# key: a
+# key: b
+# 0 103
+# 1 111
 ```
 
 
