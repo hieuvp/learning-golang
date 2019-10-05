@@ -20,6 +20,7 @@ func main() {
 	// "len" returns the length of the slice
 	fmt.Println("len:", len(s))
 
+	// Unlike arrays, slices can be resized using the built-in append function.
 	// In addition to these basic operations, slices support several more that make them richer than arrays
 	// One is the builtin append, which returns a slice containing one or more new values
 	// Note that we need to accept a return value from append as we may get a new slice value
