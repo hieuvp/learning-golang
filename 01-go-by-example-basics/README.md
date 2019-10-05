@@ -397,16 +397,16 @@ func main() {
 
 	// Declare and initialize an array in one line
 	b := [5]int{1, 2, 3, 4, 5}
-	fmt.Println("Declare:", b)
+	fmt.Println("Init:", b)
 
-	// Compose to build multi-dimensional data structures
+	// Compose multi-dimensional data structures
 	var twoD [2][3]int
 	for i := 0; i < 2; i++ {
 		for j := 0; j < 3; j++ {
 			twoD[i][j] = i + j
 		}
 	}
-	fmt.Println("2D Array:", twoD)
+	fmt.Println("2D array:", twoD)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
