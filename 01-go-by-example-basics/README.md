@@ -647,38 +647,35 @@ package main
 
 import "fmt"
 
-// Here's a function that takes two integers and returns their sum as an integer
+// A function that takes two integers and returns their sum as an integer
 func plus(a int, b int) int {
 
-	// Go requires explicit returns
-	// i.e. it won't automatically return the value of the last expression
+	// Require explicit returns
 	return a + b
 }
 
-// When you have multiple consecutive parameters of the same type,
-// you may omit the type name for the like-typed parameters
-// up to the final parameter that declares the type
+// When you have multiple consecutive parameters of the same type
 func plusPlus(a, b, c int) int {
 	return a + b + c
 }
 
 func main() {
 
-	// Call a function just as you'd expect, with name(args)
-	res := plus(1, 2)
-	fmt.Println("1+2 =", res)
+	// Call a function just as you'd expect
+	result := plus(1, 2)
+	fmt.Println("1 + 2 =", result)
 
-	res = plusPlus(1, 2, 3)
-	fmt.Println("1+2+3 =", res)
+	result = plusPlus(1, 2, 3)
+	fmt.Println("1 + 2 + 3 =", result)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
 $ go run functions.go
- 
-# 1+2 = 3
-# 1+2+3 = 6
+
+# 1 + 2 = 3
+# 1 + 2 + 3 = 6
 ```
 
 
