@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Here's a function that takes two ints and returns their sum as an int
+// Here's a function that takes two integers and returns their sum as an integer
 func plus(a int, b int) int {
 
 	// Go requires explicit returns

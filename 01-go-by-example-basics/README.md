@@ -647,7 +647,7 @@ package main
 
 import "fmt"
 
-// Here's a function that takes two ints and returns their sum as an int
+// Here's a function that takes two integers and returns their sum as an integer
 func plus(a int, b int) int {
 
 	// Go requires explicit returns
@@ -693,7 +693,7 @@ package main
 
 import "fmt"
 
-// The (int, int) in this function signature shows that the function returns 2 ints
+// The "(int, int)" in this function signature shows that the function returns 2 integers
 func vals() (int, int) {
 	return 3, 7
 }
@@ -732,7 +732,7 @@ package main
 
 import "fmt"
 
-// Here's a function that will take an arbitrary number of ints as arguments
+// Here's a function that will take an arbitrary number of integers as arguments
 func sum(nums ...int) {
 	fmt.Print(nums, " ")
 	total := 0

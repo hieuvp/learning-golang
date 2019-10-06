@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Here's a function that will take an arbitrary number of ints as arguments
+// Here's a function that will take an arbitrary number of integers as arguments
 func sum(nums ...int) {
 	fmt.Print(nums, " ")
 	total := 0
