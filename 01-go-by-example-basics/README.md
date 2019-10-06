@@ -425,7 +425,7 @@ $ go run arrays.go
 
 ## Slices
 
-- Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
+> `Slices` are a key data type in Go, giving a more powerful interface to sequences than `Arrays`.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=slices.go) -->
 <!-- The below code snippet is automatically added from slices.go -->
