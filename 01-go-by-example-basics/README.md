@@ -522,8 +522,8 @@ import "fmt"
 
 func main() {
 
-	// To create an empty map, use the builtin make
-	// make(map[key-type]val-type)
+	// To create an empty map, use the built-in "make"
+	// Syntax: make(map[key-type]value-type)
 	m := make(map[string]int)
 
 	// Set key/value pairs using typical name[key] = val syntax
@@ -540,7 +540,7 @@ func main() {
 	// The builtin len returns the number of key/value pairs when called on a map
 	fmt.Println("len:", len(m))
 
-	// The builtin delete removes key/value pairs from a map
+	// The built-in "delete" removes key/value pairs from a map
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
