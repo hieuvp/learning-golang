@@ -2,19 +2,21 @@ package main
 
 import "fmt"
 
-// The "(int, int)" in this function signature shows that the function returns 2 integers
-func vals() (int, int) {
+// "(int, int)" in this function signature shows that
+// the function returns 2 integers
+func values() (int, int) {
 	return 3, 7
 }
 
 func main() {
 
-	// Here we use the 2 different return values from the call with multiple assignment
-	a, b := vals()
+	// 2 different return values from the call with multiple assignment
+	a, b := values()
 	fmt.Println(a)
 	fmt.Println(b)
 
-	// If you only want a subset of the returned values, use the blank identifier "_"
-	_, c := vals()
+	// Use the blank identifier "_",
+	// if you only want a subset of the returned values
+	_, c := values()
 	fmt.Println(c)
 }
