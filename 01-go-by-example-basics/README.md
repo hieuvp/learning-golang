@@ -606,6 +606,7 @@ func main() {
 		fmt.Println("key:", k)
 	}
 
+	// A Unicode code point is a unique number assigned to each Unicode character
 	// range on strings iterates over Unicode code points
 	// The first value is the starting byte index of the rune and the second the rune itself
 	for i, c := range "go" {
