@@ -6,9 +6,9 @@ func main() {
 
 	// range on arrays and slices provides both the "index" and "value" for each entry
 	nums := []int{2, 3, 4}
-	for i, num := range nums {
+	for index, num := range nums {
 		if num == 3 {
-			fmt.Println("index:", i)
+			fmt.Println("Index:", index)
 		}
 	}
 
@@ -17,17 +17,17 @@ func main() {
 	for _, num := range nums {
 		sum += num
 	}
-	fmt.Println("sum:", sum)
+	fmt.Println("Sum:", sum)
 
-	// range on map iterates over key/value pairs
+	// range on maps iterates over key/value pairs
 	kvs := map[string]string{"a": "apple", "b": "banana"}
-	for k, v := range kvs {
-		fmt.Printf("%s -> %s\n", k, v)
+	for key, value := range kvs {
+		fmt.Printf("%s -> %s\n", key, value)
 	}
 
 	// range can also iterate over just the keys of a map
-	for k := range kvs {
-		fmt.Println("key:", k)
+	for key := range kvs {
+		fmt.Println("Key:", key)
 	}
 
 	// A Unicode code point is a unique number assigned to each Unicode character
