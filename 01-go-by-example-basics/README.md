@@ -526,23 +526,21 @@ func main() {
 	// Syntax: make(map[key-type]value-type)
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical name[key] = val syntax
+	// Set key/value pairs
 	m["k1"] = 7
 	m["k2"] = 13
+	fmt.Println("Map:", m)
 
-	// Printing a map with e.g. fmt.Println will show all of its key/value pairs
-	fmt.Println("map:", m)
-
-	// Get a value for a key with name[key]
+	// Get a value for a key
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
 
-	// The builtin len returns the number of key/value pairs when called on a map
+	// The built-in "len" returns the number of key/value pairs when called on a map
 	fmt.Println("len:", len(m))
 
 	// The built-in "delete" removes key/value pairs from a map
 	delete(m, "k2")
-	fmt.Println("map:", m)
+	fmt.Println("Map:", m)
 
 	// The optional second return value when getting a value from a map indicates if the key was present in the map
 	// This can be used to disambiguate between missing keys and keys with zero values like 0 or ""
@@ -550,9 +548,9 @@ func main() {
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in the same line with this syntax
+	// Declare and initialize a new map in the same line
 	n := map[string]int{"foo": 1, "bar": 2}
-	fmt.Println("map:", n)
+	fmt.Println("Init:", n)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
