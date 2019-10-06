@@ -418,8 +418,8 @@ $ go run arrays.go
 # Set: [0 0 0 0 100]
 # Get: 100
 # len: 5
-# Declare: [1 2 3 4 5]
-# 2D Array: [[0 1 2] [1 2 3]]
+# Init: [1 2 3 4 5]
+# 2D array: [[0 1 2] [1 2 3]]
 ```
 
 
