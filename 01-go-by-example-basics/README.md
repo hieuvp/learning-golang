@@ -500,12 +500,16 @@ $ go run slices.go
 # Set: [a b c]
 # Get: c
 # len: 3
+
 # Append: [a b c d e f]
 # New length: 6
+
 # Copy: [a b c d e f]
+
 # s[2:5] = [c d e]
 # s[:5] = [a b c d e]
 # s[2:] = [c d e f]
+
 # Init: [g h i]
 # 2D slice:  [[0] [1 2] [2 3 4]]
 ```
@@ -569,7 +573,7 @@ $ go run maps.go
 
 ## Range
 
-- `range` iterates over elements in a variety of data structures.
+> `range` iterates over elements in a variety of data structures.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range.go) -->
 <!-- The below code snippet is automatically added from range.go -->
