@@ -463,7 +463,8 @@ func main() {
 	copy(c, s)
 	fmt.Println("Copy:", c)
 
-	// Support a "slice operator" with the syntax slice[low:high]
+	// Support a "slice operator"
+	// Syntax: slice[low:high]
 	// e.g. To get a slice of the elements s[2], s[3], and s[4]
 	fmt.Println("s[2:5] =", s[2:5])
 
