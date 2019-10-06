@@ -609,8 +609,8 @@ func main() {
 	// A Unicode code point is a unique number assigned to each Unicode character
 	// range on strings iterates over Unicode code points
 	// The first value is the starting byte index of the rune and the second the rune itself
-	for i, c := range "go" {
-		fmt.Println(i, c)
+	for index, character := range "go" {
+		fmt.Println(index, character)
 	}
 }
 ```
@@ -619,12 +619,15 @@ func main() {
 ```bash
 $ go run range.go
 
-# sum: 9
-# index: 1
+# Index: 1
+# Sum: 9
+
 # a -> apple
 # b -> banana
-# key: a
-# key: b
+
+# Key: a
+# Key: b
+
 # 0 103
 # 1 111
 ```
