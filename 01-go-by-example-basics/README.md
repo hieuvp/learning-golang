@@ -535,7 +535,7 @@ func main() {
 	v1 := m["k1"]
 	fmt.Println("v1:", v1)
 
-	// The built-in "len" returns the number of key/value pairs when called on a map
+	// The built-in "len" returns the number of key/value pairs
 	fmt.Println("len:", len(m))
 
 	// The built-in "delete" removes key/value pairs from a map
