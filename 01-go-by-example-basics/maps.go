@@ -15,7 +15,7 @@ func main() {
 
 	// Get a value for a key
 	v1 := m["k1"]
-	fmt.Println("v1: ", v1)
+	fmt.Println("v1:", v1)
 
 	// The built-in "len" returns the number of key/value pairs when called on a map
 	fmt.Println("len:", len(m))
@@ -24,11 +24,11 @@ func main() {
 	delete(m, "k2")
 	fmt.Println("Map:", m)
 
-	// The optional second return value when getting a value from a map indicates if the key was present in the map
-	// This can be used to disambiguate between missing keys and keys with zero values like 0 or ""
-	// Here we didn't need the value itself, so we ignored it with the blank identifier _
-	_, prs := m["k2"]
-	fmt.Println("prs:", prs)
+	// The optional second indicates if the key was present in the map
+	// Use to disambiguate between missing keys and keys with zero values (e.g. 0 or "")
+	// Here we didn't need the value itself, so we ignored it with the blank identifier "_"
+	_, present := m["k2"]
+	fmt.Println("Present:", present)
 
 	// Declare and initialize a new map in the same line
 	n := map[string]int{"foo": 1, "bar": 2}
