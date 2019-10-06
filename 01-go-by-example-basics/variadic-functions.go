@@ -18,8 +18,7 @@ func main() {
 	sum(1, 2)
 	sum(1, 2, 3)
 
-	// If you already have multiple args in a slice,
-	// apply them to a variadic function using func(slice...) like this
+	// If you already have multiple arguments in a slice
 	nums := []int{1, 2, 3, 4}
 	sum(nums...)
 }
