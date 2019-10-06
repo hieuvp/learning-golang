@@ -794,7 +794,7 @@ func main() {
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
-	
+
 	// Create and test a new one
 	newInt := intSeq()
 	fmt.Println(newInt())
@@ -808,6 +808,7 @@ $ go run closures.go
 # 1
 # 2
 # 3
+
 # 1
 ```
 
