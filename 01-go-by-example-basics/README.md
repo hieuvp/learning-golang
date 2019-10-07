@@ -681,7 +681,7 @@ $ go run functions.go
 
 ## Multiple Return Values
 
-> This feature is used often in idiomatic Go, e.g. to return both **result** and **error** values from a function.
+> This feature is used often in idiomatic Go e.g. to return both **result** and **error** values from a function.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=multiple-return-values.go) -->
 <!-- The below code snippet is automatically added from multiple-return-values.go -->
