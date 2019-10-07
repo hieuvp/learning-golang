@@ -723,7 +723,7 @@ $ go run multiple-return-values.go
 
 ## Variadic Functions
 
-> Variadic functions can be called with any number of trailing arguments. For example, fmt.Println is a common variadic function.
+> Variadic functions can be called with any number of trailing arguments (e.g. `fmt.Println`).
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=variadic-functions.go) -->
 <!-- The below code snippet is automatically added from variadic-functions.go -->
