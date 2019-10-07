@@ -817,11 +817,156 @@ $ go run closures.go
 
 ## Recursion
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=recursion.go) -->
+<!-- The below code snippet is automatically added from recursion.go -->
+```go
+package main
+
+import "fmt"
+
+func fact(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * fact(n-1)
+}
+
+func main() {
+	fmt.Println(fact(7))
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run recursion.go
+```
+
+
 ## Pointers
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=pointers.go) -->
+<!-- The below code snippet is automatically added from pointers.go -->
+```go
+package main
+
+import "fmt"
+
+func zeroval(ival int) {
+	ival = 0
+}
+
+func zeroptr(iptr *int) {
+	*iptr = 0
+}
+
+func main() {
+	i := 1
+	fmt.Println("initial:", i)
+
+	zeroval(i)
+	fmt.Println("zeroval:", i)
+
+	zeroptr(&i)
+	fmt.Println("zeroptr:", i)
+
+	fmt.Println("pointer:", &i)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run pointers.go
+```
+
 
 ## Structs
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=structs.go) -->
+<!-- The below code snippet is automatically added from structs.go -->
+```go
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+func NewPerson(name string) *person {
+
+	p := person{name: name}
+	p.age = 42
+	return &p
+}
+
+func main() {
+
+	fmt.Println(person{"Bob", 20})
+
+	fmt.Println(person{name: "Alice", age: 30})
+
+	fmt.Println(person{name: "Fred"})
+
+	fmt.Println(&person{name: "Ann", age: 40})
+
+	fmt.Println(NewPerson("Jon"))
+
+	s := person{name: "Sean", age: 50}
+	fmt.Println(s.name)
+
+	sp := &s
+	fmt.Println(sp.age)
+
+	sp.age = 51
+	fmt.Println(sp.age)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run structs.go
+```
+
+
 ## Methods
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=methods.go) -->
+<!-- The below code snippet is automatically added from methods.go -->
+```go
+package main
+
+import "fmt"
+
+type rect struct {
+	width, height int
+}
+
+func (r *rect) area() int {
+	return r.width * r.height
+}
+
+func (r rect) perim() int {
+	return 2*r.width + 2*r.height
+}
+
+func main() {
+	r := rect{width: 10, height: 5}
+
+	fmt.Println("area: ", r.area())
+	fmt.Println("perim:", r.perim())
+
+	rp := &r
+	fmt.Println("area: ", rp.area())
+	fmt.Println("perim:", rp.perim())
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run methods.go
+```
+
 
 ## Interfaces
 
