@@ -640,11 +640,180 @@ $ go run range.go
 
 ## Functions
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=functions.go) -->
+<!-- The below code snippet is automatically added from functions.go -->
+```go
+package main
+
+import "fmt"
+
+// A function that takes two integers and returns their sum as an integer
+func plus(a int, b int) int {
+
+	// Require explicit returns
+	return a + b
+}
+
+// When you have multiple consecutive parameters of the same type
+func plusPlus(a, b, c int) int {
+	return a + b + c
+}
+
+func main() {
+
+	// Call a function just as you'd expect
+	result := plus(1, 2)
+	fmt.Println("1 + 2 =", result)
+
+	result = plusPlus(1, 2, 3)
+	fmt.Println("1 + 2 + 3 =", result)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run functions.go
+
+# 1 + 2 = 3
+# 1 + 2 + 3 = 6
+```
+
+
 ## Multiple Return Values
+
+> This feature is used often in idiomatic Go e.g. to return both **result** and **error** values from a function.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=multiple-return-values.go) -->
+<!-- The below code snippet is automatically added from multiple-return-values.go -->
+```go
+package main
+
+import "fmt"
+
+// "(int, int)" in this function signature shows that
+// the function returns 2 integers
+func values() (int, int) {
+	return 3, 7
+}
+
+func main() {
+
+	// 2 different return values from the call with multiple assignment
+	a, b := values()
+	fmt.Println(a)
+	fmt.Println(b)
+
+	// Use the blank identifier "_",
+	// if you only want a subset of the returned values
+	_, c := values()
+	fmt.Println(c)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run multiple-return-values.go
+
+# 3
+# 7
+
+# 7
+```
+
 
 ## Variadic Functions
 
+> Variadic functions can be called with any number of trailing arguments (e.g. `fmt.Println`).
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=variadic-functions.go) -->
+<!-- The below code snippet is automatically added from variadic-functions.go -->
+```go
+package main
+
+import "fmt"
+
+// Here's a function that will take an arbitrary number of integers as arguments
+func sum(nums ...int) {
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
+}
+
+func main() {
+
+	// Variadic functions can be called in the usual way with individual arguments
+	sum(1, 2)
+	sum(1, 2, 3)
+
+	// If you already have multiple arguments in a slice
+	nums := []int{1, 2, 3, 4}
+	sum(nums...)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run variadic-functions.go
+
+# [1 2] 3
+# [1 2 3] 6
+
+# [1 2 3 4] 10
+```
+
+
 ## Closures
+
+> Go supports **anonymous functions**, which can form **closures**. **Anonymous functions** are useful when you want to define a function inline without having to name it.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=closures.go) -->
+<!-- The below code snippet is automatically added from closures.go -->
+```go
+package main
+
+import "fmt"
+
+// This function intSeq returns another function
+func intSeq() func() int {
+	i := 0
+
+	// We define anonymously
+	return func() int {
+		i++
+		return i
+	}
+}
+
+func main() {
+
+	// We call intSeq, assigning the result (a function) to nextInt
+	nextInt := intSeq()
+
+	// See the effect of the closure by calling nextInt a few times
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+
+	// Create and test a new one
+	newInt := intSeq()
+	fmt.Println(newInt())
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run closures.go
+
+# 1
+# 2
+# 3
+
+# 1
+```
+
 
 ## Recursion
 
