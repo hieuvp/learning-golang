@@ -914,14 +914,14 @@ type person struct {
 	age  int
 }
 
-// NewPerson constructs a new person struct with the given name
+// "NewPerson" constructs a new person struct with the given name
 func NewPerson(name string) *person {
 
-	// You can safely return a pointer to local variable
-	// as a local variable will survive the scope of the function
 	p := person{name: name}
 	p.age = 42
 
+	// You can safely return a pointer to local variable
+	// as a local variable will survive the scope of the function
 	return &p
 }
 
@@ -931,12 +931,12 @@ func main() {
 	fmt.Println(person{"Bob", 20})
 
 	// You can name the fields when initializing a struct
-	fmt.Println(person{name: "Alice", age: 30})
+	fmt.Println(person{age: 30, name: "Alice"})
 
 	// Omitted fields will be zero-valued
 	fmt.Println(person{name: "Fred"})
 
-	// An & prefix yields a pointer to the struct
+	// An "&" prefix yields a pointer to the struct
 	fmt.Println(&person{name: "Ann", age: 40})
 
 	// It's idiomatic to encapsulate new struct creation in constructor functions
@@ -946,7 +946,8 @@ func main() {
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// You can also use dots with struct pointers - the pointers are automatically dereferenced
+	// You can also use dots with struct pointers
+	// The pointers are automatically dereferenced
 	sp := &s
 	fmt.Println(sp.age)
 
