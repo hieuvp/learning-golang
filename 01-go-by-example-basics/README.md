@@ -890,10 +890,10 @@ zeroval doesn't change the i in main, but zeroptr does because it has a referenc
 ```bash
 $ go run pointers.go
 
-# initial: 1
-# zeroval: 1
-# zeroptr: 0
-# pointer: 0x42131100
+# Initial: 1
+# zeroValue: 1
+# Pointer: 0xc000096008
+# zeroPointer: 0
 ```
 
 
