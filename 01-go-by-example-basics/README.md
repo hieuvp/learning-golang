@@ -914,7 +914,7 @@ type person struct {
 	age  int
 }
 
-// "NewPerson" constructs a new person struct with the given name
+// "NewPerson" constructs a new "person" struct with the given name
 func NewPerson(name string) *person {
 
 	p := person{name: name}
