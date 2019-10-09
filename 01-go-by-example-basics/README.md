@@ -908,7 +908,7 @@ package main
 
 import "fmt"
 
-// This person struct type has name and age fields
+// This "person" struct type has "name" and "age" fields
 type person struct {
 	name string
 	age  int
@@ -921,6 +921,7 @@ func NewPerson(name string) *person {
 	// as a local variable will survive the scope of the function
 	p := person{name: name}
 	p.age = 42
+
 	return &p
 }
 
