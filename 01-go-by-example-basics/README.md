@@ -912,7 +912,7 @@ package main
 
 import "fmt"
 
-// This "person" struct type has "name" and "age" fields
+// Basic "struct"
 type person struct {
 	name string
 	age  int
