@@ -923,8 +923,7 @@ func NewPerson(name string) *person {
 	p := person{name: name}
 	p.age = 42
 
-	// You can safely return a pointer to local variable
-	// as a local variable will survive the scope of the function
+	// Returns a pointer to local variable safely
 	return &p
 }
 
@@ -933,7 +932,7 @@ func main() {
 	// Create a new struct
 	fmt.Println(person{"Bob", 20})
 
-	// You can name the fields when initializing a struct
+	// Name the fields when initializing a struct
 	fmt.Println(person{age: 30, name: "Alice"})
 
 	// Omitted fields will be zero-valued
