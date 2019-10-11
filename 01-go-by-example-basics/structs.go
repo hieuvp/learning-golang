@@ -31,7 +31,7 @@ func main() {
 	// An "&" prefix yields a pointer to the struct
 	fmt.Println(&person{name: "Ann", age: 40})
 
-	// It is idiomatic to encapsulate new struct creation in constructor functions
+	// It is idiomatic to encapsulate new struct creation in "constructor" functions
 	fmt.Println(NewPerson("Jon"))
 
 	// Access struct fields with a dot (".")
