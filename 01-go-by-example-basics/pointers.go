@@ -2,13 +2,13 @@ package main
 
 import "fmt"
 
-// "zeroValue" has an "int" parameter, so arguments will be passed to it by value
+// "zeroValue" has an "int" parameter, so arguments will be passed to it by "value"
 // "zeroValue" will get a copy of "iValue" distinct from the one in the calling function
 func zeroValue(iValue int) {
 	iValue = 0
 }
 
-// "zeroPointer" in contrast has an "*int" parameter, meaning that it takes an int pointer
+// "zeroPointer" in contrast has an "*int" parameter, meaning that it takes an "int pointer"
 func zeroPointer(iPointer *int) {
 	// The "*iPointer" code dereferences the pointer from its memory address to the current value at that address
 	// Assigning a value to a dereferenced pointer changes the value at the referenced address
