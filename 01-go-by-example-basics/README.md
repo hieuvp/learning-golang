@@ -956,7 +956,7 @@ func main() {
 
 	// Structs are mutable
 	sp.age = 51
-	fmt.Println(sp.age)
+	fmt.Println(sp)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -970,8 +970,11 @@ $ go run structs.go
 # &{Ann 40}
 # &{Jon 42}
 # Sean
+
 # 50
-# 51
+# 50
+
+# &{Sean 51}
 ```
 
 
