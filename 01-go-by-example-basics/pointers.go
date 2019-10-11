@@ -24,7 +24,7 @@ func main() {
 	zeroValue(i)
 	fmt.Println("zeroValue:", i)
 
-	// The "&i" syntax gives the memory address of i (a.k.a. "a pointer to i")
+	// The "&i" syntax gives the "memory address" of "i" (a.k.a. "a pointer to i")
 	fmt.Println("Pointer:", &i)
 
 	zeroPointer(&i)
