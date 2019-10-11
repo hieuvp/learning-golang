@@ -923,7 +923,7 @@ func NewPerson(name string) *person {
 	p := person{name: name}
 	p.age = 42
 
-	// Returns a pointer to local variable safely
+	// Return a pointer to local variable safely
 	return &p
 }
 
