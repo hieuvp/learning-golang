@@ -948,9 +948,11 @@ func main() {
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// When using "." with a struct pointer, the pointer is "automatically dereferenced"
+	// When using "." with a struct pointer,
+	// the pointer will be "dereferenced automatically"
 	sp := &s
 	fmt.Println(sp.age)
+	fmt.Println((*sp).age)
 
 	// Structs are mutable
 	sp.age = 51

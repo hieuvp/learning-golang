@@ -42,6 +42,7 @@ func main() {
 	// the pointer will be "dereferenced automatically"
 	sp := &s
 	fmt.Println(sp.age)
+	fmt.Println((*sp).age)
 
 	// Structs are mutable
 	sp.age = 51
