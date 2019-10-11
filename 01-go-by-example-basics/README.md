@@ -864,8 +864,10 @@ func zeroValue(iValue int) {
 
 // "zeroPointer" in contrast has an "*int" parameter, meaning that it takes an "int pointer"
 func zeroPointer(iPointer *int) {
-	// The "*iPointer" code dereferences the pointer from its memory address to the current value at that address
-	// Assigning a value to a dereferenced pointer changes the value at the referenced address
+	fmt.Println("iPointer =", iPointer)
+
+	// "*iPointer": dereference the pointer from its memory address to the current value at that address
+	// Assigning a value to a "dereferenced pointer" changes the value at the referenced address
 	*iPointer = 0
 }
 
@@ -892,7 +894,9 @@ $ go run pointers.go
 
 # Initial: 1
 # zeroValue: 1
-# Pointer: 0xc000096008
+
+# Pointer: 0xc00009a000
+# iPointer = 0xc00009a000
 # zeroPointer: 0
 ```
 
