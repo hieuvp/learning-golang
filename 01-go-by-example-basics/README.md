@@ -1043,7 +1043,8 @@ import (
 	"math"
 )
 
-// Here's a basic interface for geometric shapes
+// Basic "interface"
+// Unlike "struct", instead of defining "fields" we define "methods"
 type geometry interface {
 	area() float64
 	perimeter() float64
