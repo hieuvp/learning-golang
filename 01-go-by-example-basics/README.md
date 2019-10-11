@@ -857,7 +857,7 @@ package main
 import "fmt"
 
 // "zeroValue" has an "int" parameter, so arguments will be passed to it by "value"
-// "zeroValue" will get a copy of "iValue" distinct from the one in the calling function
+// It will get a copy of "iValue" distinct from the one in the calling function
 func zeroValue(iValue int) {
 	iValue = 0
 }
