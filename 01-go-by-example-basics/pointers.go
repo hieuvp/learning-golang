@@ -12,7 +12,7 @@ func zeroValue(iValue int) {
 func zeroPointer(iPointer *int) {
 	fmt.Println("iPointer =", iPointer)
 
-	// "*iPointer": dereference the pointer from its memory address to the current value at that address
+	// "*iPointer": dereference the pointer from its "memory address" to the current value at that address
 	// Assigning a "value" to a "dereferenced pointer" changes the "value" at the "referenced address"
 	*iPointer = 0
 }
