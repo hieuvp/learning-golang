@@ -1061,8 +1061,7 @@ type circle struct {
 	radius float64
 }
 
-// To implement an interface in Go,
-// we just need to implement all the methods in the interface
+// To implement an interface, we need to implement all the methods in the interface
 // Here we implement geometry on rects
 func (r rect) area() float64 {
 	return r.width * r.height
