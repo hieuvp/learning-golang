@@ -920,7 +920,6 @@ type person struct {
 
 // "NewPerson" constructs a new "person" struct with the given name
 func NewPerson(name string) *person {
-
 	p := person{name: name}
 	p.age = 42
 
@@ -931,7 +930,7 @@ func NewPerson(name string) *person {
 
 func main() {
 
-	// This syntax creates a new struct
+	// Create a new struct
 	fmt.Println(person{"Bob", 20})
 
 	// You can name the fields when initializing a struct
