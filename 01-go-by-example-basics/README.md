@@ -887,8 +887,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-zeroval doesn't change the i in main, but zeroptr does because it has a reference to the memory address for that variable.
-
 ```bash
 $ go run pointers.go
 
@@ -899,6 +897,8 @@ $ go run pointers.go
 # iPointer = 0xc00009a000
 # zeroPointer: 0
 ```
+
+- `zeroValue` doesn't change the `i` in `main`, but `zeroPointer` does because it has a **reference** to the **memory address** for that variable.
 
 
 ## Structs
