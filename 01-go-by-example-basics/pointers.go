@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// "zeroValue" has an "int" parameter, so arguments will be passed to it by "value"
+// "zeroValue" has an "int" parameter, so arguments will be passed into it by "int value"
 // "zeroValue" will get a copy of "iValue" distinct from the one in the calling function
 func zeroValue(iValue int) {
 	iValue = 0
