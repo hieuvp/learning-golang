@@ -948,8 +948,7 @@ func main() {
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// You can also use dots with struct pointers
-	// The pointers are automatically dereferenced
+	// When using "." with a struct pointer, the pointer is "automatically dereferenced"
 	sp := &s
 	fmt.Println(sp.age)
 
