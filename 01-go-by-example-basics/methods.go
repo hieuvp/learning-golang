@@ -2,23 +2,23 @@ package main
 
 import "fmt"
 
-type rect struct {
+type rectangle struct {
 	width, height int
 }
 
-// This "area" method has a receiver type of "*rect"
-func (r *rect) area() int {
+// Compare to a function, a method is declared by additionally specifying the "receiver"
+// This "area" method has a "receiver type" of "*rectangle"
+func (r *rectangle) area() int {
 	return r.width * r.height
 }
 
 // Methods can be defined for either "pointer" or "value" receiver types
-// Here is an example of a "value" receiver
-func (r rect) perimeter() int {
+func (r rectangle) perimeter() int {
 	return 2*r.width + 2*r.height
 }
 
 func main() {
-	r := rect{width: 10, height: 5}
+	r := rectangle{width: 10, height: 5}
 
 	// Here we call the 2 methods defined for our struct
 	fmt.Println("area:", r.area())
