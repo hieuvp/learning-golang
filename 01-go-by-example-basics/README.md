@@ -1145,7 +1145,7 @@ func f1(arg int) (int, error) {
 }
 
 // It is possible to use custom types as errors
-// by implementing a "Error()" method to conform the "error" interface
+// by implementing an "Error()" method to conform the "error" interface
 type argError struct {
 	arg  int
 	prob string
