@@ -6,7 +6,7 @@ type rectangle struct {
 	width, height int
 }
 
-// Compare to a function, a method is declared by additionally specifying the "receiver"
+// Compare to a "function", a "method" is declared by additionally specifying the "receiver"
 // This "area" method has a "receiver type" of "*rectangle"
 func (r *rectangle) area() int {
 	return r.width * r.height
