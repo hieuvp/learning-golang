@@ -12,7 +12,7 @@ type geometry interface {
 	perimeter() float64
 }
 
-// We will implement this interface on rect and circle types
+// We will implement "geometry" interface on "rect" and "circle" types
 type rect struct {
 	width, height float64
 }
@@ -22,7 +22,7 @@ type circle struct {
 }
 
 // To implement an interface, we need to implement all the methods in the interface
-// Here we implement geometry on rects
+// Here we implement "geometry" on "rect"
 func (r rect) area() float64 {
 	return r.width * r.height
 }
@@ -31,7 +31,7 @@ func (r rect) perimeter() float64 {
 	return 2*r.width + 2*r.height
 }
 
-// The implementation for circles
+// The implementation for "circle"
 func (c circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
