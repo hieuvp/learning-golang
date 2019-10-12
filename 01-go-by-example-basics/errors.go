@@ -18,8 +18,8 @@ func f1(arg int) (int, error) {
 	return arg + 3, nil
 }
 
-// It's possible to use custom types as errors
-// by implementing the "Error()" method on them
+// It is possible to use custom types as errors
+// by implementing a "Error()" method to conform the "error" interface
 type argError struct {
 	arg  int
 	prob string
