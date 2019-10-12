@@ -1012,8 +1012,8 @@ func main() {
 	fmt.Println("perimeter:", r.perimeter())
 
 	// For method calls, Go automatically handles conversion between "values" and "pointers"
-	// Use a "pointer" receiver type to
-	// avoid copying on method calls or
+	// Use a "pointer" "receiver type"
+	// to avoid copying on method calls or
 	// to allow the method to mutate the receiving struct
 	rp := &r
 	fmt.Println("area:", rp.area())
