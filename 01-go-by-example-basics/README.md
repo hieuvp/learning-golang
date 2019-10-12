@@ -1082,8 +1082,8 @@ func (c circle) perimeter() float64 {
 	return 2 * math.Pi * c.radius
 }
 
-// If a variable has an interface type, then we can call methods that are in the named interface
-// Here's a generic measure function taking advantage of this to work on any geometry
+// If a variable has an interface type,
+// then we can call methods that are in the named interface
 func measure(g geometry) {
 	fmt.Println(g)
 	fmt.Println(g.area())
