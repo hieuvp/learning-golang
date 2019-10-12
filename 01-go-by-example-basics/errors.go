@@ -39,8 +39,8 @@ func f2(arg int) (int, error) {
 
 func main() {
 
-	// The use of an inline error check on the if line is a common idiom in Go code
 	for _, i := range []int{7, 42} {
+		// The use of an inline error check is a common idiom in Go code
 		if r, e := f1(i); e != nil {
 			fmt.Println("f1 failed:", e)
 		} else {
