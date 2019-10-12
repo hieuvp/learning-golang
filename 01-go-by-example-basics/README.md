@@ -1181,14 +1181,6 @@ func main() {
 			fmt.Println("f2 worked:", r)
 		}
 	}
-
-	// If you want to programmatically use the data in a custom error,
-	// you will need to get the error as an instance of the custom error type via "type assertion"
-	_, e := f2(42)
-	if ae, ok := e.(*argError); ok {
-		fmt.Println(ae.arg)
-		fmt.Println(ae.prob)
-	}
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -1197,11 +1189,10 @@ func main() {
 $ go run errors.go
 
 # f1 worked: 10
-# f1 failed: can't work with 42
+# f1 failed: cannot work with 42
+
 # f2 worked: 10
-# f2 failed: 42 - can't work with it
-# 42
-# can't work with it
+# f2 failed: 42 - cannot work with it
 ```
 
 
