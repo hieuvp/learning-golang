@@ -1131,7 +1131,7 @@ import (
 	"fmt"
 )
 
-// By convention, errors are the last return value
+// By convention, errors are the "last return value"
 // and have type "error", a built-in interface
 func f1(arg int) (int, error) {
 	if arg == 42 {
