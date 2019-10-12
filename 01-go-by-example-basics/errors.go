@@ -5,21 +5,21 @@ import (
 	"fmt"
 )
 
-// By convention, errors are the last return value and have type "error" (a built-in interface)
+// By convention, errors are the last return value
+// and have type "error", a built-in interface
 func f1(arg int) (int, error) {
 	if arg == 42 {
 
 		// "errors.New" constructs a basic error value with the given error message
-		return -1, errors.New("can't work with 42")
+		return -1, errors.New("cannot work with 42")
 	}
 
 	// A "nil" value in the error position indicates that there was no error
 	return arg + 3, nil
 }
 
-// It's possible to use custom types as errors by implementing the "Error()" method on them
-// Here's a variant on the example above
-// that uses a custom type to explicitly represent an argument error
+// It's possible to use custom types as errors
+// by implementing the "Error()" method on them
 type argError struct {
 	arg  int
 	prob string
@@ -33,7 +33,7 @@ func f2(arg int) (int, error) {
 	if arg == 42 {
 		// In this case we use "&argError" syntax to build a new struct,
 		// supplying values for the two fields arg and prob
-		return -1, &argError{arg, "can't work with it"}
+		return -1, &argError{arg, "cannot work with it"}
 	}
 
 	return arg + 3, nil
