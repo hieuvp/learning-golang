@@ -1131,8 +1131,7 @@ import (
 	"fmt"
 )
 
-// By convention,
-// errors are the last return value and have type error (a built-in interface)
+// By convention, errors are the last return value and have type "error" (a built-in interface)
 func f1(arg int) (int, error) {
 	if arg == 42 {
 
@@ -1144,9 +1143,9 @@ func f1(arg int) (int, error) {
 	return arg + 3, nil
 }
 
-// It's possible to use custom types as errors by implementing the Error() method on them
-// Here's a variant on the example above that uses a custom type
-// to explicitly represent an argument error
+// It's possible to use custom types as errors by implementing the "Error()" method on them
+// Here's a variant on the example above
+// that uses a custom type to explicitly represent an argument error
 type argError struct {
 	arg  int
 	prob string
