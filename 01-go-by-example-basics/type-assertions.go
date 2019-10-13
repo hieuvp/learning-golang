@@ -15,13 +15,12 @@ func main() {
 	s, ok := i.(string)
 	fmt.Println(s, ok)
 
-	// If "ok" is "false"
-	// then "f" will be zero-valued of type "float64" (in this case)
-	// and no "panic" occurs
+	// If "ok" is "false",
+	// then "f" will be zero-valued of type "float64" and no "panic" occurs
 	f, ok := i.(float64)
 	fmt.Println(f, ok)
 
-	// "i" does not hold a "float64", the statement will trigger a "panic"
+	// "i" does not hold a "float64", so the statement will trigger a "panic"
 	f = i.(float64)
 	fmt.Println(f)
 }
