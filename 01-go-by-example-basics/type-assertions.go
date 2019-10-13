@@ -5,22 +5,23 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	// This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
+	// Assert that the "interface value" "i" holds the "concrete type" "string",
+	// and assign the underlying "string" value to the variable "s"
 	s := i.(string)
 	fmt.Println(s)
 
-	// If i does not hold a T, the statement will trigger a panic
-	f := i.(float64)
-	fmt.Println(f)
-
-	// To test whether an interface value holds a specific type, a type assertion can return two values:
-	// the underlying value and a boolean value that reports whether the assertion succeeded
+	// Test whether an interface value holds a specific type
+	// An "ok" boolean value reports whether the assertion succeeded
 	s, ok := i.(string)
 	fmt.Println(s, ok)
 
-	// f i holds a T, then t will be the underlying value and ok will be true.
-	// If not, ok will be false and t will be the zero value of type T, and no panic occurs.
-	// Note the similarity between this syntax and that of reading from a map.
+	// If "ok" is "false"
+	// then "f" will be zero-valued of type "float64" (in this case)
+	// and no "panic" occurs
 	f, ok := i.(float64)
 	fmt.Println(f, ok)
+
+	// "i" does not hold a "float64", the statement will trigger a "panic"
+	f = i.(float64)
+	fmt.Println(f)
 }
