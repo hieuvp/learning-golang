@@ -817,16 +817,380 @@ $ go run closures.go
 
 ## Recursion
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=recursion.go) -->
+<!-- The below code snippet is automatically added from recursion.go -->
+```go
+package main
+
+import "fmt"
+
+// This "fact" function calls itself until it reaches the base case of "fact(0)"
+func fact(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * fact(n-1)
+}
+
+func main() {
+	fmt.Println(fact(7))
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run recursion.go
+
+# 5040
+```
+
+
 ## Pointers
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=pointers.go) -->
+<!-- The below code snippet is automatically added from pointers.go -->
+```go
+package main
+
+import "fmt"
+
+// "zeroValue" has an "int" parameter, so arguments will be passed into it by "int value"
+// "zeroValue" will get a copy of "iValue" distinct from the one in the calling function
+func zeroValue(iValue int) {
+	iValue = 0
+}
+
+// "zeroPointer" in contrast has an "*int" parameter, meaning that it takes an "int pointer"
+func zeroPointer(iPointer *int) {
+	fmt.Println("iPointer =", iPointer)
+
+	// "*iPointer": dereference the pointer from its "memory address"
+	// to the current value at that address
+	// Assign a "value" to a "dereferenced pointer" changes the "value" at the "referenced address"
+	*iPointer = 0
+}
+
+func main() {
+	i := 1
+	fmt.Println("Initial:", i)
+
+	zeroValue(i)
+	fmt.Println("zeroValue:", i)
+
+	// The "&i" syntax gives the "memory address" of "i" (a.k.a. "a pointer to i")
+	fmt.Println("Pointer:", &i)
+
+	zeroPointer(&i)
+	fmt.Println("zeroPointer:", i)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run pointers.go
+
+# Initial: 1
+# zeroValue: 1
+
+# Pointer: 0xc00009a000
+# iPointer = 0xc00009a000
+# zeroPointer: 0
+```
+
 
 ## Structs
 
+> **Structs** are typed collections of **fields**, they're useful for grouping data together to form records.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=structs.go) -->
+<!-- The below code snippet is automatically added from structs.go -->
+```go
+package main
+
+import "fmt"
+
+// Basic "struct"
+type person struct {
+	name string
+	age  int
+}
+
+// "NewPerson" constructs a new "person" struct with the given "name"
+func NewPerson(name string) *person {
+	p := person{name: name}
+	p.age = 42
+
+	// Return a pointer to local variable safely
+	return &p
+}
+
+func main() {
+
+	// Create a new struct
+	fmt.Println(person{"Bob", 20})
+
+	// Name the fields when initializing a struct
+	fmt.Println(person{age: 30, name: "Alice"})
+
+	// Omitted fields will be zero-valued
+	fmt.Println(person{name: "Fred"})
+
+	// An "&" prefix yields a pointer to the struct
+	fmt.Println(&person{name: "Ann", age: 40})
+
+	// It is idiomatic to encapsulate new struct creation in "constructor" functions
+	fmt.Println(NewPerson("Jon"))
+
+	// Access struct fields with a dot (".")
+	s := person{name: "Sean", age: 50}
+	fmt.Println(s.name)
+
+	// When using "." with a struct pointer,
+	// the pointer will be "dereferenced automatically"
+	sp := &s
+	fmt.Println(sp.age)
+	fmt.Println((*sp).age)
+
+	// Structs are mutable
+	sp.age = 51
+	fmt.Println(sp)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run structs.go
+
+# {Bob 20}
+# {Alice 30}
+# {Fred 0}
+# &{Ann 40}
+# &{Jon 42}
+# Sean
+
+# 50
+# 50
+
+# &{Sean 51}
+```
+
+
 ## Methods
+
+> Go supports **methods** defined on **struct types**.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=methods.go) -->
+<!-- The below code snippet is automatically added from methods.go -->
+```go
+package main
+
+import "fmt"
+
+type rectangle struct {
+	width, height int
+}
+
+// Compare to a "function", a "method" is declared by additionally specifying the "receiver"
+// This "area" method has a "receiver type" of "*rectangle"
+func (r *rectangle) area() int {
+	return r.width * r.height
+}
+
+// Methods can be defined for either "pointer" or "value" receiver types
+func (r rectangle) perimeter() int {
+	return 2*r.width + 2*r.height
+}
+
+func main() {
+	r := rectangle{width: 10, height: 5}
+
+	// Here we call the 2 methods defined for our struct
+	fmt.Println("area:", r.area())
+	fmt.Println("perimeter:", r.perimeter())
+
+	// For method calls, Go automatically handles conversion between "values" and "pointers"
+	// Use a "pointer" "receiver type"
+	// to avoid copying on method calls or
+	// to allow the method to mutate the receiving struct
+	rp := &r
+	fmt.Println("area:", rp.area())
+	fmt.Println("perimeter:", rp.perimeter())
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run methods.go
+
+# area: 50
+# perimeter: 30
+
+# area: 50
+# perimeter: 30
+```
+
 
 ## Interfaces
 
+> **Interfaces** are named collections of **method** signatures.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=interfaces.go) -->
+<!-- The below code snippet is automatically added from interfaces.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+// Basic "interface"
+// Unlike "struct", instead of defining "fields" we define "methods"
+type geometry interface {
+	area() float64
+	perimeter() float64
+}
+
+// We will implement "geometry" interface on "rect" and "circle" types
+type rect struct {
+	width, height float64
+}
+
+type circle struct {
+	radius float64
+}
+
+// To implement an interface, we need to implement all the methods in the interface
+// Here we implement "geometry" on "rect"
+func (r rect) area() float64 {
+	return r.width * r.height
+}
+
+func (r rect) perimeter() float64 {
+	return 2*r.width + 2*r.height
+}
+
+// The implementation for "circle"
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c circle) perimeter() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+// If a variable has an interface type,
+// then we can call methods that are in the named interface
+func measure(g geometry) {
+	fmt.Println(g)
+	fmt.Println(g.area())
+	fmt.Println(g.perimeter())
+}
+
+func main() {
+	r := rect{width: 3, height: 4}
+	c := circle{radius: 5}
+
+	// The "rect" and "circle" struct types both implement the "geometry" interface,
+	// so we can use instances of these structs as arguments to "measure"
+	measure(r)
+	measure(c)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run interfaces.go
+
+# {3 4}
+# 12
+# 14
+
+# {5}
+# 78.53981633974483
+# 31.41592653589793
+```
+
+
 ## Errors
 
+> In Go, it is idiomatic to communicate **errors** via an explicit, separate **return value**.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=errors.go) -->
+<!-- The below code snippet is automatically added from errors.go -->
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+// By convention, errors are the "last return value"
+// and have type "error", a built-in interface
+func f1(arg int) (int, error) {
+	if arg == 42 {
+
+		// "errors.New" constructs a basic error value with the given error message
+		return -1, errors.New("cannot work with 42")
+	}
+
+	// A "nil" value in the error position indicates that there was no error
+	return arg + 3, nil
+}
+
+// It is possible to use custom types as errors
+// by implementing an "Error()" method to conform the "error" interface
+type argError struct {
+	arg  int
+	prob string
+}
+
+func (e *argError) Error() string {
+	return fmt.Sprintf("%d - %s", e.arg, e.prob)
+}
+
+func f2(arg int) (int, error) {
+	if arg == 42 {
+		return -1, &argError{arg, "cannot work with it"}
+	}
+
+	return arg + 3, nil
+}
+
+func main() {
+
+	for _, i := range []int{7, 42} {
+		// The use of an inline error check is a common idiom in Go code
+		if r, e := f1(i); e != nil {
+			fmt.Println("f1 failed:", e)
+		} else {
+			fmt.Println("f1 worked:", r)
+		}
+	}
+
+	for _, i := range []int{7, 42} {
+		if r, e := f2(i); e != nil {
+			fmt.Println("f2 failed:", e)
+		} else {
+			fmt.Println("f2 worked:", r)
+		}
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run errors.go
+
+# f1 worked: 10
+# f1 failed: cannot work with 42
+
+# f2 worked: 10
+# f2 failed: 42 - cannot work with it
+```
+
+- This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
 
 ## References
 
