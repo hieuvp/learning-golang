@@ -10,7 +10,7 @@ func main() {
 	s := i.(string)
 	fmt.Println(s)
 
-	// Test whether an interface value holds a specific type
+	// To test whether an interface value holds a specific type
 	// An "ok" boolean value reports whether the assertion succeeded
 	s, ok := i.(string)
 	fmt.Println(s, ok)
