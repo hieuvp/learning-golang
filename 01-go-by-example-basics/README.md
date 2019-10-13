@@ -1032,7 +1032,7 @@ $ go run methods.go
 
 ## Interfaces
 
-> Interfaces are named collections of method signatures.
+> Interfaces are named collections of **method** signatures.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=interfaces.go) -->
 <!-- The below code snippet is automatically added from interfaces.go -->
