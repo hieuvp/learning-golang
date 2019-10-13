@@ -1115,7 +1115,6 @@ $ go run interfaces.go
 ## Errors
 
 > In Go, it is idiomatic to communicate **errors** via an explicit, separate **return value**.
-> This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=errors.go) -->
 <!-- The below code snippet is automatically added from errors.go -->
@@ -1191,6 +1190,7 @@ $ go run errors.go
 # f2 failed: 42 - cannot work with it
 ```
 
+- This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
 
 ## References
 
