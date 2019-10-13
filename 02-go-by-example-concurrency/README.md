@@ -78,8 +78,6 @@
 ## Defer
 
 
-
-
 ## References
 
 - [Go by Example](https://gobyexample.com/)
