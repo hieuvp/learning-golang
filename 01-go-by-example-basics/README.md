@@ -1142,7 +1142,7 @@ func main() {
 	f, ok := i.(float64)
 	fmt.Println(f, ok)
 
-	// Because "i" does not hold a "float64", so the statement will trigger a "panic"
+	// Because "i" does not hold a "float64", so this statement will trigger a "panic"
 	f = i.(float64)
 	fmt.Println(f)
 }
@@ -1150,7 +1150,7 @@ func main() {
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
-$ go run type-assertions.go                                                                                                                             1 ↵
+$ go run type-assertions.go
 
 # hello
 # hello true
