@@ -847,8 +847,6 @@ $ go run recursion.go
 
 ## Pointers
 
-> Go supports pointers, allowing you to pass references to values and records within your program.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=pointers.go) -->
 <!-- The below code snippet is automatically added from pointers.go -->
 ```go
