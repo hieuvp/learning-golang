@@ -897,8 +897,6 @@ $ go run pointers.go
 # zeroPointer: 0
 ```
 
-- `zeroValue` doesn't change the `i` in `main`, but `zeroPointer` does because it has a **reference** to the **memory address** for that variable.
-
 
 ## Structs
 
