@@ -977,7 +977,7 @@ $ go run structs.go
 
 ## Methods
 
-> Go supports methods defined on struct types.
+> Go supports **methods** defined on **struct types**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=methods.go) -->
 <!-- The below code snippet is automatically added from methods.go -->
