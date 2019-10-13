@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	// Assert that the "interface value" "i" holds the "concrete type" "string",
-	// and assign the underlying "string" value to the variable "s"
+	// Assert that the "interface value" "i" holds the "concrete type" "string"
+	// Assign the underlying "string" value to the variable "s"
 	s := i.(string)
 	fmt.Println(s)
 

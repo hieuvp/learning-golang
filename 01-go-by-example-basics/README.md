@@ -1115,8 +1115,6 @@ $ go run interfaces.go
 
 ## Type Assertions
 
-> A **type assertion** (`x.(T)`) provides access to an interface (`x`) value's underlying concrete (`T`) value.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
 <!-- The below code snippet is automatically added from type-assertions.go -->
 ```go
@@ -1127,8 +1125,8 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	// Assert that the "interface value" "i" holds the "concrete type" "string",
-	// and assign the underlying "string" value to the variable "s"
+	// Assert that the "interface value" "i" holds the "concrete type" "string"
+	// Assign the underlying "string" value to the variable "s"
 	s := i.(string)
 	fmt.Println(s)
 
