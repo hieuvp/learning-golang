@@ -900,7 +900,7 @@ $ go run pointers.go
 
 ## Structs
 
-> Go's structs are typed collections of fields. They're useful for grouping data together to form records.
+> **Structs** are typed collections of fields, they're useful for grouping data together to form records.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=structs.go) -->
 <!-- The below code snippet is automatically added from structs.go -->
