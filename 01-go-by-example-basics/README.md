@@ -1196,6 +1196,17 @@ $ go run errors.go
 
 ## Type Assertions
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
+<!-- The below code snippet is automatically added from type-assertions.go -->
+```go
+package main
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run type-assertions.go
+```
+
 
 ## References
 
