@@ -26,8 +26,8 @@
 - [Structs](#structs)
 - [Methods](#methods)
 - [Interfaces](#interfaces)
-- [Errors](#errors)
 - [Type Assertions](#type-assertions)
+- [Errors](#errors)
 - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -1113,6 +1113,47 @@ $ go run interfaces.go
 ```
 
 
+## Type Assertions
+
+> A **type assertion** provides access to an interface value's underlying concrete value.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
+<!-- The below code snippet is automatically added from type-assertions.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var i interface{} = "hello"
+
+	//  This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
+	s := i.(string)
+	fmt.Println(s)
+
+	// If i does not hold a T, the statement will trigger a panic
+	f := i.(float64)
+	fmt.Println(f)
+
+	// To test whether an interface value holds a specific type, a type assertion can return two values:
+	// the underlying value and a boolean value that reports whether the assertion succeeded
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	// f i holds a T, then t will be the underlying value and ok will be true.
+	// If not, ok will be false and t will be the zero value of type T, and no panic occurs.
+	// Note the similarity between this syntax and that of reading from a map.
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run type-assertions.go
+```
+
+
 ## Errors
 
 > In Go, it is idiomatic to communicate **errors** via an explicit, separate **return value**.
@@ -1177,6 +1218,14 @@ func main() {
 			fmt.Println("f2 worked:", r)
 		}
 	}
+
+	// If you want to programmatically use the data in a custom error,
+	// you will need to get the error as an instance of the custom error type via "type assertion"
+	_, e := f2(42)
+	if ae, ok := e.(*argError); ok {
+		fmt.Println(ae.arg)
+		fmt.Println(ae.prob)
+	}
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -1192,20 +1241,6 @@ $ go run errors.go
 ```
 
 - This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
-
-
-## Type Assertions
-
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
-<!-- The below code snippet is automatically added from type-assertions.go -->
-```go
-package main
-```
-<!-- AUTO-GENERATED-CONTENT:END -->
-
-```bash
-$ go run type-assertions.go
-```
 
 
 ## References

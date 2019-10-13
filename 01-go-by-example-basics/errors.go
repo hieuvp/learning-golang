@@ -55,4 +55,12 @@ func main() {
 			fmt.Println("f2 worked:", r)
 		}
 	}
+
+	// If you want to programmatically use the data in a custom error,
+	// you will need to get the error as an instance of the custom error type via "type assertion"
+	_, e := f2(42)
+	if ae, ok := e.(*argError); ok {
+		fmt.Println(ae.arg)
+		fmt.Println(ae.prob)
+	}
 }
