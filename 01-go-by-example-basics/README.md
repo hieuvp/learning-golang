@@ -27,6 +27,7 @@
 - [Methods](#methods)
 - [Interfaces](#interfaces)
 - [Errors](#errors)
+- [Type Assertions](#type-assertions)
 - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -1191,6 +1192,10 @@ $ go run errors.go
 ```
 
 - This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
+
+
+## Type Assertions
+
 
 ## References
 
