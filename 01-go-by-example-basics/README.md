@@ -1137,8 +1137,8 @@ func main() {
 	s, ok := i.(string)
 	fmt.Println(s, ok)
 
-	// If "ok" is "false",
-	// then "f" will be zero-valued of type "float64" and no "panic" occurs
+	// Because "ok" results in "false",
+	// "f" will be zero-valued of type "float64" and no "panic" occurs
 	f, ok := i.(float64)
 	fmt.Println(f, ok)
 
@@ -1154,6 +1154,7 @@ $ go run type-assertions.go                                                     
 
 # hello
 # hello true
+
 # 0 false
 # panic: interface conversion: interface {} is string, not float64
 ```
