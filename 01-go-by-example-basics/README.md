@@ -1115,7 +1115,7 @@ $ go run interfaces.go
 
 ## Type Assertions
 
-> A **type assertion** provides access to an interface value's underlying concrete value.
+> A **type assertion** (`x.(T)`) provides access to an interface (`x`) value's underlying concrete (`T`) value.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
 <!-- The below code snippet is automatically added from type-assertions.go -->
@@ -1127,7 +1127,7 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	//  This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
+	// This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
 	s := i.(string)
 	fmt.Println(s)
 
@@ -1238,6 +1238,9 @@ $ go run errors.go
 
 # f2 worked: 10
 # f2 failed: 42 - cannot work with it
+
+# 42
+# cannot work with it
 ```
 
 - This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.

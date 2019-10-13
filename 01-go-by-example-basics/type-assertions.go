@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	//  This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
+	// This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t
 	s := i.(string)
 	fmt.Println(s)
 
