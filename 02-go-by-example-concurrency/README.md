@@ -109,13 +109,17 @@ $ go run goroutines.go
 ```go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
 
 	// Create a new channel with "make(chan value-type)"
 	// Channels are typed by the values they convey
 	messages := make(chan string)
+	fmt.Println(reflect.TypeOf(messages))
 
 	// Send a value into a channel using the channel "<-" syntax
 	// Here we send "ping" to the messages channel we made above, from a new goroutine
@@ -158,7 +162,8 @@ func main() {
 	messages := make(chan string, 2)
 
 	// Because this channel is buffered,
-	// we can send these values into the channel without a corresponding concurrent receive
+	// we can send these values into the channel
+	// without a corresponding concurrent receive
 	messages <- "buffered"
 	messages <- "channel"
 
@@ -194,13 +199,14 @@ import (
 )
 
 // This is the function we will run in a goroutine
-// The done channel will be used to notify another goroutine that this function's work is done
+// The done channel will be used to notify another goroutine
+// that this function's work is done
 func worker(done chan bool) {
-	fmt.Print("working...")
+	fmt.Print("Working... ")
 	time.Sleep(time.Second)
-	fmt.Println("done")
+	fmt.Println("Done")
 
-	// Send a value to notify that we're done
+	// Send a value to notify that we are done
 	done <- true
 }
 
@@ -236,13 +242,14 @@ package main
 
 import "fmt"
 
-// This ping function only accepts a channel for sending values
+// This "ping" function only accepts a channel for sending values
 // It would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// The pong function accepts one channel for receives (pings) and a second for sends (pongs)
+// The "pong" function accepts one channel for receives (pings)
+// and a second for sends (pongs)
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg

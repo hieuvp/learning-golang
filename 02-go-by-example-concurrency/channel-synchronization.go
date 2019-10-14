@@ -6,13 +6,14 @@ import (
 )
 
 // This is the function we will run in a goroutine
-// The done channel will be used to notify another goroutine that this function's work is done
+// The done channel will be used to notify another goroutine
+// that this function's work is done
 func worker(done chan bool) {
-	fmt.Print("working...")
+	fmt.Print("Working... ")
 	time.Sleep(time.Second)
-	fmt.Println("done")
+	fmt.Println("Done")
 
-	// Send a value to notify that we're done
+	// Send a value to notify that we are done
 	done <- true
 }
 
