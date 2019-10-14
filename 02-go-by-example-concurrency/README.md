@@ -142,9 +142,105 @@ $ go run channels.go
 
 ## Channel Buffering
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-buffering.go) -->
+<!-- The below code snippet is automatically added from channel-buffering.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	messages := make(chan string, 2)
+
+	messages <- "buffered"
+	messages <- "channel"
+
+	fmt.Println(<-messages)
+	fmt.Println(<-messages)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run channel-buffering.go
+
+# buffered
+# channel
+```
+
+
 ## Channel Synchronization
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-synchronization.go) -->
+<!-- The below code snippet is automatically added from channel-synchronization.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func worker(done chan bool) {
+	fmt.Print("working...")
+	time.Sleep(time.Second)
+	fmt.Println("done")
+
+	done <- true
+}
+
+func main() {
+
+	done := make(chan bool, 1)
+	go worker(done)
+
+	<-done
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run channel-synchronization.go
+
+# working...done
+```
+
+
 ## Channel Directions
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-directions.go) -->
+<!-- The below code snippet is automatically added from channel-directions.go -->
+```go
+package main
+
+import "fmt"
+
+func ping(pings chan<- string, msg string) {
+	pings <- msg
+}
+
+func pong(pings <-chan string, pongs chan<- string) {
+	msg := <-pings
+	pongs <- msg
+}
+
+func main() {
+	pings := make(chan string, 1)
+	pongs := make(chan string, 1)
+	ping(pings, "passed message")
+	pong(pings, pongs)
+	fmt.Println(<-pongs)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run channel-directions.go
+
+# passed message
+```
+
 
 ## Select
 
