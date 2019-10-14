@@ -35,7 +35,68 @@
 
 ## Goroutines
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=goroutines.go) -->
+<!-- The below code snippet is automatically added from goroutines.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func f(from string) {
+	for i := 0; i < 3; i++ {
+		fmt.Println(from, ":", i)
+	}
+}
+
+func main() {
+
+	f("direct")
+
+	go f("goroutine")
+
+	go func(msg string) {
+		fmt.Println(msg)
+	}("going")
+
+	time.Sleep(time.Second)
+	fmt.Println("done")
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run goroutines.go
+```
+
+
 ## Channels
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=channels.go) -->
+<!-- The below code snippet is automatically added from channels.go -->
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	messages := make(chan string)
+
+	go func() { messages <- "ping" }()
+
+	msg := <-messages
+	fmt.Println(msg)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run channels.go
+```
+
 
 ## Channel Buffering
 
