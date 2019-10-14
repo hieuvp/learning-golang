@@ -226,6 +226,9 @@ $ go run channel-synchronization.go
 
 ## Channel Directions
 
+> When using channels as function parameters, you can specify if a channel is meant to only send or receive values.
+> This specificity increases the type-safety of the program.
+
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-directions.go) -->
 <!-- The below code snippet is automatically added from channel-directions.go -->
 ```go
@@ -233,10 +236,13 @@ package main
 
 import "fmt"
 
+// This ping function only accepts a channel for sending values
+// It would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
+// The pong function accepts one channel for receives (pings) and a second for sends (pongs)
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg
