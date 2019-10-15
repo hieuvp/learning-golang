@@ -90,11 +90,12 @@ $ go run goroutines.go
 # Direct : 3
 
 # Goroutine : 0
-# Sleep with Duration: 1s
-# Going
+# Sleep with Duration : 1s
 # Goroutine : 1
 # Goroutine : 2
 # Goroutine : 3
+# Going
+
 # Done
 ```
 
