@@ -25,11 +25,11 @@ func main() {
 		fmt.Println(message)
 	}("Going")
 
-	// Two function calls above are running "asynchronously" in separate goroutines now
+	// Two function calls above are running "asynchronously" in separate "goroutines" now
 
 	// Pause for at least the "duration"
 	duration := time.Second
-	fmt.Println("Sleep with Duration:", duration)
+	fmt.Println("Sleep with Duration :", duration)
 	time.Sleep(duration)
 	fmt.Println("Done")
 }
