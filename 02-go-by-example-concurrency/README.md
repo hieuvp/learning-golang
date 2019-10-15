@@ -62,16 +62,17 @@ func main() {
 	// This new "goroutine" will execute concurrently with the calling one
 	go f("Goroutine")
 
-	// Start a "goroutine" for an anonymous function call
+	// Start a "goroutine" for an "anonymous function" call
 	go func(msg string) {
 		fmt.Println(msg)
 	}("Going")
 
 	// Two function calls above are running "asynchronously" in separate goroutines now
 
-	// Pause the current goroutine for at least the "Duration"
-	fmt.Println("Sleep with Duration:", time.Second)
-	time.Sleep(time.Second)
+	// Pause for at least the "duration"
+	duration := time.Second
+	fmt.Println("Sleep with Duration:", duration)
+	time.Sleep(duration)
 	fmt.Println("Done")
 }
 ```
