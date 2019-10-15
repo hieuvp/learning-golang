@@ -194,9 +194,8 @@ import (
 	"time"
 )
 
-// This is the function we will run in a goroutine
-// The done channel will be used to notify another goroutine
-// that this function's work is done
+// This is the function we will run in a "goroutine"
+// The "done" channel will be used to notify another "goroutine"
 func worker(done chan bool) {
 	fmt.Print("Working... ")
 	time.Sleep(time.Second)
@@ -208,11 +207,12 @@ func worker(done chan bool) {
 
 func main() {
 
-	// Start a worker goroutine, giving it the channel to notify on
+	// Start a "worker" goroutine,
+	// giving it the channel to notify on
 	done := make(chan bool, 1)
 	go worker(done)
 
-	// Block until we receive a notification from the worker on the channel
+	// Block until we receive a notification from the "worker" on the channel
 	<-done
 }
 ```
