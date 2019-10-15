@@ -226,6 +226,7 @@ $ go run channel-synchronization.go
 
 - If you removed the `<- done` line from this program, the program would exit before the worker even started.
 
+
 ## Channel Directions
 
 > When using channels as function parameters, you can specify if a channel is meant to only send or receive values.
