@@ -13,7 +13,7 @@ func f(from string) {
 
 func main() {
 
-	// Running "synchronously"
+	// Run "synchronously"
 	f("Direct")
 
 	// Use "go f(string)" to invoke this function in a "goroutine"
