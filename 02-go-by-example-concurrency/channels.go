@@ -12,12 +12,10 @@ func main() {
 	messages := make(chan string)
 	fmt.Println(reflect.TypeOf(messages))
 
-	// Send a value into a channel using the channel "<-" syntax
-	// Here we send "ping" to the messages channel we made above, from a new goroutine
+	// "channel <-": send a value into a channel
 	go func() { messages <- "ping" }()
 
-	// The "<-channel" syntax receives a value from the channel
-	// Here we will receive the "ping" message we sent above and print it out
+	// "<-channel": receive a value from the channel
 	msg := <-messages
 	fmt.Println(msg)
 }
