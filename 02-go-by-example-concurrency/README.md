@@ -238,14 +238,14 @@ package main
 
 import "fmt"
 
-// This "ping" function only accepts a channel for sending values
+// Only accept a channel for sending values ("pings")
 // It would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// The "pong" function accepts one channel for receives (pings)
-// and a second for sends (pongs)
+// "pings": a channel for receives
+// "pongs": a channel for sends
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg
@@ -254,6 +254,7 @@ func pong(pings <-chan string, pongs chan<- string) {
 func main() {
 	pings := make(chan string, 1)
 	pongs := make(chan string, 1)
+
 	ping(pings, "passed message")
 	pong(pings, pongs)
 	fmt.Println(<-pongs)
