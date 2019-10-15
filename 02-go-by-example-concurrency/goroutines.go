@@ -13,8 +13,7 @@ func f(from string) {
 
 func main() {
 
-	// Suppose we have a function call "f(s)"
-	// Here's how we'd call that in the usual way, running it "synchronously"
+	// Running synchronously
 	f("Direct")
 
 	// To invoke this function in a goroutine, use "go f(s)"
@@ -28,10 +27,8 @@ func main() {
 
 	// Our two function calls above are running "asynchronously" in separate goroutines now
 
-	// Wait for them to finish
-	// "time.Sleep" pauses the current goroutine for at least the "Duration"
+	// Pause the current goroutine for at least the "Duration"
 	fmt.Println("Sleep with Duration:", time.Second)
 	time.Sleep(time.Second)
-
 	fmt.Println("Done")
 }
