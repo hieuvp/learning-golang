@@ -63,8 +63,8 @@ func main() {
 	go f("Goroutine")
 
 	// Start a "goroutine" for an "anonymous function" call
-	go func(msg string) {
-		fmt.Println(msg)
+	go func(message string) {
+		fmt.Println(message)
 	}("Going")
 
 	// Two function calls above are running "asynchronously" in separate goroutines now
