@@ -78,7 +78,8 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- When we run this program, we see the output of the blocking call first, then the interleaved output of the two goroutines. This interleaving reflects the goroutines being run concurrently by the Go runtime.
+- When we run this program, we see the output of the blocking call first, then the interleaved output of the two goroutines.
+- This interleaving reflects the goroutines being run concurrently by the Go runtime.
 
 ```bash
 $ go run goroutines.go
@@ -87,6 +88,7 @@ $ go run goroutines.go
 # Direct : 1
 # Direct : 2
 # Direct : 3
+
 # Goroutine : 0
 # Sleep with Duration: 1s
 # Going
@@ -129,7 +131,7 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- When we run the program the "ping" message is successfully passed from one goroutine to another via our channel.
+- When we run the program the `ping` message is successfully passed from one goroutine to another via our channel.
 
 ```bash
 $ go run channels.go
@@ -138,12 +140,12 @@ $ go run channels.go
 # ping
 ```
 
-- By default sends and receives block until both the sender and receiver are ready. This property allowed us to wait at the end of our program for the "ping" message without having to use any other synchronization.
+- By default sends and receives block until both the sender and receiver are ready. This property allowed us to wait at the end of our program for the `ping` message without having to use any other synchronization.
 
 
 ## Channel Buffering
 
-> By default channels are unbuffered, meaning that they will only accept sends (`chan <-`) if there is a corresponding receive (`<-chan`) ready to receive the sent value.
+> By default, **channels** are unbuffered, meaning that they will only accept sends (`chan <-`) if there is a corresponding receive (`<-chan`) ready to receive the sent value.
 > Buffered channels accept a limited number of values without a corresponding receiver for those values.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-buffering.go) -->
@@ -180,9 +182,9 @@ $ go run channel-buffering.go
 
 ## Channel Synchronization
 
-> We can use channels to synchronize execution across goroutines.
-> Here's an example of using a blocking receive to wait for a goroutine to finish.
-> When waiting for multiple goroutines to finish, you may prefer to use a WaitGroup.
+> We can use **channels** to synchronize execution across **goroutines**.
+> Here's an example of using a blocking receive to wait for a **goroutine** to finish.
+> When waiting for multiple **goroutines** to finish, you may prefer to use a **WaitGroup**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-synchronization.go) -->
 <!-- The below code snippet is automatically added from channel-synchronization.go -->
@@ -221,7 +223,7 @@ func main() {
 ```bash
 $ go run channel-synchronization.go
 
-# working...done
+# Working... Done
 ```
 
 - If you removed the `<- done` line from this program, the program would exit before the worker even started.
