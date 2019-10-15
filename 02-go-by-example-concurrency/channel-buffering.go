@@ -12,7 +12,7 @@ func main() {
 	messages <- "buffered"
 	messages <- "channel"
 
-	// Later we can receive these two values as usual
+	// Later we can receive these "2" values as usual
 	fmt.Println(<-messages)
 	fmt.Println(<-messages)
 }

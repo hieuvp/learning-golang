@@ -166,7 +166,7 @@ func main() {
 	messages <- "buffered"
 	messages <- "channel"
 
-	// Later we can receive these two values as usual
+	// Later we can receive these "2" values as usual
 	fmt.Println(<-messages)
 	fmt.Println(<-messages)
 }
@@ -197,8 +197,8 @@ import (
 	"time"
 )
 
-// This is the function we will run in a "goroutine"
-// The "done" channel will be used to notify another "goroutine"
+// This is the function we will run in a goroutine
+// The "done" channel will be used to notify another goroutine
 func worker(done chan bool) {
 	fmt.Print("Working... ")
 	time.Sleep(time.Second)
@@ -242,8 +242,8 @@ package main
 
 import "fmt"
 
-// Only accept a channel for sending values ("pings")
-// It would be a compile-time error to try to receive on this channel
+// "pings": a channel for sending values,
+// would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }

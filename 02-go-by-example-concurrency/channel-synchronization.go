@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-// This is the function we will run in a "goroutine"
-// The "done" channel will be used to notify another "goroutine"
+// This is the function we will run in a goroutine
+// The "done" channel will be used to notify another goroutine
 func worker(done chan bool) {
 	fmt.Print("Working... ")
 	time.Sleep(time.Second)

@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Only accept a channel for sending values ("pings")
-// It would be a compile-time error to try to receive on this channel
+// "pings": a channel for sending values,
+// would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
