@@ -55,19 +55,19 @@ func f(from string) {
 
 func main() {
 
-	// Running synchronously
+	// Running "synchronously"
 	f("Direct")
 
-	// To invoke this function in a goroutine, use "go f(s)"
-	// This new goroutine will execute concurrently with the calling one
+	// Use "go f(string)" to invoke this function in a "goroutine"
+	// This new "goroutine" will execute concurrently with the calling one
 	go f("Goroutine")
 
-	// You can also start a goroutine for an anonymous function call
+	// Start a "goroutine" for an anonymous function call
 	go func(msg string) {
 		fmt.Println(msg)
 	}("Going")
 
-	// Our two function calls above are running "asynchronously" in separate goroutines now
+	// Two function calls above are running "asynchronously" in separate goroutines now
 
 	// Pause the current goroutine for at least the "Duration"
 	fmt.Println("Sleep with Duration:", time.Second)
@@ -88,10 +88,10 @@ $ go run goroutines.go
 # Direct : 3
 # Goroutine : 0
 # Sleep with Duration: 1s
+# Going
 # Goroutine : 1
 # Goroutine : 2
 # Goroutine : 3
-# Going
 # Done
 ```
 
