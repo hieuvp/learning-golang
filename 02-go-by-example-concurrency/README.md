@@ -316,12 +316,11 @@ func main() {
 - We receive the values "one" and then "two" as expected.
 
 ```bash
-$ go run select.go
+$ time go run select.go
 
 # received one
 # received two
-
-# real 0m2.245s
+# go run select.go  0.28s user 0.22s system 21% cpu 2.330 total
 ```
 
 - Note that the total execution time is only ~2 seconds since both the 1 and 2 second Sleeps execute concurrently.
