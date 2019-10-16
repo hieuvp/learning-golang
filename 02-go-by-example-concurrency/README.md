@@ -328,7 +328,8 @@ $ time go run select.go
 
 ## Timeouts
 
-> Timeouts are important for programs that connect to external resources or that otherwise need to bound execution time. Implementing timeouts in Go is easy and elegant thanks to channels and select.
+> **Timeouts** are important for programs that connect to external resources or that otherwise need to bound execution time.
+> Implementing timeouts in Go is easy and elegant thanks to channels and select.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timeouts.go) -->
 <!-- The below code snippet is automatically added from timeouts.go -->
@@ -390,7 +391,8 @@ $ go run timeouts.go
 
 ## Non-Blocking Channel Operations
 
-> Basic sends and receives on channels are blocking. However, we can use select with a default clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
+> Basic sends and receives on channels are blocking.
+> However, we can use select with a default clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
@@ -450,7 +452,8 @@ $ go run non-blocking-channel-operations.go
 
 ## Closing Channels
 
-> Closing a channel indicates that no more values will be sent on it. This can be useful to communicate completion to the channel’s receivers.
+> Closing a channel indicates that no more values will be sent on it.
+> This can be useful to communicate completion to the channel's receivers.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closing-channels.go) -->
 <!-- The below code snippet is automatically added from closing-channels.go -->
@@ -513,7 +516,8 @@ $ go run closing-channels.go
 
 ## Range over Channels
 
-> In a previous example we saw how for and range provide iteration over basic data structures. We can also use this syntax to iterate over values received from a channel.
+> In a previous example we saw how for and range provide iteration over basic data structures.
+> We can also use this syntax to iterate over values received from a channel.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range-over-channels.go) -->
 <!-- The below code snippet is automatically added from range-over-channels.go -->
@@ -539,14 +543,14 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- This example also showed that it's possible to close a non-empty channel but still have the remaining values be received.
-
 ```bash
 $ go run range-over-channels.go
 
 # one
 # two
 ```
+
+- This example also showed that it's possible to close a non-empty channel but still have the remaining values be received.
 
 
 ## Timers
