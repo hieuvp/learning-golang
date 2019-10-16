@@ -391,6 +391,8 @@ $ go run timeouts.go
 
 ## Non-Blocking Channel Operations
 
+> Basic sends and receives on channels are blocking. However, we can use select with a default clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
+
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
 ```go
@@ -402,6 +404,9 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
+	// Here's a non-blocking receive
+	// If a value is available on messages then select will take the <-messages case with that value
+	// If not it will immediately take the default case
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -409,6 +414,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
+	// A non-blocking send works similarly
+	// Here msg cannot be sent to the messages channel,
+	// because the channel has no buffer and there is no receiver
+	// Therefore the default case is selected
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -417,6 +426,8 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
+	// We can use multiple cases above the default clause to implement a multi-way non-blocking select
+	// Here we attempt non-blocking receives on both messages and signals
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -440,6 +451,8 @@ $ go run non-blocking-channel-operations.go
 
 ## Closing Channels
 
+> Closing a channel indicates that no more values will be sent on it. This can be useful to communicate completion to the channel’s receivers.
+
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closing-channels.go) -->
 <!-- The below code snippet is automatically added from closing-channels.go -->
 ```go
@@ -448,9 +461,16 @@ package main
 import "fmt"
 
 func main() {
+
+	// In this example we'll use a jobs channel to communicate work to be done from the main() goroutine to a worker goroutine
+	// When we have no more jobs for the worker we'll close the jobs channel
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
+	// Here’s the worker goroutine
+	// It repeatedly receives from jobs with j, more := <-jobs
+	// In this special 2-value form of receive, the more value will be false if jobs has been closed and all values in the channel have already been received
+	// We use this to notify on done when we’ve worked all our jobs
 	go func() {
 		for {
 			j, more := <-jobs
@@ -464,6 +484,7 @@ func main() {
 		}
 	}()
 
+	// This sends 3 jobs to the worker over the jobs channel, then closes it
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -471,6 +492,7 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
+	// We await the worker using the synchronization approach we saw earlier
 	<-done
 }
 ```
@@ -492,6 +514,8 @@ $ go run closing-channels.go
 
 ## Range over Channels
 
+> In a previous example we saw how for and range provide iteration over basic data structures. We can also use this syntax to iterate over values received from a channel.
+
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range-over-channels.go) -->
 <!-- The below code snippet is automatically added from range-over-channels.go -->
 ```go
@@ -501,17 +525,22 @@ import "fmt"
 
 func main() {
 
+	// We'll iterate over 2 values in the queue channel
 	queue := make(chan string, 2)
 	queue <- "one"
 	queue <- "two"
 	close(queue)
 
+	// This range iterates over each element as it's received from queue
+	// Because we closed the channel above, the iteration terminates after receiving the 2 elements
 	for elem := range queue {
 		fmt.Println(elem)
 	}
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+- This example also showed that it's possible to close a non-empty channel but still have the remaining values be received.
 
 ```bash
 $ go run range-over-channels.go
