@@ -78,9 +78,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- When we run this program, we see the output of the blocking call first, then the interleaved output of the two goroutines.
-- This interleaving reflects the goroutines being run concurrently by the Go runtime.
-
 ```bash
 $ go run goroutines.go
 
