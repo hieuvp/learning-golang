@@ -129,8 +129,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- When we run the program the `ping` message is successfully passed from one goroutine to another via our channel.
-
 ```bash
 $ go run channels.go
 
