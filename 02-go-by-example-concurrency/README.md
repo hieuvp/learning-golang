@@ -308,6 +308,9 @@ func main() {
 
 ```bash
 $ go run select.go
+
+# received one
+# received two
 ```
 
 
@@ -355,6 +358,9 @@ func main() {
 
 ```bash
 $ go run timeouts.go
+
+# timeout 1
+# result 2
 ```
 
 
@@ -400,6 +406,10 @@ func main() {
 
 ```bash
 $ go run non-blocking-channel-operations.go
+
+# no message received
+# no message sent
+# no activity
 ```
 
 
@@ -443,6 +453,15 @@ func main() {
 
 ```bash
 $ go run closing-channels.go
+
+# sent job 1
+# sent job 2
+# sent job 3
+# sent all jobs
+# received job 1
+# received job 2
+# received job 3
+# received all jobs
 ```
 
 
@@ -471,6 +490,9 @@ func main() {
 
 ```bash
 $ go run range-over-channels.go
+
+# one
+# two
 ```
 
 
