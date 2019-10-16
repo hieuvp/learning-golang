@@ -99,8 +99,8 @@ $ go run goroutines.go
 
 ## Channels
 
-> **Channels** are the pipes that connect concurrent **goroutines**.
-> You can send values into **channels** from one **goroutine** and receive those values into another **goroutine**.
+> **Channels** are the pipes that connect concurrent goroutines.
+> You can send values into **channels** from one goroutine and receive those values into another goroutine.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channels.go) -->
 <!-- The below code snippet is automatically added from channels.go -->
