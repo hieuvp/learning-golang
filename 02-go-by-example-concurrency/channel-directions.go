@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-// "pings": a channel for sending values,
+// "pings chan<- string": a channel for sending values,
 // would be a compile-time error to try to receive on this channel
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// "pings": a channel for receives
-// "pongs": a channel for sends
+// "pings <-chan string": a channel for receives
+// "pongs chan<- string": a channel for sends
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg
