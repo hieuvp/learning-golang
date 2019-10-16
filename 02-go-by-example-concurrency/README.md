@@ -353,7 +353,8 @@ func main() {
 	}()
 
 	// Here's the select implementing a timeout.
-	// res := <-c1 awaits the result and <-Time.After awaits a value to be sent after the timeout of 1s
+	// res := <-c1 awaits the result and <-Time.
+	// After awaits a value to be sent after the timeout of 1s
 	// Since select proceeds with the first receive that's ready,
 	// we'll take the timeout case if the operation takes more than the allowed 1s
 	select {
@@ -469,7 +470,7 @@ func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here’s the worker goroutine
+	// Here's the worker goroutine
 	// It repeatedly receives from jobs with j, more := <-jobs
 	// In this special 2-value form of receive, the more value will be false if jobs has been closed and all values in the channel have already been received
 	// We use this to notify on done when we’ve worked all our jobs

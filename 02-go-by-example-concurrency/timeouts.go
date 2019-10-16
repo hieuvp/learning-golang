@@ -17,7 +17,8 @@ func main() {
 	}()
 
 	// Here's the select implementing a timeout.
-	// res := <-c1 awaits the result and <-Time.After awaits a value to be sent after the timeout of 1s
+	// res := <-c1 awaits the result and <-Time.
+	// After awaits a value to be sent after the timeout of 1s
 	// Since select proceeds with the first receive that's ready,
 	// we'll take the timeout case if the operation takes more than the allowed 1s
 	select {
