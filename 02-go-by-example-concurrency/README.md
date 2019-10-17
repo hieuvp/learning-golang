@@ -270,7 +270,7 @@ $ go run channel-directions.go
 
 ## Select
 
-> Go's `select` lets you wait on multiple channel operations. Combining **goroutines** and **channels** with `select` is a powerful feature of Go.
+> `select` lets you wait on multiple channel operations.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=select.go) -->
 <!-- The below code snippet is automatically added from select.go -->
@@ -284,12 +284,11 @@ import (
 
 func main() {
 
-	// For our example we will "select" across two channels
+	// For our example, we will "select" across two channels
 	c1 := make(chan string)
 	c2 := make(chan string)
 
-	// Each channel will receive a value after some amount of time,
-	// to simulate e.g. blocking RPC operations executing in concurrent goroutines
+	// Each channel will receive a value after some amount of time
 	go func() {
 		time.Sleep(4 * time.Second)
 		c1 <- "one"
@@ -321,7 +320,7 @@ $ time go run select.go
 # go run select.go  0.29s user 0.29s system 13% cpu 4.474 total
 ```
 
-- The total execution time is only `~4 seconds` since both the `4` and `2` second Sleeps execute concurrently.
+- The total execution time is only `~4 seconds` since both the `4s` and `2s` Sleeps execute concurrently.
 
 
 ## Timeouts
