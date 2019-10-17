@@ -291,11 +291,11 @@ func main() {
 	// Each channel will receive a value after some amount of time,
 	// to simulate e.g. blocking RPC operations executing in concurrent goroutines
 	go func() {
-		time.Sleep(2 * time.Second)
+		time.Sleep(4 * time.Second)
 		c1 <- "one"
 	}()
 	go func() {
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 		c2 <- "two"
 	}()
 
@@ -317,10 +317,11 @@ $ time go run select.go
 
 # Received : two
 # Received : one
-# go run select.go  0.28s user 0.20s system 20% cpu 2.275 total
+
+# go run select.go  0.29s user 0.29s system 13% cpu 4.474 total
 ```
 
-- Note that the total execution time is only ~2 seconds since both the 1 and 2 second Sleeps execute concurrently.
+- The total execution time is only `~4 seconds` since both the `4` and `2` second Sleeps execute concurrently.
 
 
 ## Timeouts

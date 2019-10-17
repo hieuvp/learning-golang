@@ -14,11 +14,11 @@ func main() {
 	// Each channel will receive a value after some amount of time,
 	// to simulate e.g. blocking RPC operations executing in concurrent goroutines
 	go func() {
-		time.Sleep(2 * time.Second)
+		time.Sleep(4 * time.Second)
 		c1 <- "one"
 	}()
 	go func() {
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 		c2 <- "two"
 	}()
 
