@@ -11,14 +11,14 @@ func main() {
 	done := make(chan bool)
 
 	// Here is the worker goroutine
-	// It repeatedly receives from jobs with j, more := <-jobs
-
-	// We use this to notify on done when we’ve worked all our jobs
 	go func() {
+
+		// Repeatedly receives from jobs
 		for {
+
+			// If jobs has been closed and all values in the channel have already been received,
 			// The "more" value will be "false"
-			// if jobs has been closed and
-			// all values in the channel have already been received
+			// We use this to notify on done when we have worked all our jobs
 			j, more := <-jobs
 			if more {
 				fmt.Println("received job", j)
@@ -35,6 +35,8 @@ func main() {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
+
+	// "all goroutines are asleep - deadlock!" when omitted
 	close(jobs)
 	fmt.Println("sent all jobs")
 
