@@ -393,7 +393,7 @@ $ go run timeouts.go
 ## Non-Blocking Channel Operations
 
 > Basic sends and receives on channels are blocking.
-> However, we can use select with a default clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
+> However, we can use `select` with a `default` clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
@@ -525,9 +525,6 @@ $ go run closing-channels.go
 
 ## Range over Channels
 
-> In a previous example we saw how for and range provide iteration over basic data structures.
-> We can also use this syntax to iterate over values received from a channel.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range-over-channels.go) -->
 <!-- The below code snippet is automatically added from range-over-channels.go -->
 ```go
@@ -560,30 +557,41 @@ $ go run range-over-channels.go
 # two
 ```
 
-- This example also showed that it's possible to close a non-empty channel but still have the remaining values be received.
+- This example also showed that it is possible to close a non-empty channel but still have the remaining values be received.
 
 
 ## Timers
 
+
 ## Tickers
+
 
 ## Worker Pools
 
+
 ## WaitGroups
+
 
 ## Rate Limiting
 
+
 ## Atomic Counters
+
 
 ## Mutexes
 
+
 ## Stateful Goroutines
+
 
 ## Sorting
 
+
 ## Sorting by Functions
 
+
 ## Panic
+
 
 ## Defer
 
