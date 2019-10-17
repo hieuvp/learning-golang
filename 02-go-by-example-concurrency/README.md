@@ -350,34 +350,31 @@ func main() {
 
 	go func() {
 		time.Sleep(2 * time.Second)
-		c1 <- "Result from c1"
+		c1 <- "result from c1"
 	}()
 
-	// Here is the select implementing a timeout.
-	// response := <-c1 awaits the result and <-Time.
-	// After awaits a value to be sent after the timeout of 1s
-	// Since select proceeds with the first receive that's ready,
-	// we'll take the timeout case if the operation takes more than the allowed 1s
+	// Since "select" proceeds with the first receive that is ready,
+	// we will take the timeout case if the operation takes more than the allowed "1s"
 	select {
 	case response := <-c1:
 		fmt.Println(response)
 	case <-time.After(1 * time.Second):
-		fmt.Println("Timeout c1 after 1s")
+		fmt.Println("timeout c1 after 1s")
 	}
 
-	// If we allow a longer timeout of 3s,
-	// then the receive from c2 will succeed
+	// If we allow a longer timeout of "3s",
+	// then the receive from "c2" will succeed
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
-		c2 <- "Result from c2"
+		c2 <- "result from c2"
 	}()
 
 	select {
 	case response := <-c2:
 		fmt.Println(response)
 	case <-time.After(3 * time.Second):
-		fmt.Println("Timeout c2 after 3s")
+		fmt.Println("timeout c2 after 3s")
 	}
 }
 ```
@@ -388,8 +385,8 @@ func main() {
 ```bash
 $ go run timeouts.go
 
-# timeout 1
-# result 2
+# timeout c1 after 1s
+# result from c2
 ```
 
 
