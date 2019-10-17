@@ -270,7 +270,7 @@ $ go run channel-directions.go
 
 ## Select
 
-> Go's `select` lets you wait on multiple channel operations. Combining goroutines and channels with select is a powerful feature of Go.
+> Go's `select` lets you wait on multiple channel operations. Combining **goroutines** and **channels** with `select` is a powerful feature of Go.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=select.go) -->
 <!-- The below code snippet is automatically added from select.go -->
@@ -284,43 +284,40 @@ import (
 
 func main() {
 
-	// For our example we'll select across two channels
+	// For our example we will "select" across two channels
 	c1 := make(chan string)
 	c2 := make(chan string)
 
 	// Each channel will receive a value after some amount of time,
 	// to simulate e.g. blocking RPC operations executing in concurrent goroutines
 	go func() {
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 		c1 <- "one"
 	}()
 	go func() {
-		time.Sleep(2 * time.Second)
+		time.Sleep(1 * time.Second)
 		c2 <- "two"
 	}()
 
-	// We'll use select to await both of these values simultaneously,
-	// printing each one as it arrives
+	// Use "select" to await both of these values simultaneously
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-c1:
-			fmt.Println("received", msg1)
+			fmt.Println("Received :", msg1)
 		case msg2 := <-c2:
-			fmt.Println("received", msg2)
+			fmt.Println("Received :", msg2)
 		}
 	}
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- We receive the values "one" and then "two" as expected.
-
 ```bash
 $ time go run select.go
 
-# received one
-# received two
-# go run select.go  0.28s user 0.22s system 21% cpu 2.330 total
+# Received : two
+# Received : one
+# go run select.go  0.28s user 0.20s system 20% cpu 2.275 total
 ```
 
 - Note that the total execution time is only ~2 seconds since both the 1 and 2 second Sleeps execute concurrently.
