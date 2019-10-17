@@ -7,16 +7,20 @@ import (
 
 func main() {
 
-	// For our example, suppose we're executing an external call that returns its result on a channel c1 after 2s
-	// Note that the channel is buffered, so the send in the goroutine is nonblocking
+	// The channel is buffered, so the send in the goroutine is non-blocking
 	// This is a common pattern to prevent goroutine leaks in case the channel is never read
 	c1 := make(chan string, 1)
+
+	// In contrast, "make(chan string)" is an unbuffered channel,
+	// the sender will block on the channel until the receiver receives the data from the channel,
+	// whilst the receiver will also block on the channel until sender sends data into the channel
+
 	go func() {
 		time.Sleep(2 * time.Second)
-		c1 <- "result 1"
+		c1 <- "Result from c1"
 	}()
 
-	// Here's the select implementing a timeout.
+	// Here is the select implementing a timeout.
 	// response := <-c1 awaits the result and <-Time.
 	// After awaits a value to be sent after the timeout of 1s
 	// Since select proceeds with the first receive that's ready,
@@ -25,19 +29,21 @@ func main() {
 	case response := <-c1:
 		fmt.Println(response)
 	case <-time.After(1 * time.Second):
-		fmt.Println("Timeout 1")
+		fmt.Println("Timeout c1 after 1s")
 	}
 
-	// If we allow a longer timeout of 3s, then the receive from c2 will succeed and we'll print the result.
+	// If we allow a longer timeout of 3s,
+	// then the receive from c2 will succeed
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
-		c2 <- "result 2"
+		c2 <- "Result from c2"
 	}()
+
 	select {
-	case res := <-c2:
-		fmt.Println(res)
+	case response := <-c2:
+		fmt.Println(response)
 	case <-time.After(3 * time.Second):
-		fmt.Println("Timeout 2")
+		fmt.Println("Timeout c2 after 3s")
 	}
 }
