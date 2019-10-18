@@ -7,12 +7,12 @@ import (
 
 func main() {
 
-	// The channel is buffered, so the send in the goroutine is non-blocking
+	// The channel is "buffered", so the "send" in the goroutine is "non-blocking"
 	// This is a common pattern to prevent goroutine leaks in case the channel is never read
 	c1 := make(chan string, 1)
 
-	// In contrast, "make(chan string)" is an unbuffered channel,
-	// the sender will block on the channel until the receiver receives the data from the channel,
+	// In contrast, "make(chan string)" is an "unbuffered channel"
+	// The sender will block on the channel until the receiver receives the data from the channel,
 	// whilst the receiver will also block on the channel until sender sends data into the channel
 
 	go func() {
