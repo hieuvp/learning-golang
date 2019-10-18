@@ -284,7 +284,7 @@ import (
 
 func main() {
 
-	// For our example, we will "select" across two channels
+	// We will "select" across two channels
 	c1 := make(chan string)
 	c2 := make(chan string)
 
