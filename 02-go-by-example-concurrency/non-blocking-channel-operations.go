@@ -10,14 +10,14 @@ func main() {
 	// If a value is available on "messages" then "select" will take the "<-messages" case
 	// If not it will "immediately" take the "default" case
 	select {
-	case msg := <-messages:
-		fmt.Println("received message :", msg)
+	case message := <-messages:
+		fmt.Println("received message :", message)
 	default:
 		fmt.Println("no message received")
 	}
 
 	// A "non-blocking send" works similarly
-	// Here "msg" cannot be sent to the messages channel,
+	// Here "message" cannot be sent to the messages channel,
 	// because the channel has no buffer and there is no receiver
 	// Therefore the "default" case is selected
 	message := "hi"
