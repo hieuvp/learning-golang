@@ -490,7 +490,7 @@ func main() {
 		}
 	}()
 
-	// Send 3 jobs to the "worker" over the "jobs" channel
+	// Send "3" jobs to the "worker" over the "jobs" channel
 	for job := 1; job <= 3; job++ {
 		jobs <- job
 		fmt.Println("sent job :", job)
