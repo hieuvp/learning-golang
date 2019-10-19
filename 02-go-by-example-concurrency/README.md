@@ -348,7 +348,7 @@ func main() {
 	// The sender will block on the channel until the receiver receives the data from the channel
 
 	// In both channels,
-	// the receiver will block on the channel until sender sends data into the channel
+	// the receiver will always block on the channel until sender sends data into the channel
 
 	go func() {
 		time.Sleep(2 * time.Second)
