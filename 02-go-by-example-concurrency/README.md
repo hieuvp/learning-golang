@@ -347,7 +347,8 @@ func main() {
 	// In contrast, "make(chan string)" is an "unbuffered channel"
 	// The sender will block on the channel until the receiver receives the data from the channel
 
-	// In both channels, the receiver will block on the channel until sender sends data into the channel
+	// In both channels,
+	// the receiver will block on the channel until sender sends data into the channel
 
 	go func() {
 		time.Sleep(2 * time.Second)
