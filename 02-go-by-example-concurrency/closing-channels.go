@@ -4,16 +4,14 @@ import "fmt"
 
 func main() {
 
-	// We will use a "jobs" channel to communicate work to be done
-	// from the main() goroutine to a worker goroutine
-	// When we have no more jobs for the worker we will close the "jobs" channel
+	// Main goroutine
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here is the worker goroutine
+	// Worker goroutine
 	go func() {
 
-		// Repeatedly receives from jobs
+		// Repeatedly receives from "jobs"
 		for {
 
 			// If jobs has been closed and all values in the channel have already been received,
@@ -30,16 +28,17 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the "jobs" channel, then closes it
+	// Send 3 jobs to the worker over the "jobs" channel
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
 
-	// "all goroutines are asleep - deadlock!" when omitted
+	// If a channel is closed, no values can be sent on it
+	// "close" a channel to indicate "completion"
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the synchronization approach we saw earlier
+	// We await the worker using the synchronization approach
 	<-done
 }
