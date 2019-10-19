@@ -17,7 +17,7 @@ func main() {
 	}
 
 	// A "non-blocking send" works similarly
-	// Here "message" cannot be sent to the messages channel,
+	// "message" cannot be sent to the "messages" channel,
 	// because the channel has no buffer and there is no receiver
 	// Therefore the "default" case is selected
 	message := "hi"
