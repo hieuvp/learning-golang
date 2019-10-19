@@ -8,7 +8,7 @@ import (
 func main() {
 
 	// The channel is "buffered", so the "send" in the goroutine is "non-blocking"
-	// This is a common pattern to prevent goroutine leaks in case the channel is never read
+	// A common pattern to prevent goroutine leaks in case the channel is never "read"
 	c1 := make(chan string, 1)
 
 	// In contrast, "make(chan string)" is an "unbuffered channel"
