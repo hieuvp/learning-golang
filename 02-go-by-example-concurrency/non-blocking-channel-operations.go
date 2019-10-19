@@ -28,9 +28,7 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple cases above the "default" clause
-	// to implement a multi-way non-blocking "select"
-	// Here we attempt non-blocking receives on both "messages" and "signals"
+	// Here we attempt "non-blocking receives" on both "messages" and "signals"
 	select {
 	case message := <-messages:
 		fmt.Println("received message :", message)
