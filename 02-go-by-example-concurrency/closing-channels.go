@@ -13,7 +13,6 @@ func main() {
 
 		// Repeatedly receives from "jobs"
 		for {
-
 			job, more := <-jobs
 
 			// If "jobs" has been closed and all values in the channel have already been received,
