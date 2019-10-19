@@ -476,8 +476,8 @@ func main() {
 		// Repeatedly receives from "jobs"
 		for {
 
-			// If "jobs" has been "closed" and all values in the channel have already been received,
-			// The "more" value will be "false"
+			// If "jobs" has been closed and all values in the channel have already been received,
+			// the "more" value will be "false"
 			j, more := <-jobs
 			if more {
 				fmt.Println("received job :", j)
