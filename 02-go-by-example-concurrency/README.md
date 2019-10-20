@@ -585,6 +585,9 @@ func main() {
 
 ```bash
 $ go run timers.go
+
+# Timer 1 expired
+# Timer 2 stopped
 ```
 
 
@@ -626,6 +629,11 @@ func main() {
 
 ```bash
 $ go run tickers.go
+
+# Tick at 2012-09-23 11:29:56.487625 -0700 PDT
+# Tick at 2012-09-23 11:29:56.988063 -0700 PDT
+# Tick at 2012-09-23 11:29:57.488076 -0700 PDT
+# Ticker stopped
 ```
 
 
@@ -635,11 +643,57 @@ $ go run tickers.go
 <!-- The below code snippet is automatically added from worker-pools.go -->
 ```go
 package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func worker(id int, jobs <-chan int, results chan<- int) {
+	for j := range jobs {
+		fmt.Println("worker", id, "started  job", j)
+		time.Sleep(time.Second)
+		fmt.Println("worker", id, "finished job", j)
+		results <- j * 2
+	}
+}
+
+func main() {
+
+	jobs := make(chan int, 100)
+	results := make(chan int, 100)
+
+	for w := 1; w <= 3; w++ {
+		go worker(w, jobs, results)
+	}
+
+	for j := 1; j <= 5; j++ {
+		jobs <- j
+	}
+	close(jobs)
+
+	for a := 1; a <= 5; a++ {
+		<-results
+	}
+}
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
-$ go run worker-pools.go
+$ time go run worker-pools.go
+
+# worker 3 started  job 1
+# worker 1 started  job 2
+# worker 2 started  job 3
+# worker 1 finished job 2
+# worker 2 finished job 3
+# worker 1 started  job 4
+# worker 3 finished job 1
+# worker 2 started  job 5
+# worker 2 finished job 5
+# worker 1 finished job 4
+
+# go run worker-pools.go  0.26s user 0.21s system 20% cpu 2.283 total
 ```
 
 
@@ -681,6 +735,17 @@ func main() {
 
 ```bash
 $ go run wait-groups.go
+
+# Worker 5 starting
+# Worker 2 starting
+# Worker 3 starting
+# Worker 4 starting
+# Worker 1 starting
+# Worker 1 done
+# Worker 2 done
+# Worker 3 done
+# Worker 4 done
+# Worker 5 done
 ```
 
 
@@ -738,6 +803,18 @@ func main() {
 
 ```bash
 $ go run rate-limiting.go
+
+# request 1 2012-10-19 00:38:18.687438 +0000 UTC
+# request 2 2012-10-19 00:38:18.887471 +0000 UTC
+# request 3 2012-10-19 00:38:19.087238 +0000 UTC
+# request 4 2012-10-19 00:38:19.287338 +0000 UTC
+# request 5 2012-10-19 00:38:19.487331 +0000 UTC
+
+# request 1 2012-10-19 00:38:20.487578 +0000 UTC
+# request 2 2012-10-19 00:38:20.487645 +0000 UTC
+# request 3 2012-10-19 00:38:20.487676 +0000 UTC
+# request 4 2012-10-19 00:38:20.687483 +0000 UTC
+# request 5 2012-10-19 00:38:20.887542 +0000 UTC
 ```
 
 
