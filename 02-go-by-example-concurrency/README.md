@@ -820,6 +820,48 @@ $ go run rate-limiting.go
 
 ## Atomic Counters
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=atomic-counters.go) -->
+<!-- The below code snippet is automatically added from atomic-counters.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"sync/atomic"
+)
+
+func main() {
+
+	var ops uint64
+
+	var wg sync.WaitGroup
+
+	for i := 0; i < 50; i++ {
+		wg.Add(1)
+
+		go func() {
+			for c := 0; c < 1000; c++ {
+
+				atomic.AddUint64(&ops, 1)
+			}
+			wg.Done()
+		}()
+	}
+
+	wg.Wait()
+
+	fmt.Println("ops:", ops)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run atomic-counters.go
+
+# ops: 50000
+```
+
 
 ## Mutexes
 
