@@ -320,13 +320,12 @@ $ time go run select.go
 # go run select.go  0.29s user 0.29s system 13% cpu 4.474 total
 ```
 
-- The total execution time is only `~4s` since both the `4s Sleep` and `2s Sleep` execute concurrently.
+- The total execution time is only `~4s` since both `4s Sleep` and `2s Sleep` execute concurrently.
 
 
 ## Timeouts
 
 > **Timeouts** are important for programs that connect to external resources or that otherwise need to bound execution time.
-> Implementing timeouts in Go is easy and elegant thanks to channels and select.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timeouts.go) -->
 <!-- The below code snippet is automatically added from timeouts.go -->
