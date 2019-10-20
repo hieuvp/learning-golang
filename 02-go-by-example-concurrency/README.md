@@ -951,6 +951,7 @@ $ go run atomic-counters.go
 
 - Next we'll look at mutexes, another tool for managing state.
 
+
 ## Mutexes
 
 
