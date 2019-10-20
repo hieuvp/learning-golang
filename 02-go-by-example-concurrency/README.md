@@ -448,9 +448,6 @@ $ go run non-blocking-channel-operations.go
 
 ## Closing Channels
 
-> Closing a channel indicates that no more values will be sent on it.
-> This can be useful to communicate completion to the channel's receivers.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closing-channels.go) -->
 <!-- The below code snippet is automatically added from closing-channels.go -->
 ```go
