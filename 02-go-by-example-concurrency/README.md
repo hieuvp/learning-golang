@@ -325,8 +325,6 @@ $ time go run select.go
 
 ## Timeouts
 
-> **Timeouts** are important for programs that connect to external resources or that otherwise need to bound execution time.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timeouts.go) -->
 <!-- The below code snippet is automatically added from timeouts.go -->
 ```go
