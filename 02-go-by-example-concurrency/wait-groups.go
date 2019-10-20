@@ -15,7 +15,7 @@ func worker(id int, wg *sync.WaitGroup) {
 	time.Sleep(time.Second)
 	fmt.Printf("Worker %d done\n", id)
 
-	// Notify the WaitGroup that this worker is done
+	// Notify the "WaitGroup" that this worker is done
 	wg.Done()
 }
 
@@ -24,7 +24,7 @@ func main() {
 	// This "WaitGroup" is used to wait for all the goroutines launched here to finish
 	var wg sync.WaitGroup
 
-	// Launch several goroutines and increment the WaitGroup counter for each
+	// Launch several goroutines and increment the "WaitGroup" counter for each
 	for i := 1; i <= 5; i++ {
 		wg.Add(1)
 		go worker(i, &wg)
