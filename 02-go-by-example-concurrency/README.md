@@ -381,8 +381,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running this program shows the first operation timing out and the second succeeding.
-
 ```bash
 $ go run timeouts.go
 
