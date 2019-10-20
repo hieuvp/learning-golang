@@ -695,12 +695,12 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
-	// In order to use our pool of workers we need to send them work and collect their results
-	// We make 2 channels for this
+	// In order to use our pool of workers,
+	// we need to send them "jobs" and collect their "results"
 	jobs := make(chan int, 100)
 	results := make(chan int, 100)
 
-	// This starts up 3 workers, initially blocked because there are no jobs yet
+	// Start up 3 workers, initially blocked because there are no jobs yet
 	for id := 1; id <= 3; id++ {
 		go worker(id, jobs, results)
 	}
