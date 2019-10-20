@@ -6,8 +6,8 @@ import (
 	"time"
 )
 
-// This is the function we'll run in every goroutine
-// Note that a WaitGroup must be passed to functions by pointer
+// This is the function we will run in every goroutine
+// Note that a "WaitGroup" must be passed to functions by "pointer"
 func worker(id int, wg *sync.WaitGroup) {
 	fmt.Printf("Worker %d starting\n", id)
 
@@ -21,7 +21,7 @@ func worker(id int, wg *sync.WaitGroup) {
 
 func main() {
 
-	// This WaitGroup is used to wait for all the goroutines launched here to finish
+	// This "WaitGroup" is used to wait for all the goroutines launched here to finish
 	var wg sync.WaitGroup
 
 	// Launch several goroutines and increment the WaitGroup counter for each
@@ -30,6 +30,7 @@ func main() {
 		go worker(i, &wg)
 	}
 
-	// Block until the WaitGroup counter goes back to 0; all the workers notified they're done
+	// Block until the "WaitGroup" counter goes back to "0"
+	// all the workers notified they are done
 	wg.Wait()
 }
