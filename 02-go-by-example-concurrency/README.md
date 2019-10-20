@@ -320,7 +320,7 @@ $ time go run select.go
 # go run select.go  0.29s user 0.29s system 13% cpu 4.474 total
 ```
 
-- The total execution time is only `~4s` since both the `4s` and `2s` `Sleep`s execute concurrently.
+- The total execution time is only `~4s` since both the `4s Sleep` and `2s Sleep` execute concurrently.
 
 
 ## Timeouts
