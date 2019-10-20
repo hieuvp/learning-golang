@@ -22,9 +22,9 @@ func main() {
 
 	// By blocking on a receive from the limiter channel before serving each request,
 	// we limit ourselves to 1 request every 200 milliseconds
-	for req := range requests {
+	for request := range requests {
 		<-limiter
-		fmt.Println("request", req, time.Now())
+		fmt.Println("request", request, time.Now())
 	}
 
 	// We may want to allow short bursts of requests in our rate limiting scheme while preserving the overall rate limit
@@ -52,8 +52,8 @@ func main() {
 		burstyRequests <- i
 	}
 	close(burstyRequests)
-	for req := range burstyRequests {
+	for request := range burstyRequests {
 		<-burstyLimiter
-		fmt.Println("request", req, time.Now())
+		fmt.Println("request", request, time.Now())
 	}
 }
