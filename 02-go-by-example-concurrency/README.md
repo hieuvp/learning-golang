@@ -389,8 +389,7 @@ $ go run timeouts.go
 
 ## Non-Blocking Channel Operations
 
-> Basic sends and receives on channels are blocking.
-> However, we can use `select` with a `default` clause to implement non-blocking sends, receives, and even non-blocking multi-way selects.
+> Use `select` with a `default` clause to implement non-blocking sends, receives, and non-blocking multi-way selects.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
