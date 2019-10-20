@@ -553,17 +553,192 @@ $ go run range-over-channels.go
 
 ## Timers
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=timers.go) -->
+<!-- The below code snippet is automatically added from timers.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+
+	timer1 := time.NewTimer(2 * time.Second)
+
+	<-timer1.C
+	fmt.Println("Timer 1 expired")
+
+	timer2 := time.NewTimer(time.Second)
+	go func() {
+		<-timer2.C
+		fmt.Println("Timer 2 expired")
+	}()
+	stop2 := timer2.Stop()
+	if stop2 {
+		fmt.Println("Timer 2 stopped")
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run timers.go
+```
+
 
 ## Tickers
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=tickers.go) -->
+<!-- The below code snippet is automatically added from tickers.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+
+	ticker := time.NewTicker(500 * time.Millisecond)
+	done := make(chan bool)
+
+	go func() {
+		for {
+			select {
+			case <-done:
+				return
+			case t := <-ticker.C:
+				fmt.Println("Tick at", t)
+			}
+		}
+	}()
+
+	time.Sleep(1600 * time.Millisecond)
+	ticker.Stop()
+	done <- true
+	fmt.Println("Ticker stopped")
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run tickers.go
+```
 
 
 ## Worker Pools
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=worker-pools.go) -->
+<!-- The below code snippet is automatically added from worker-pools.go -->
+```go
+package main
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run worker-pools.go
+```
+
 
 ## WaitGroups
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=wait-groups.go) -->
+<!-- The below code snippet is automatically added from wait-groups.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func worker(id int, wg *sync.WaitGroup) {
+	fmt.Printf("Worker %d starting\n", id)
+
+	time.Sleep(time.Second)
+	fmt.Printf("Worker %d done\n", id)
+
+	wg.Done()
+}
+
+func main() {
+
+	var wg sync.WaitGroup
+
+	for i := 1; i <= 5; i++ {
+		wg.Add(1)
+		go worker(i, &wg)
+	}
+
+	wg.Wait()
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run wait-groups.go
+```
+
 
 ## Rate Limiting
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=rate-limiting.go) -->
+<!-- The below code snippet is automatically added from rate-limiting.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+
+	requests := make(chan int, 5)
+	for i := 1; i <= 5; i++ {
+		requests <- i
+	}
+	close(requests)
+
+	limiter := time.Tick(200 * time.Millisecond)
+
+	for req := range requests {
+		<-limiter
+		fmt.Println("request", req, time.Now())
+	}
+
+	burstyLimiter := make(chan time.Time, 3)
+
+	for i := 0; i < 3; i++ {
+		burstyLimiter <- time.Now()
+	}
+
+	go func() {
+		for t := range time.Tick(200 * time.Millisecond) {
+			burstyLimiter <- t
+		}
+	}()
+
+	burstyRequests := make(chan int, 5)
+	for i := 1; i <= 5; i++ {
+		burstyRequests <- i
+	}
+	close(burstyRequests)
+	for req := range burstyRequests {
+		<-burstyLimiter
+		fmt.Println("request", req, time.Now())
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run rate-limiting.go
+```
 
 
 ## Atomic Counters
