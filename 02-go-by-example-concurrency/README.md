@@ -553,9 +553,7 @@ $ go run range-over-channels.go
 
 ## Timers
 
-> We often want to execute Go code at some point in the future, or repeatedly at some interval.
-> Go's built-in timer and ticker features make both of these tasks easy.
-> We'll look first at timers and then at tickers.
+> `Timer` is for when you want to do something once in the future.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timers.go) -->
 <!-- The below code snippet is automatically added from timers.go -->
@@ -605,9 +603,8 @@ $ go run timers.go
 
 ## Tickers
 
-> Timers are for when you want to do something once in the future.
-> `tickers` are for when you want to do something repeatedly at regular intervals.
-> Here's an example of a ticker that ticks periodically until we stop it.
+> `Ticker` is for when you want to do something repeatedly at regular intervals.
+> Here is an example of a ticker that ticks periodically until we stop it.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=tickers.go) -->
 <!-- The below code snippet is automatically added from tickers.go -->
@@ -650,14 +647,13 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- When we run this program the ticker should tick 3 times before we stop it.
-
 ```bash
 $ go run tickers.go
 
 # Tick at 2012-09-23 11:29:56.487625 -0700 PDT
 # Tick at 2012-09-23 11:29:56.988063 -0700 PDT
 # Tick at 2012-09-23 11:29:57.488076 -0700 PDT
+
 # Ticker stopped
 ```
 
