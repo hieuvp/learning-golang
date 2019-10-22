@@ -8,14 +8,15 @@ import (
 
 // This is the function we will run in every goroutine
 // Note that a "WaitGroup" must be passed to functions by "pointer"
+// because of "func (wg *WaitGroup) Done()"
 func worker(id int, wg *sync.WaitGroup) {
-	fmt.Printf("Worker %d starting\n", id)
+	fmt.Printf("Worker : %d -> Starting\n", id)
 
 	// Sleep to simulate an expensive task
 	time.Sleep(time.Second)
-	fmt.Printf("Worker %d done\n", id)
+	fmt.Printf("Worker : %d -> Done\n", id)
 
-	// Notify the "WaitGroup" that this worker is done
+	// Notify the "WaitGroup" that this worker is "done"
 	wg.Done()
 }
 
@@ -31,6 +32,6 @@ func main() {
 	}
 
 	// Block until the "WaitGroup" counter goes back to "0"
-	// all the workers notified they are done
+	// All the workers notified they are "done"
 	wg.Wait()
 }
