@@ -24,7 +24,7 @@ func main() {
 	// we limit ourselves to 1 request every "200ms"
 	for request := range requests {
 		<-limiter
-		fmt.Println("request", request, ":", time.Now())
+		fmt.Println("Request", request, ":", time.Now())
 	}
 	fmt.Println()
 
@@ -62,6 +62,6 @@ func main() {
 			time.Sleep(3 * time.Second)
 		}
 
-		fmt.Printf("request %2d : %s\n", request, time.Now())
+		fmt.Printf("Request %2d : %s\n", request, time.Now())
 	}
 }

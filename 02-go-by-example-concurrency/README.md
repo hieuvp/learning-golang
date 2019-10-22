@@ -841,7 +841,7 @@ func main() {
 	// we limit ourselves to 1 request every "200ms"
 	for request := range requests {
 		<-limiter
-		fmt.Println("request", request, ":", time.Now())
+		fmt.Println("Request", request, ":", time.Now())
 	}
 	fmt.Println()
 
@@ -879,7 +879,7 @@ func main() {
 			time.Sleep(3 * time.Second)
 		}
 
-		fmt.Printf("request %2d : %s\n", request, time.Now())
+		fmt.Printf("Request %2d : %s\n", request, time.Now())
 	}
 }
 ```
@@ -890,17 +890,27 @@ func main() {
 ```bash
 $ go run rate-limiting.go
 
-# request 1 2012-10-19 00:38:18.687438 +0000 UTC
-# request 2 2012-10-19 00:38:18.887471 +0000 UTC
-# request 3 2012-10-19 00:38:19.087238 +0000 UTC
-# request 4 2012-10-19 00:38:19.287338 +0000 UTC
-# request 5 2012-10-19 00:38:19.487331 +0000 UTC
+# Request 1 : 2019-10-22 11:41:20.914672 +0700 +07 m=+0.200899160
+# Request 2 : 2019-10-22 11:41:21.117768 +0700 +07 m=+0.404001525
+# Request 3 : 2019-10-22 11:41:21.316226 +0700 +07 m=+0.602465326
+# Request 4 : 2019-10-22 11:41:21.517916 +0700 +07 m=+0.804161761
+# Request 5 : 2019-10-22 11:41:21.714251 +0700 +07 m=+1.000502259
 
-# request 1 2012-10-19 00:38:20.487578 +0000 UTC
-# request 2 2012-10-19 00:38:20.487645 +0000 UTC
-# request 3 2012-10-19 00:38:20.487676 +0000 UTC
-# request 4 2012-10-19 00:38:20.687483 +0000 UTC
-# request 5 2012-10-19 00:38:20.887542 +0000 UTC
+# Request  1 : 2019-10-22 11:41:21.714389 +0700 +07 m=+1.000640792
+# Request  2 : 2019-10-22 11:41:21.714445 +0700 +07 m=+1.000695997
+# Request  3 : 2019-10-22 11:41:21.714459 +0700 +07 m=+1.000710738
+# Request  4 : 2019-10-22 11:41:22.016063 +0700 +07 m=+1.302323174
+# Request  5 : 2019-10-22 11:41:22.318278 +0700 +07 m=+1.604547543
+# Request  6 : 2019-10-22 11:41:22.614736 +0700 +07 m=+1.901014874
+# Request  7 : 2019-10-22 11:41:25.916415 +0700 +07 m=+5.202793301
+# Request  8 : 2019-10-22 11:41:25.916492 +0700 +07 m=+5.202870580
+# Request  9 : 2019-10-22 11:41:25.916516 +0700 +07 m=+5.202894161
+# Request 10 : 2019-10-22 11:41:25.916529 +0700 +07 m=+5.202906953
+# Request 11 : 2019-10-22 11:41:25.916535 +0700 +07 m=+5.202912682
+# Request 12 : 2019-10-22 11:41:25.91654 +0700 +07 m=+5.202917863
+# Request 13 : 2019-10-22 11:41:26.218008 +0700 +07 m=+5.504395591
+# Request 14 : 2019-10-22 11:41:26.515433 +0700 +07 m=+5.801829276
+# Request 15 : 2019-10-22 11:41:26.814431 +0700 +07 m=+6.100836644
 ```
 
 - For the second batch of requests we serve the first 3 immediately because of the burstable rate limiting, then serve the remaining 2 with ~200ms delays each.
