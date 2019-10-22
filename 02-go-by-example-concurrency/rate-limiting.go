@@ -24,12 +24,14 @@ func main() {
 	// we limit ourselves to 1 request every "200ms"
 	for request := range requests {
 		<-limiter
-		fmt.Println("request", request, time.Now())
+		fmt.Println("request", request, ":", time.Now())
 	}
+	fmt.Println()
 
-	// We may want to allow short bursts of requests in our rate limiting scheme while preserving the overall rate limit
-	// We can accomplish this by buffering our limiter channel
-	// This burstyLimiter channel will allow bursts of up to 3 events
+	// We may want to allow short bursts of requests in our rate limiting scheme
+	// while preserving the overall rate limit
+	// We can accomplish this by buffering our "limiter" channel
+	// This "burstyLimiter" channel will allow bursts of up to "3" events
 	burstyLimiter := make(chan time.Time, 3)
 
 	// Fill up the channel to represent allowed bursting
@@ -37,23 +39,29 @@ func main() {
 		burstyLimiter <- time.Now()
 	}
 
-	// Every 200 milliseconds we'll try to add a new value to burstyLimiter,
-	// up to its limit of 3
+	// Every "300ms" we will try to add a new value to "burstyLimiter",
+	// up to its limit of "3"
 	go func() {
-		for t := range time.Tick(200 * time.Millisecond) {
+		for t := range time.Tick(300 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
 
-	// Now simulate 5 more incoming requests
-	// The first 3 of these will benefit from the burst capability of burstyLimiter
-	burstyRequests := make(chan int, 5)
-	for i := 1; i <= 5; i++ {
+	// Now simulate "15" more incoming requests
+	// The first "3" of these will benefit from the burst capability of "burstyLimiter"
+	burstyRequests := make(chan int, 15)
+	for i := 1; i <= 15; i++ {
 		burstyRequests <- i
 	}
 	close(burstyRequests)
+
 	for request := range burstyRequests {
 		<-burstyLimiter
-		fmt.Println("request", request, time.Now())
+
+		if request == 7 {
+			time.Sleep(3 * time.Second)
+		}
+
+		fmt.Printf("request %2d : %s\n", request, time.Now())
 	}
 }
