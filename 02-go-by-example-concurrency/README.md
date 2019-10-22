@@ -705,8 +705,8 @@ func main() {
 		go worker(id, jobs, results)
 	}
 
-	// Here we send "5" jobs and then "close" that channel
-	// to indicate that is all the work we have
+	// Here we send "5" jobs
+	// and then "close" that channel to indicate that is all the work we have
 	for job := 1; job <= 5; job++ {
 		jobs <- job
 	}
