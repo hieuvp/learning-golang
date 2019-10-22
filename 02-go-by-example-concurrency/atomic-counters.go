@@ -14,15 +14,14 @@ func main() {
 	// A "WaitGroup" will help us wait for all goroutines to finish their work
 	var wg sync.WaitGroup
 
-	// We will start 50 goroutines that each increment the counter exactly 1000 times
+	// We will start "50" goroutines that each increment the counter exactly 1000 times
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
 		// To atomically increment the counter we use "AddUint64",
-		// giving it the memory address of our ops counter with the & syntax
+		// giving it the memory address of our "ops" counter with the "&" syntax
 		go func() {
-			for c := 0; c < 1000; c++ {
-
+			for counter := 0; counter < 1000; counter++ {
 				atomic.AddUint64(&ops, 1)
 			}
 			wg.Done()
@@ -32,8 +31,8 @@ func main() {
 	// Wait until all the goroutines are done
 	wg.Wait()
 
-	// It's safe to access ops now because we know no other goroutine is writing to it
+	// It is safe to access "ops" now because we know no other goroutine is writing to it
 	// Reading atomics safely while they are being updated is also possible,
-	// using functions like atomic.LoadUint64
-	fmt.Println("ops:", ops)
+	// using functions like "atomic.LoadUint64"
+	fmt.Println("ops =", ops)
 }
