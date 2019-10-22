@@ -823,21 +823,21 @@ import (
 
 func main() {
 
-	// First we'll look at basic rate limiting
+	// First we will look at basic rate limiting
 	// Suppose we want to limit our handling of incoming requests
-	// We'll serve these requests off a channel of the same name
+	// We will serve these requests off a channel of the same name
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
 	}
 	close(requests)
 
-	// This limiter channel will receive a value every 200 milliseconds
+	// This "limiter" channel will receive a value every "200ms"
 	// This is the regulator in our rate limiting scheme
 	limiter := time.Tick(200 * time.Millisecond)
 
-	// By blocking on a receive from the limiter channel before serving each request,
-	// we limit ourselves to 1 request every 200 milliseconds
+	// By blocking on a receive from the "limiter" channel before serving each request,
+	// we limit ourselves to 1 request every "200ms"
 	for request := range requests {
 		<-limiter
 		fmt.Println("request", request, time.Now())
