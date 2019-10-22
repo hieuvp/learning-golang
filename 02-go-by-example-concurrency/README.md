@@ -644,6 +644,8 @@ func main() {
 	ticker.Stop()
 	done <- true
 	fmt.Println("Ticker stopped")
+
+	time.Sleep(3 * time.Second)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
