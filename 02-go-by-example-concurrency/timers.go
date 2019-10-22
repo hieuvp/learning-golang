@@ -8,12 +8,10 @@ import (
 func main() {
 
 	// "Timer" represents a single event in the future
-	// You tell the "Timer" how long you want to wait,
-	// and it provides a channel that will be notified at that time
+	// You tell the "Timer" how long you want to wait
 	timer1 := time.NewTimer(2 * time.Second)
 
-	// The "<-timer1.C" blocks on the timer's channel C
-	// until it sends a value indicating that the timer expired
+	// It provides a channel that will send a value indicating when the "Timer" expired
 	<-timer1.C
 	fmt.Println("Timer 1 expired")
 
