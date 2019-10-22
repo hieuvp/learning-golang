@@ -677,8 +677,8 @@ import (
 	"time"
 )
 
-// Here is the worker, of which we will run several concurrent instances
-// These workers will receive work on the jobs channel and send the corresponding results on results
+// Here is the "worker", of which we will run several concurrent instances
+// These will receive "jobs" and send the corresponding "results"
 func worker(id int, jobs <-chan int, results chan<- int) {
 
 	for job := range jobs {
@@ -689,7 +689,7 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 		time.Sleep(duration)
 		fmt.Println("Worker :", id, " -> Finished Job :", job, " -> Duration :", duration)
 
-		results <- job * 2
+		results <- job
 	}
 }
 
@@ -700,23 +700,22 @@ func main() {
 	jobs := make(chan int, 100)
 	results := make(chan int, 100)
 
-	// Start up 3 workers, initially blocked because there are no jobs yet
+	// Start up "3" workers, initially blocked because there are no jobs yet
 	for id := 1; id <= 3; id++ {
 		go worker(id, jobs, results)
 	}
 
-	// Here we send 5 jobs and then close that channel
+	// Here we send "5" jobs and then "close" that channel
 	// to indicate that is all the work we have
 	for job := 1; job <= 5; job++ {
 		jobs <- job
 	}
 	close(jobs)
 
-	// Finally we collect all the results of the work
+	// Finally we collect all the "results" of the work
 	// This also ensures that the worker goroutines have finished
-	// An alternative way to wait for multiple goroutines is to use a "WaitGroup"
 	for a := 1; a <= 5; a++ {
-		<-results
+		fmt.Println("Received Result :", <-results)
 	}
 }
 ```
