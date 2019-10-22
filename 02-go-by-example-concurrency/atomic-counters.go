@@ -8,14 +8,15 @@ import (
 
 func main() {
 
-	// We will use an unsigned integer to represent our (always-positive) counter
+	// Use an unsigned integer to represent our always-positive number
 	var ops uint64
 	var atomicOps uint64
 
 	// A "WaitGroup" will help us wait for all goroutines to finish their work
 	var wg sync.WaitGroup
 
-	// We will start "50" goroutines that each increment the counter exactly 1000 times
+	// We will start "50" goroutines that
+	// each increment the counter exactly "1000" times
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
