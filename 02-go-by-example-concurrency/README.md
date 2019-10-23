@@ -576,7 +576,7 @@ func main() {
 	fmt.Println("Timer 1 expired")
 
 	// If you just wanted to wait, you could have used "time.Sleep"
-	// One reason a "Timer" may be useful is that
+	// One reason a "Timer" maybe useful is that,
 	// you can "stop" the "Timer" before it expires
 	timer2 := time.NewTimer(time.Second)
 	go func() {
