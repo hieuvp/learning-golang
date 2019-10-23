@@ -9,8 +9,8 @@ import (
 func main() {
 
 	// Use an unsigned integer to represent our always-positive number
-	var ops uint64
-	var atomicOps uint64
+	var counter uint64
+	var atomicCounter uint64
 
 	// A "WaitGroup" will help us wait for all goroutines to finish their work
 	var wg sync.WaitGroup
@@ -21,11 +21,11 @@ func main() {
 		wg.Add(1)
 
 		// To atomically increment the counter we use "AddUint64",
-		// giving it the memory address of our "atomicOps" counter with the "&" syntax
+		// giving it the memory address of our "atomicCounter" counter with the "&" syntax
 		go func() {
-			for counter := 0; counter < 1000; counter++ {
-				ops += 1
-				atomic.AddUint64(&atomicOps, 1)
+			for j := 0; j < 1000; j++ {
+				counter += 1
+				atomic.AddUint64(&atomicCounter, 1)
 			}
 			wg.Done()
 		}()
@@ -34,10 +34,10 @@ func main() {
 	// Wait until all the goroutines are done
 	wg.Wait()
 
-	// It is safe to access "ops" and "atomicOps" now
+	// It is safe to access "counter" and "atomicCounter" now
 	// because we know no other goroutine is writing to it
 	// Reading atomics safely while they are being updated is also possible,
 	// using functions like "atomic.LoadUint64"
-	fmt.Println("ops =", ops)
-	fmt.Println("atomicOps =", atomicOps)
+	fmt.Println("counter       =", counter)
+	fmt.Println("atomicCounter =", atomicCounter)
 }
