@@ -723,18 +723,23 @@ func main() {
 ```bash
 $ time go run worker-pools.go
 
-# worker 3 started  job 1
-# worker 1 started  job 2
-# worker 2 started  job 3
-# worker 1 finished job 2
-# worker 2 finished job 3
-# worker 1 started  job 4
-# worker 3 finished job 1
-# worker 2 started  job 5
-# worker 2 finished job 5
-# worker 1 finished job 4
+# Worker : 3  -> Starting Job : 1
+# Worker : 2  -> Starting Job : 3
+# Worker : 1  -> Starting Job : 2
+# Worker : 1  -> Finished Job : 2  -> Duration : 1.847s
+# Worker : 1  -> Starting Job : 4
+# Received Result : 2
+# Worker : 2  -> Finished Job : 3  -> Duration : 1.887s
+# Worker : 2  -> Starting Job : 5
+# Received Result : 3
+# Worker : 1  -> Finished Job : 4  -> Duration : 59ms
+# Received Result : 4
+# Worker : 3  -> Finished Job : 1  -> Duration : 2.081s
+# Received Result : 1
+# Worker : 2  -> Finished Job : 5  -> Duration : 1.081s
+# Received Result : 5
 
-# go run worker-pools.go  0.26s user 0.21s system 20% cpu 2.283 total
+# go run worker-pools.go  0.28s user 0.21s system 14% cpu 3.264 total
 ```
 
 
