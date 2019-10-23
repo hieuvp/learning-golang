@@ -643,7 +643,7 @@ func main() {
 	done <- true
 	fmt.Println("Ticker stopped")
 
-	time.Sleep(3 * time.Second)
+	time.Sleep(2000 * time.Millisecond)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -651,9 +651,9 @@ func main() {
 ```bash
 $ go run tickers.go
 
-# Tick at 2012-09-23 11:29:56.487625 -0700 PDT
-# Tick at 2012-09-23 11:29:56.988063 -0700 PDT
-# Tick at 2012-09-23 11:29:57.488076 -0700 PDT
+# Tick at : 2019-10-23 12:05:26.605803 +0700 +07 m=+0.504344617
+# Tick at : 2019-10-23 12:05:27.106393 +0700 +07 m=+1.004949855
+# Tick at : 2019-10-23 12:05:27.60466 +0700 +07 m=+1.503231861
 
 # Ticker stopped
 ```

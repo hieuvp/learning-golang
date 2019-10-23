@@ -32,5 +32,5 @@ func main() {
 	done <- true
 	fmt.Println("Ticker stopped")
 
-	time.Sleep(3 * time.Second)
+	time.Sleep(2000 * time.Millisecond)
 }
