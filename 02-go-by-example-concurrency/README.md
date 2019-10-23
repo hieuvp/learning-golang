@@ -697,7 +697,8 @@ func main() {
 	jobs := make(chan int, 100)
 	results := make(chan int, 100)
 
-	// Start up "3" workers, initially blocked because there are no jobs yet
+	// Start up "3" workers,
+	// initially blocked because there are no jobs yet
 	for id := 1; id <= 3; id++ {
 		go worker(id, jobs, results)
 	}
