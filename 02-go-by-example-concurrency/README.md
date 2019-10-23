@@ -712,7 +712,7 @@ func main() {
 
 	// Finally, we collect all the "results" of the work
 	// This also ensures that the worker goroutines have finished
-	for a := 1; a <= 5; a++ {
+	for count := 1; count <= 5; count++ {
 		fmt.Println("Received Result :", <-results)
 	}
 }
