@@ -703,14 +703,14 @@ func main() {
 		go worker(id, jobs, results)
 	}
 
-	// Here we send "5" jobs
+	// Here we send "5" jobs,
 	// and then "close" that channel to indicate that is all the work we have
 	for job := 1; job <= 5; job++ {
 		jobs <- job
 	}
 	close(jobs)
 
-	// Finally we collect all the "results" of the work
+	// Finally, we collect all the "results" of the work
 	// This also ensures that the worker goroutines have finished
 	for a := 1; a <= 5; a++ {
 		fmt.Println("Received Result :", <-results)
