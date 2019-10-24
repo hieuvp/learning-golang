@@ -794,16 +794,16 @@ func main() {
 $ go run wait-groups.go
 
 # Worker : 5 -> Starting
+# Worker : 2 -> Starting
 # Worker : 1 -> Starting
 # Worker : 4 -> Starting
 # Worker : 3 -> Starting
-# Worker : 2 -> Starting
 
-# Worker : 3 -> Done
-# Worker : 2 -> Done
 # Worker : 5 -> Done
 # Worker : 1 -> Done
+# Worker : 3 -> Done
 # Worker : 4 -> Done
+# Worker : 2 -> Done
 ```
 
 - The order of workers starting up and finishing is likely to be different for each invocation.
