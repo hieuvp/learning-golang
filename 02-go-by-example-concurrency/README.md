@@ -658,6 +658,10 @@ func main() {
 
 ```bash
 $ go run mutexes.go
+
+# readOps: 83285
+# writeOps: 8320
+# state: map[1:97 4:53 0:33 2:15 3:2]
 ```
 
 - Next we'll look at implementing this same state management task using only goroutines and channels.
@@ -773,6 +777,9 @@ func main() {
 
 ```bash
 $ go run stateful-goroutines.go
+
+# readOps: 71708
+# writeOps: 7177
 ```
 
 - For this particular case the goroutine-based approach was a bit more involved than the mutex-based one. It might be useful in certain cases though, for example where you have other channels involved or when managing multiple such mutexes would be error-prone. You should use whichever approach feels most natural, especially with respect to understanding the correctness of your program.
