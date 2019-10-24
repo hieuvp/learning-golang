@@ -759,8 +759,8 @@ import (
 	"time"
 )
 
-// Because we are going to use "func (wg *WaitGroup) Done()",
-// the "WaitGroup" must be passed by "pointer"
+// Because we are going to use a method "func (wg *WaitGroup) Done()",
+// so "WaitGroup" must be passed by "pointer"
 func worker(id int, wg *sync.WaitGroup) {
 	fmt.Printf("Worker : %d -> Starting\n", id)
 
