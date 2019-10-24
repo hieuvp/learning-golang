@@ -571,20 +571,311 @@ $ go run range-over-channels.go
 
 ## Mutexes
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=mutexes.go) -->
+<!-- The below code snippet is automatically added from mutexes.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"sync"
+	"sync/atomic"
+	"time"
+)
+
+func main() {
+
+	var state = make(map[int]int)
+
+	var mutex = &sync.Mutex{}
+
+	var readOps uint64
+	var writeOps uint64
+
+	for r := 0; r < 100; r++ {
+		go func() {
+			total := 0
+			for {
+
+				key := rand.Intn(5)
+				mutex.Lock()
+				total += state[key]
+				mutex.Unlock()
+				atomic.AddUint64(&readOps, 1)
+
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	for w := 0; w < 10; w++ {
+		go func() {
+			for {
+				key := rand.Intn(5)
+				val := rand.Intn(100)
+				mutex.Lock()
+				state[key] = val
+				mutex.Unlock()
+				atomic.AddUint64(&writeOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	time.Sleep(time.Second)
+
+	readOpsFinal := atomic.LoadUint64(&readOps)
+	fmt.Println("readOps:", readOpsFinal)
+	writeOpsFinal := atomic.LoadUint64(&writeOps)
+	fmt.Println("writeOps:", writeOpsFinal)
+
+	mutex.Lock()
+	fmt.Println("state:", state)
+	mutex.Unlock()
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run mutexes.go
+```
+
 
 ## Stateful Goroutines
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=stateful-goroutines.go) -->
+<!-- The below code snippet is automatically added from stateful-goroutines.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"sync/atomic"
+	"time"
+)
+
+type readOp struct {
+	key  int
+	resp chan int
+}
+type writeOp struct {
+	key  int
+	val  int
+	resp chan bool
+}
+
+func main() {
+
+	var readOps uint64
+	var writeOps uint64
+
+	reads := make(chan readOp)
+	writes := make(chan writeOp)
+
+	go func() {
+		var state = make(map[int]int)
+		for {
+			select {
+			case read := <-reads:
+				read.resp <- state[read.key]
+			case write := <-writes:
+				state[write.key] = write.val
+				write.resp <- true
+			}
+		}
+	}()
+
+	for r := 0; r < 100; r++ {
+		go func() {
+			for {
+				read := readOp{
+					key:  rand.Intn(5),
+					resp: make(chan int)}
+				reads <- read
+				<-read.resp
+				atomic.AddUint64(&readOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	for w := 0; w < 10; w++ {
+		go func() {
+			for {
+				write := writeOp{
+					key:  rand.Intn(5),
+					val:  rand.Intn(100),
+					resp: make(chan bool)}
+				writes <- write
+				<-write.resp
+				atomic.AddUint64(&writeOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	time.Sleep(time.Second)
+
+	readOpsFinal := atomic.LoadUint64(&readOps)
+	fmt.Println("readOps:", readOpsFinal)
+	writeOpsFinal := atomic.LoadUint64(&writeOps)
+	fmt.Println("writeOps:", writeOpsFinal)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run stateful-goroutines.go
+```
 
 
 ## Sorting
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting.go) -->
+<!-- The below code snippet is automatically added from sorting.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+
+	strs := []string{"c", "a", "b"}
+	sort.Strings(strs)
+	fmt.Println("Strings:", strs)
+
+	ints := []int{7, 2, 4}
+	sort.Ints(ints)
+	fmt.Println("Ints:   ", ints)
+
+	s := sort.IntsAreSorted(ints)
+	fmt.Println("Sorted: ", s)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run sorting.go
+```
+
 
 ## Sorting by Functions
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting-by-functions.go) -->
+<!-- The below code snippet is automatically added from sorting-by-functions.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+type byLength []string
+
+func (s byLength) Len() int {
+	return len(s)
+}
+func (s byLength) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+func (s byLength) Less(i, j int) bool {
+	return len(s[i]) < len(s[j])
+}
+
+func main() {
+	fruits := []string{"peach", "banana", "kiwi"}
+	sort.Sort(byLength(fruits))
+	fmt.Println(fruits)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run sorting-by-functions.go
+```
 
 
 ## Panic
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=panic.go) -->
+<!-- The below code snippet is automatically added from panic.go -->
+```go
+package main
+
+import "os"
+
+func main() {
+
+	panic("a problem")
+
+	_, err := os.Create("/tmp/file")
+	if err != nil {
+		panic(err)
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run panic.go
+```
+
 
 ## Defer
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=defer.go) -->
+<!-- The below code snippet is automatically added from defer.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+
+	f := createFile("/tmp/defer.txt")
+	defer closeFile(f)
+	writeFile(f)
+}
+
+func createFile(p string) *os.File {
+	fmt.Println("creating")
+	f, err := os.Create(p)
+	if err != nil {
+		panic(err)
+	}
+	return f
+}
+
+func writeFile(f *os.File) {
+	fmt.Println("writing")
+	fmt.Fprintln(f, "data")
+
+}
+
+func closeFile(f *os.File) {
+	fmt.Println("closing")
+	err := f.Close()
+
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run defer.go
+```
 
 
 ## References
