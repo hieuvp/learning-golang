@@ -784,7 +784,7 @@ func main() {
 	}
 
 	// Block until the "WaitGroup" "counter" goes back to "0",
-	// meaning all the workers notified they are "done"
+	// meaning all the workers notified that they are "done"
 	wg.Wait()
 }
 ```
