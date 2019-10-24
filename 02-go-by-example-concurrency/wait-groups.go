@@ -24,13 +24,13 @@ func main() {
 	// This "WaitGroup" is used to wait for all the goroutines launched here to finish
 	var wg sync.WaitGroup
 
-	// Launch several goroutines and increment the "WaitGroup" "counter" for each
+	// Launch several goroutines and increase the "WaitGroup" "counter" for each
 	for id := 1; id <= 5; id++ {
 		wg.Add(1)
 		go worker(id, &wg)
 	}
 
-	// Block until the "WaitGroup" "counter" goes back to "0"
-	// All the workers notified they are "done"
+	// Block until the "WaitGroup" "counter" goes back to "0",
+	// meaning all the workers notified they are "done"
 	wg.Wait()
 }
