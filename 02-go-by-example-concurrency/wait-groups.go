@@ -6,9 +6,8 @@ import (
 	"time"
 )
 
-// This is the function we will run in every goroutine
-// Note that a "WaitGroup" must be passed to functions by "pointer"
-// because of "func (wg *WaitGroup) Done()"
+// Because we are going to use "func (wg *WaitGroup) Done()",
+// the "WaitGroup" must be passed by "pointer"
 func worker(id int, wg *sync.WaitGroup) {
 	fmt.Printf("Worker : %d -> Starting\n", id)
 
@@ -16,7 +15,7 @@ func worker(id int, wg *sync.WaitGroup) {
 	time.Sleep(time.Second)
 	fmt.Printf("Worker : %d -> Done\n", id)
 
-	// Notify the "WaitGroup" that this worker is "done"
+	// Notify the "WaitGroup" that this "worker" is "done"
 	wg.Done()
 }
 
@@ -25,13 +24,13 @@ func main() {
 	// This "WaitGroup" is used to wait for all the goroutines launched here to finish
 	var wg sync.WaitGroup
 
-	// Launch several goroutines and increment the "WaitGroup" counter for each
-	for i := 1; i <= 5; i++ {
+	// Launch several goroutines and increment the "WaitGroup" "counter" for each
+	for id := 1; id <= 5; id++ {
 		wg.Add(1)
-		go worker(i, &wg)
+		go worker(id, &wg)
 	}
 
-	// Block until the "WaitGroup" counter goes back to "0"
+	// Block until the "WaitGroup" "counter" goes back to "0"
 	// All the workers notified they are "done"
 	wg.Wait()
 }
