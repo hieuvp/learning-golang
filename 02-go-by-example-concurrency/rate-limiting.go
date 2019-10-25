@@ -7,9 +7,8 @@ import (
 
 func main() {
 
-	// First we will look at basic rate limiting
+	// Basic rate limiting
 	// Suppose we want to limit our handling of incoming requests
-	// We will serve these requests off a channel of the same name
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
