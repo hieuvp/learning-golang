@@ -834,12 +834,11 @@ func main() {
 	}
 	close(requests)
 
-	// This "limiter" channel will receive a value every "200ms"
-	// This is the regulator in our rate limiting scheme
+	// This "limiter" is the regulator in our rate limiting scheme
 	limiter := time.Tick(200 * time.Millisecond)
 
 	// By blocking on a receive from the "limiter" channel before serving each request,
-	// we limit ourselves to 1 request every "200ms"
+	// we limit ourselves to "1" request every "200ms"
 	for request := range requests {
 		<-limiter
 		fmt.Println("Request", request, ":", time.Now())
@@ -848,7 +847,6 @@ func main() {
 
 	// We may want to allow short bursts of requests in our rate limiting scheme
 	// while preserving the overall rate limit
-	// We can accomplish this by buffering our "limiter" channel
 	// This "burstyLimiter" channel will allow bursts of up to "3" events
 	burstyLimiter := make(chan time.Time, 3)
 
