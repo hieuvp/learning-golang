@@ -47,11 +47,9 @@ func main() {
 			fmt.Println("Tick :", time.Now())
 			fmt.Println("burstyLimiter capacity will be increased by 1 from", len(burstyLimiter))
 
-			// The send will be blocked when reaches maximum buffered length,
-			// in this case "3"
+			// The send will be blocked when "burstyLimiter" reaches its maximum buffered capacity
 			burstyLimiter <- t
 			fmt.Println("burstyLimiter capacity increased :", time.Now())
-
 		}
 	}()
 
