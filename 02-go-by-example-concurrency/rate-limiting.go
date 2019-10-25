@@ -35,12 +35,23 @@ func main() {
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
+	fmt.Println("Initial burstyLimiter capacity :", len(burstyLimiter))
 
-	// Every "300ms" we will try to add a new value to "burstyLimiter",
+	// Every "200ms" we will try to add a new value to "burstyLimiter",
 	// up to its limit of "3"
 	go func() {
-		for t := range time.Tick(300 * time.Millisecond) {
+		duration := 200 * time.Millisecond
+		fmt.Printf("Initializing ticks in every %s\n", duration)
+
+		for t := range time.Tick(duration) {
+			fmt.Println("Tick :", time.Now())
+			fmt.Println("burstyLimiter capacity will be increased by 1 from", len(burstyLimiter))
+
+			// The send will be blocked when reaches maximum buffered length,
+			// in this case "3"
 			burstyLimiter <- t
+			fmt.Println("burstyLimiter capacity increased :", time.Now())
+
 		}
 	}()
 
@@ -55,8 +66,10 @@ func main() {
 	for request := range burstyRequests {
 		<-burstyLimiter
 
-		if request == 7 {
-			time.Sleep(3 * time.Second)
+		if duration := 5 * time.Second; request == 7 {
+			fmt.Printf("Sleeping for %s...\n", duration)
+			time.Sleep(duration)
+			fmt.Println("burstyLimiter capacity after sleeping :", len(burstyLimiter))
 		}
 
 		fmt.Printf("Request %2d : %s\n", request, time.Now())

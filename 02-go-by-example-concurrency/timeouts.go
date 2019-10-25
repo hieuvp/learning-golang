@@ -11,7 +11,8 @@ func main() {
 	// A common pattern to prevent goroutine leaks in case the channel is never "read"
 	c1 := make(chan string, 1)
 
-	// In contrast, "make(chan string)" is an "unbuffered channel"
+	// In contrast, "make(chan string)" is an "unbuffered channel"?
+	// is it === "make(chan string, 0)"
 	// The sender will block on the channel until the receiver receives the data from the channel
 
 	// In both channels,
