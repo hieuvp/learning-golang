@@ -42,7 +42,7 @@ func main() {
 	for i := 1; i <= 3; i++ {
 		burstyLimiter <- time.Now()
 	}
-	fmt.Printf("Initial Limiter capacity     : %d\n\n", len(burstyLimiter))
+	fmt.Printf("Initial Limiter length     : %d\n\n", len(burstyLimiter))
 
 	// Every "200ms" we will try to add a new value to "burstyLimiter",
 	// up to its limit of "3"
@@ -50,12 +50,12 @@ func main() {
 		fmt.Printf("Initializing Ticker for every %s\n\n", duration)
 
 		for t := range time.Tick(duration) {
-			fmt.Println("Ticking                      : at", getMonotonicClock())
-			fmt.Println("Increasing Limiter capacity  :", len(burstyLimiter), "+ 1")
+			fmt.Println("Ticking                    : at", getMonotonicClock())
+			fmt.Println("Increasing Limiter length  :", len(burstyLimiter), "+ 1")
 
 			// Blocked when "burstyLimiter" reaches its maximum buffered capacity
 			burstyLimiter <- t
-			fmt.Println("Increased Limiter capacity   : at", getMonotonicClock())
+			fmt.Println("Increased Limiter length   : at", getMonotonicClock())
 		}
 	}()
 
@@ -72,12 +72,12 @@ func main() {
 			fmt.Printf("Go to Sleep for %s...\n\n", duration)
 			time.Sleep(duration)
 			fmt.Println()
-			fmt.Printf("Limiter capacity after Sleep : %d\n\n", len(burstyLimiter))
+			fmt.Printf("Limiter length after Sleep : %d\n\n", len(burstyLimiter))
 		}
 
 		<-burstyLimiter
-		fmt.Println("Decreased Limiter capacity   :", len(burstyLimiter))
+		fmt.Println("Decreased Limiter length   :", len(burstyLimiter))
 
-		fmt.Printf("Request %2d                   : at %s\n\n", request, getMonotonicClock())
+		fmt.Printf("Request %2d                 : at %s\n\n", request, getMonotonicClock())
 	}
 }
