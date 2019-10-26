@@ -21,8 +21,10 @@ func main() {
 	}
 	close(requests)
 
-	// This "limiter" is the regulator in our rate limiting scheme
-	limiter := time.Tick(200 * time.Millisecond)
+	// This "limiter" is the regulator in our "rate limiting" scheme
+	duration := 200 * time.Millisecond
+	fmt.Println("Initializing Ticker for every", duration)
+	limiter := time.Tick(duration)
 
 	// By blocking on a receive from the "limiter" channel before serving each request,
 	// we limit ourselves to "1" request every "200ms"
@@ -41,12 +43,11 @@ func main() {
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
-	fmt.Printf("Initial Limiter capacity     : %d\n\n", len(burstyLimiter))
+	fmt.Printf("\nInitial Limiter capacity     : %d\n\n", len(burstyLimiter))
 
 	// Every "200ms" we will try to add a new value to "burstyLimiter",
 	// up to its limit of "3"
 	go func() {
-		duration := 200 * time.Millisecond
 		fmt.Printf("Initializing Ticker for every %s\n\n", duration)
 
 		for t := range time.Tick(duration) {
