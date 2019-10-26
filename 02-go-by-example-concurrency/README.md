@@ -856,6 +856,7 @@ func main() {
 
 	// We may want to allow short bursts of requests in our "rate limiting" scheme
 	// while preserving the overall rate limit
+
 	// This "burstyLimiter" channel will allow bursts of up to "3" events
 	burstyLimiter := make(chan time.Time, 3)
 	for i := 0; i < 3; i++ {
