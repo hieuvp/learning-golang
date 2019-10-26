@@ -9,7 +9,6 @@ import (
 func getMonotonicClock() string {
 	now := time.Now().String()
 	separator := "m=+"
-
 	return strings.Split(now, separator)[1]
 }
 
@@ -30,9 +29,9 @@ func main() {
 	// we limit ourselves to "1" request every "200ms"
 	for request := range requests {
 		<-limiter
-		fmt.Println("Request", request, ":", getMonotonicClock())
+		fmt.Println("Request", request, ": at", getMonotonicClock())
 	}
-	fmt.Println()
+	fmt.Println("\n")
 
 	// We may want to allow short bursts of requests in our rate limiting scheme
 	// while preserving the overall rate limit
@@ -43,21 +42,21 @@ func main() {
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
-	fmt.Println("Initial burstyLimiter capacity :", len(burstyLimiter))
+	fmt.Println("Initial Limiter capacity     :", len(burstyLimiter))
 
 	// Every "200ms" we will try to add a new value to "burstyLimiter",
 	// up to its limit of "3"
 	go func() {
 		duration := 200 * time.Millisecond
-		fmt.Printf("Initializing ticks in every %s\n", duration)
+		fmt.Printf("\nInitializing Ticker for every %s\n\n", duration)
 
 		for t := range time.Tick(duration) {
-			fmt.Println("Tick :", getMonotonicClock())
-			fmt.Println("burstyLimiter capacity will be increased by 1 from", len(burstyLimiter))
+			fmt.Println("Ticking                      : at", getMonotonicClock())
+			fmt.Println("Increasing Limiter capacity  :", len(burstyLimiter), "+ 1")
 
-			// The send will be blocked when "burstyLimiter" reaches its maximum buffered capacity
+			// Blocking when "burstyLimiter" reaches its maximum buffered capacity
 			burstyLimiter <- t
-			fmt.Println("burstyLimiter capacity increased :", getMonotonicClock())
+			fmt.Println("Increased Limiter capacity   : at", getMonotonicClock())
 		}
 	}()
 
@@ -71,13 +70,14 @@ func main() {
 
 	for request := range burstyRequests {
 		<-burstyLimiter
+		fmt.Println("Decreased Limiter capacity   :", len(burstyLimiter))
 
 		if duration := 5 * time.Second; request == 7 {
-			fmt.Printf("Sleeping for %s...\n\n", duration)
+			fmt.Printf("\nGo to Sleep for %s...\n\n", duration)
 			time.Sleep(duration)
-			fmt.Println("burstyLimiter capacity after sleeping :", len(burstyLimiter))
+			fmt.Printf("\nLimiter capacity after Sleep : %d\n\n", len(burstyLimiter))
 		}
 
-		fmt.Printf("Request %2d : %s\n", request, getMonotonicClock())
+		fmt.Printf("Request %2d                   : at %s\n", request, getMonotonicClock())
 	}
 }
