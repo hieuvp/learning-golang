@@ -1030,24 +1030,24 @@ import (
 func main() {
 
 	// Use an unsigned integer to represent our always-positive number
-	var counter uint64
+	var nonAtomicCounter uint64
 	var atomicCounter uint64
 
 	// A "WaitGroup" will help us wait for all goroutines to finish their work
 	var wg sync.WaitGroup
 
-	// We will start "50" goroutines that
-	// each increment the counter exactly "1000" times
+	// Start "50" goroutines that each increases the counters exactly "1000" times
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
-		// To atomically increment the counter we use "AddUint64",
-		// giving it the memory address of our "atomicCounter" counter with the "&" syntax
 		go func() {
 			for j := 0; j < 1000; j++ {
-				counter++
+				nonAtomicCounter++
+
+				// Atomically increment
 				atomic.AddUint64(&atomicCounter, 1)
 			}
+
 			wg.Done()
 		}()
 	}
@@ -1055,12 +1055,14 @@ func main() {
 	// Wait until all the goroutines are done
 	wg.Wait()
 
-	// It is safe to access "counter" and "atomicCounter" now
+	// It is safe to access the counters now
 	// because we know no other goroutine is writing to it
-	// Reading atomics safely while they are being updated is also possible,
-	// using functions like "atomic.LoadUint64"
-	fmt.Println("counter       =", counter)
-	fmt.Println("atomicCounter =", atomicCounter)
+	fmt.Println("nonAtomicCounter :", nonAtomicCounter)
+	fmt.Println("atomicCounter    :", atomicCounter)
+
+	// Reading atomics safely while they are being updated is also possible
+	fmt.Println("atomic.LoadUint64(&atomicCounter) =", atomic.LoadUint64(&atomicCounter))
+
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -1070,8 +1072,10 @@ func main() {
 ```bash
 $ go run atomic-counters.go
 
-# counter       = 18202
-# atomicCounter = 50000
+# nonAtomicCounter : 17257
+# atomicCounter    : 50000
+
+# atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
 - Next we'll look at mutexes, another tool for managing state.
