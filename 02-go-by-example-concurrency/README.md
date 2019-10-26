@@ -879,15 +879,17 @@ func main() {
 		}
 	}()
 
-	// Now simulate "15" more incoming requests
-	// The first "3" of these will benefit from the burst capability of "burstyLimiter"
+	// Now simulating "15" incoming requests
 	burstyRequests := make(chan int, 15)
 	for i := 1; i <= 15; i++ {
 		burstyRequests <- i
 	}
 	close(burstyRequests)
 
+	// The first "3" of these requests will benefit
+	// from the burst capability of "burstyLimiter"
 	for request := range burstyRequests {
+
 		if duration := 5 * time.Second; request == 7 {
 			fmt.Printf("Go to Sleep for %s...\n\n", duration)
 			time.Sleep(duration)
