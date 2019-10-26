@@ -53,7 +53,7 @@ func main() {
 			fmt.Println("Ticking                    : at", getMonotonicClock())
 			fmt.Println("Increasing Limiter length  :", len(burstyLimiter), "+ 1")
 
-			// Blocked when "burstyLimiter" reaches its maximum buffered capacity
+			// Blocked when "burstyLimiter" reaches its limited buffered capacity
 			burstyLimiter <- t
 			fmt.Println("Increased Limiter length   : at", getMonotonicClock())
 		}
