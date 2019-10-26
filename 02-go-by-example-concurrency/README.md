@@ -1072,7 +1072,7 @@ func main() {
 ```bash
 $ go run atomic-counters.go
 
-# nonAtomicCounter : 17257
+# nonAtomicCounter : 17806
 # atomicCounter    : 50000
 
 # atomic.LoadUint64(&atomicCounter) = 50000
