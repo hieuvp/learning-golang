@@ -21,7 +21,7 @@ func main() {
 	}
 	close(requests)
 
-	// This "limiter" is the regulator in our "rate limiting" scheme
+	// The "limiter" is the regulator in our "rate limiting" scheme
 	duration := 200 * time.Millisecond
 	fmt.Println("Initializing Ticker for every", duration)
 	limiter := time.Tick(duration)
