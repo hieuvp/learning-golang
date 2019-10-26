@@ -910,101 +910,101 @@ func main() {
 ```bash
 $ go run rate-limiting.go
 
-# Request 1 : at 0.201859204
-# Request 2 : at 0.400842022
-# Request 3 : at 0.603453855
-# Request 4 : at 0.805603644
-# Request 5 : at 1.002389507
+# Request 1 : at 0.203961915
+# Request 2 : at 0.401421176
+# Request 3 : at 0.603128904
+# Request 4 : at 0.800965960
+# Request 5 : at 1.005009301
 
 # Initial Limiter capacity     : 3
 
 # Decreased Limiter capacity   : 2
-# Request  1                   : at 1.002747387
+# Request  1                   : at 1.005142208
 
 # Decreased Limiter capacity   : 1
-# Request  2                   : at 1.002785910
+# Request  2                   : at 1.005161306
 
 # Decreased Limiter capacity   : 0
-# Request  3                   : at 1.002797056
+# Request  3                   : at 1.005169214
 
 # Initializing Ticker for every 200ms
 
-# Ticking                      : at 1.206862896
+# Ticking                      : at 1.206801905
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 1.206988874
 # Decreased Limiter capacity   : 0
-# Request  4                   : at 1.207013675
+# Increased Limiter capacity   : at 1.206865924
+# Request  4                   : at 1.206878775
 
-# Ticking                      : at 1.407854979
+# Ticking                      : at 1.409294484
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 1.407907915
 # Decreased Limiter capacity   : 0
-# Request  5                   : at 1.408013875
+# Request  5                   : at 1.409438452
 
-# Ticking                      : at 1.606892069
+# Increased Limiter capacity   : at 1.409391483
+# Ticking                      : at 1.609588445
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 1.606953758
+# Increased Limiter capacity   : at 1.609652595
 # Decreased Limiter capacity   : 0
-# Request  6                   : at 1.606995595
+# Request  6                   : at 1.609781604
 
 # Go to Sleep for 5s...
 
-# Ticking                      : at 1.805899061
+# Ticking                      : at 1.810613664
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 1.805977906
-# Ticking                      : at 2.006308412
+# Increased Limiter capacity   : at 1.810705030
+# Ticking                      : at 2.006103059
 # Increasing Limiter capacity  : 1 + 1
-# Increased Limiter capacity   : at 2.006451652
-# Ticking                      : at 2.206816463
+# Increased Limiter capacity   : at 2.006149213
+# Ticking                      : at 2.208323926
 # Increasing Limiter capacity  : 2 + 1
-# Increased Limiter capacity   : at 2.206858109
-# Ticking                      : at 2.406264405
+# Increased Limiter capacity   : at 2.208371387
+# Ticking                      : at 2.410073523
 # Increasing Limiter capacity  : 3 + 1
 
 # Limiter capacity after Sleep : 3
 
 # Decreased Limiter capacity   : 3
-# Request  7                   : at 6.607263597
+# Increased Limiter capacity   : at 6.610946176
+# Ticking                      : at 6.610964148
+# Increasing Limiter capacity  : 3 + 1
+# Request  7                   : at 6.610940648
+
+# Decreased Limiter capacity   : 3
+# Request  8                   : at 6.611000822
 
 # Decreased Limiter capacity   : 2
-# Request  8                   : at 6.607287374
+# Increased Limiter capacity   : at 6.611005542
+# Request  9                   : at 6.611022288
 
 # Decreased Limiter capacity   : 1
-# Request  9                   : at 6.607298665
+# Request 10                   : at 6.611039780
 
 # Decreased Limiter capacity   : 0
-# Increased Limiter capacity   : at 6.607262302
-# Ticking                      : at 6.607325579
+# Request 11                   : at 6.611051684
+
+# Ticking                      : at 6.808978115
 # Increasing Limiter capacity  : 0 + 1
-# Request 10                   : at 6.607306632
-
+# Increased Limiter capacity   : at 6.809088790
 # Decreased Limiter capacity   : 0
-# Increased Limiter capacity   : at 6.607351169
-# Request 11                   : at 6.607375964
+# Request 12                   : at 6.809156467
 
-# Ticking                      : at 6.807112967
+# Ticking                      : at 7.006634817
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 6.807174939
+# Increased Limiter capacity   : at 7.006688923
 # Decreased Limiter capacity   : 0
-# Request 12                   : at 6.807278117
+# Request 13                   : at 7.006794263
 
-# Ticking                      : at 7.007363032
+# Ticking                      : at 7.205892259
 # Increasing Limiter capacity  : 0 + 1
-# Increased Limiter capacity   : at 7.007398309
+# Increased Limiter capacity   : at 7.205967613
 # Decreased Limiter capacity   : 0
-# Request 13                   : at 7.007422195
+# Request 14                   : at 7.206023726
 
-# Ticking                      : at 7.207139918
+# Ticking                      : at 7.407941099
 # Increasing Limiter capacity  : 0 + 1
+# Increased Limiter capacity   : at 7.407979076
 # Decreased Limiter capacity   : 0
-# Increased Limiter capacity   : at 7.207216073
-# Request 14                   : at 7.207254047
-
-# Ticking                      : at 7.406972472
-# Increasing Limiter capacity  : 0 + 1
-# Decreased Limiter capacity   : 0
-# Increased Limiter capacity   : at 7.407047132
-# Request 15                   : at 7.407045287
+# Request 15                   : at 7.408015772
 ```
 
 - For the second batch of requests we serve the first 3 immediately because of the burstable rate limiting, then serve the remaining 2 with ~200ms delays each.
