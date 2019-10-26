@@ -886,8 +886,7 @@ func main() {
 	}
 	close(burstyRequests)
 
-	// The first "3" of these requests will benefit
-	// from the burst capability of "burstyLimiter"
+	// The first "3" requests will benefit from the burst capability of "burstyLimiter"
 	for request := range burstyRequests {
 
 		if duration := 5 * time.Second; request == 7 {
