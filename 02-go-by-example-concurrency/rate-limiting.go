@@ -31,7 +31,7 @@ func main() {
 		<-limiter
 		fmt.Println("Request", request, ": at", getMonotonicClock())
 	}
-	fmt.Println("\n")
+	fmt.Println()
 
 	// We may want to allow short bursts of requests in our rate limiting scheme
 	// while preserving the overall rate limit
