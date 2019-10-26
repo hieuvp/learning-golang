@@ -1055,8 +1055,8 @@ func main() {
 	// Wait until all the goroutines are done
 	wg.Wait()
 
-	// It is safe to access the counters now
-	// because we know no other goroutine is writing to it
+	// It is safe to access our counters now
+	// because we know no other goroutine is writing to them
 	fmt.Println("nonAtomicCounter :", nonAtomicCounter)
 	fmt.Println("atomicCounter    :", atomicCounter)
 
