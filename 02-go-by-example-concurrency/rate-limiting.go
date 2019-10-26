@@ -39,7 +39,7 @@ func main() {
 
 	// This "burstyLimiter" channel will allow bursts of up to "3" events
 	burstyLimiter := make(chan time.Time, 3)
-	for i := 0; i < 3; i++ {
+	for i := 1; i <= 3; i++ {
 		burstyLimiter <- time.Now()
 	}
 	fmt.Printf("\nInitial Limiter capacity     : %d\n\n", len(burstyLimiter))
