@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	// Use an unsigned integer to represent our always-positive number
+	// Use unsigned integers to represent our always-positive numbers
 	var nonAtomicCounter uint64
 	var atomicCounter uint64
 
