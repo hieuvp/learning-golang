@@ -2,8 +2,16 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
+
+func getMonotonicClock() string {
+	now := time.Now().String()
+	separator := "m=+"
+
+	return strings.Split(now, separator)[1]
+}
 
 func main() {
 
@@ -22,7 +30,7 @@ func main() {
 	// we limit ourselves to "1" request every "200ms"
 	for request := range requests {
 		<-limiter
-		fmt.Println("Request", request, ":", time.Now())
+		fmt.Println("Request", request, ":", getMonotonicClock())
 	}
 	fmt.Println()
 
@@ -44,12 +52,12 @@ func main() {
 		fmt.Printf("Initializing ticks in every %s\n", duration)
 
 		for t := range time.Tick(duration) {
-			fmt.Println("Tick :", time.Now())
+			fmt.Println("Tick :", getMonotonicClock())
 			fmt.Println("burstyLimiter capacity will be increased by 1 from", len(burstyLimiter))
 
 			// The send will be blocked when "burstyLimiter" reaches its maximum buffered capacity
 			burstyLimiter <- t
-			fmt.Println("burstyLimiter capacity increased :", time.Now())
+			fmt.Println("burstyLimiter capacity increased :", getMonotonicClock())
 		}
 	}()
 
@@ -65,11 +73,11 @@ func main() {
 		<-burstyLimiter
 
 		if duration := 5 * time.Second; request == 7 {
-			fmt.Printf("Sleeping for %s...\n", duration)
+			fmt.Printf("Sleeping for %s...\n\n", duration)
 			time.Sleep(duration)
 			fmt.Println("burstyLimiter capacity after sleeping :", len(burstyLimiter))
 		}
 
-		fmt.Printf("Request %2d : %s\n", request, time.Now())
+		fmt.Printf("Request %2d : %s\n", request, getMonotonicClock())
 	}
 }

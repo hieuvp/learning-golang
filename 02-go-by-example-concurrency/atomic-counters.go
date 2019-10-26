@@ -24,7 +24,7 @@ func main() {
 		// giving it the memory address of our "atomicCounter" counter with the "&" syntax
 		go func() {
 			for j := 0; j < 1000; j++ {
-				counter += 1
+				counter++
 				atomic.AddUint64(&atomicCounter, 1)
 			}
 			wg.Done()
