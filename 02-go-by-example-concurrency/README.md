@@ -862,7 +862,7 @@ func main() {
 	for i := 1; i <= 3; i++ {
 		burstyLimiter <- time.Now()
 	}
-	fmt.Printf("\nInitial Limiter capacity     : %d\n\n", len(burstyLimiter))
+	fmt.Printf("Initial Limiter capacity     : %d\n\n", len(burstyLimiter))
 
 	// Every "200ms" we will try to add a new value to "burstyLimiter",
 	// up to its limit of "3"
