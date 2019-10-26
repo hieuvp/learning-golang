@@ -14,7 +14,6 @@ func getMonotonicClock() string {
 
 func main() {
 
-	// Basic rate limiting
 	// Suppose we want to limit our handling of incoming requests
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
