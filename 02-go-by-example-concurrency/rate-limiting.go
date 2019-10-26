@@ -38,8 +38,6 @@ func main() {
 	// while preserving the overall rate limit
 	// This "burstyLimiter" channel will allow bursts of up to "3" events
 	burstyLimiter := make(chan time.Time, 3)
-
-	// Fill up the channel to represent allowed bursting
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
