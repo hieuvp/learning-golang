@@ -892,13 +892,11 @@ func main() {
 		if duration := 5 * time.Second; request == 7 {
 			fmt.Printf("Go to Sleep for %s...\n\n", duration)
 			time.Sleep(duration)
-			fmt.Println()
-			fmt.Printf("Limiter length after Sleep : %d\n\n", len(burstyLimiter))
+			fmt.Printf("\nLimiter length after Sleep : %d\n\n", len(burstyLimiter))
 		}
 
 		<-burstyLimiter
 		fmt.Println("Decreased Limiter length   :", len(burstyLimiter))
-
 		fmt.Printf("Request %2d                 : at %s\n\n", request, getMonotonicClock())
 	}
 }
