@@ -1000,7 +1000,7 @@ $ go run rate-limiting.go
 ## Atomic Counters
 
 - The primary mechanism for **managing state** in Go is **communication over channels**, we saw this for example with [**Worker Pools**](#worker-pools).
-- There are a few other options for **managing state** though, here we will look at using the `sync/atomic` package for atomic counters accessed by multiple goroutines.
+- There are a few other options for **managing state** though, here we will look at using the `sync/atomic` package for **atomic counters** accessed by multiple goroutines.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=atomic-counters.go) -->
 <!-- The below code snippet is automatically added from atomic-counters.go -->
