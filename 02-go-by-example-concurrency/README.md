@@ -895,8 +895,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running our program we see the first batch of requests handled once every ~200 milliseconds as desired.
-
 ```bash
 $ go run rate-limiting.go
 
