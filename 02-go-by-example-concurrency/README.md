@@ -801,8 +801,6 @@ $ go run wait-groups.go
 # Worker : 2 -> Done
 ```
 
-- The order of workers starting up and finishing is likely to be different for each invocation.
-
 
 ## Rate Limiting
 
