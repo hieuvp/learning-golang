@@ -73,7 +73,7 @@ func main() {
 		}()
 	}
 
-	// We start 10 writes as well, using a similar approach
+	// We start "10" writes as well, using a similar approach
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
@@ -92,7 +92,7 @@ func main() {
 	// Let the goroutines work for a second
 	time.Sleep(time.Second)
 
-	// Finally, capture and report the op counts
+	// Finally, capture and report the operation counts
 	finalReadOps := atomic.LoadUint64(&readOps)
 	finalWriteOps := atomic.LoadUint64(&writeOps)
 	fmt.Println("readOps  :", finalReadOps)
