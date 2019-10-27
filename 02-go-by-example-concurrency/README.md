@@ -1062,7 +1062,8 @@ $ go run atomic-counters.go
 # atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
-- With `nonAtomicCounter`, we'd likely get a different number, changing between runs, because the goroutines would interfere with each other.
+- With `nonAtomicCounter`, we would likely get a different number, changing between runs, because the goroutines would interfere with each other.
+
 
 ## Mutexes
 
