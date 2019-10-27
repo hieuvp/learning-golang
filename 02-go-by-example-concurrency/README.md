@@ -179,8 +179,8 @@ $ go run channel-buffering.go
 # channel
 ```
 
-- **Send** to a buffered channel block only when the buffer is **full**.
-- **Receive** block when the buffer is **empty**.
+- **Sends** to a buffered channel block only when the buffer is **full**.
+- **Receives** block when the buffer is **empty**.
 
 
 ## Channel Synchronization
