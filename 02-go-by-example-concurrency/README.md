@@ -1091,11 +1091,11 @@ func main() {
 	// This mutex will synchronize access to state
 	var mutex = &sync.Mutex{}
 
-	// We'll keep track of how many read and write operations we do
+	// We will keep track of how many read and write operations we do
 	var readOps uint64
 	var writeOps uint64
 
-	// Here we start 100 goroutines to execute repeated reads against the state,
+	// Here we start "100" goroutines to execute repeated reads against the "state",
 	// once per millisecond in each goroutine
 	for r := 0; r < 100; r++ {
 		go func() {
@@ -1103,9 +1103,9 @@ func main() {
 			for {
 
 				// For each read we pick a key to access,
-				// Lock() the mutex to ensure exclusive access to the state,
+				// "Lock()" the mutex to ensure exclusive access to the state,
 				// read the value at the chosen key,
-				// Unlock() the mutex, and increment the readOps count
+				// "Unlock()" the mutex, and increment the readOps count
 				key := rand.Intn(5)
 				mutex.Lock()
 				total += state[key]
@@ -1118,14 +1118,15 @@ func main() {
 		}()
 	}
 
-	// We'll also start 10 goroutines to simulate writes, using the same pattern we did for reads
+	// We will also start "10" goroutines to simulate writes,
+	// using the same pattern we did for reads
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
 				key := rand.Intn(5)
-				val := rand.Intn(100)
+				value := rand.Intn(100)
 				mutex.Lock()
-				state[key] = val
+				state[key] = value
 				mutex.Unlock()
 				atomic.AddUint64(&writeOps, 1)
 				time.Sleep(time.Millisecond)
@@ -1133,18 +1134,18 @@ func main() {
 		}()
 	}
 
-	// Let the 10 goroutines work on the state and mutex for a second
+	// Let the "10" goroutines work on the "state" and "mutex" for a second
 	time.Sleep(time.Second)
 
 	// Take and report final operation counts
-	readOpsFinal := atomic.LoadUint64(&readOps)
-	fmt.Println("readOps:", readOpsFinal)
-	writeOpsFinal := atomic.LoadUint64(&writeOps)
-	fmt.Println("writeOps:", writeOpsFinal)
+	finalReadOps := atomic.LoadUint64(&readOps)
+	finalWriteOps := atomic.LoadUint64(&writeOps)
+	fmt.Println("readOps  :", finalReadOps)
+	fmt.Println("writeOps :", finalWriteOps)
 
 	// With a final lock of state, show how it ended up
 	mutex.Lock()
-	fmt.Println("state:", state)
+	fmt.Println("state    :", state)
 	mutex.Unlock()
 }
 ```
@@ -1155,9 +1156,9 @@ func main() {
 ```bash
 $ go run mutexes.go
 
-# readOps: 83285
-# writeOps: 8320
-# state: map[1:97 4:53 0:33 2:15 3:2]
+# readOps  : 76248
+# writeOps : 7626
+# state    : map[0:69 1:12 2:88 3:17 4:48]
 ```
 
 - Next we'll look at implementing this same state management task using only goroutines and channels.
