@@ -1066,8 +1066,6 @@ $ go run atomic-counters.go
 # atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
-- Next we'll look at mutexes, another tool for managing state.
-
 
 ## Mutexes
 
