@@ -1462,21 +1462,22 @@ import (
 	"os"
 )
 
-// Suppose we wanted to create a file, write to it, and then close when we're done
-// Here's how we could do that with defer
+// Suppose we wanted to create a file, write to it, and then close when we are done
+// Here is how we could do that with "defer"
 func main() {
 
-	// Immediately after getting a file object with createFile,
-	// we defer the closing of that file with closeFile
-	// This will be executed at the end of the enclosing function (main),
-	// after writeFile has finished
+	// Immediately after getting a file object with "createFile",
+	// we "defer" the closing of that file with "closeFile"
 	f := createFile("/tmp/defer.txt")
+
+	// This will be executed at the end of the enclosing "func main()", after "writeFile" has finished
 	defer closeFile(f)
+
 	writeFile(f)
 }
 
 func createFile(p string) *os.File {
-	fmt.Println("creating")
+	fmt.Println("Creating...")
 	f, err := os.Create(p)
 	if err != nil {
 		panic(err)
@@ -1484,16 +1485,15 @@ func createFile(p string) *os.File {
 	return f
 }
 
-func writeFile(f *os.File) {
-	fmt.Println("writing")
-	fmt.Fprintln(f, "data")
-
+func writeFile(file *os.File) {
+	fmt.Println("Writing...")
+	fmt.Fprintln(file, "data")
 }
 
-// It's important to check for errors when closing a file, even in a deferred function
-func closeFile(f *os.File) {
-	fmt.Println("closing")
-	err := f.Close()
+// It is important to check for errors when closing a file, even in a deferred function
+func closeFile(file *os.File) {
+	fmt.Println("Closing...")
+	err := file.Close()
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
@@ -1508,9 +1508,15 @@ func closeFile(f *os.File) {
 ```bash
 $ go run defer.go
 
-# creating
-# writing
-# closing
+# Creating...
+# Writing...
+# Closing...
+```
+
+```bash
+$ cat /tmp/defer.txt
+
+# data
 ```
 
 
