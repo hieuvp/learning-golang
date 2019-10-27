@@ -658,7 +658,7 @@ $ go run tickers.go
 
 ## Worker Pools
 
-> In this example we'll look at how to implement a worker pool using goroutines and channels.
+> In this example, we will look at how to implement a **worker pool** using **goroutines** and **channels**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=worker-pools.go) -->
 <!-- The below code snippet is automatically added from worker-pools.go -->
