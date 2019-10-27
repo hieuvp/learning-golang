@@ -804,8 +804,8 @@ $ go run wait-groups.go
 
 ## Rate Limiting
 
-> Rate limiting is an important mechanism for controlling resource utilization and maintaining quality of service.
-> Go elegantly supports rate limiting with goroutines, channels, and tickers.
+- **Rate limiting** is an important mechanism for controlling resource utilization and maintaining quality of service.
+- Go elegantly supports **rate limiting** with **goroutines**, **channels**, and **tickers**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=rate-limiting.go) -->
 <!-- The below code snippet is automatically added from rate-limiting.go -->
