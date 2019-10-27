@@ -592,8 +592,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- The first timer will expire `~2s` after we start the program, but the second should be stopped before it has a chance to expire.
-
 ```bash
 $ go run timers.go
 
@@ -605,7 +603,6 @@ $ go run timers.go
 ## Tickers
 
 > `Ticker` is for when you want to do something repeatedly at regular intervals.
-> Here is an example of a ticker that ticks periodically until we stop it.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=tickers.go) -->
 <!-- The below code snippet is automatically added from tickers.go -->
