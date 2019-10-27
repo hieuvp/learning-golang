@@ -13,6 +13,10 @@ func main() {
 	// For our example the state will be a map
 	var state = make(map[int]int)
 
+	// A "Mutex" is used to provide a locking mechanism to ensure that
+	// only one goroutine is running the critical section of code at any point of time
+	// to prevent race condition from happening
+
 	// This mutex will synchronize access to state
 	var mutex = &sync.Mutex{}
 
