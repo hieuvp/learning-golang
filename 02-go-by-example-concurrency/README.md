@@ -1359,12 +1359,11 @@ import (
 	"sort"
 )
 
-// In order to sort by a custom function in Go,
-// we need a corresponding type.
-// Here we've created a byLength type that is just an alias for the builtin []string type
+// In order to sort by a custom function in Go, we need a corresponding type
+// Here we create a "byLength" type that is just an "alias" for the builtin "[]string" type
 type byLength []string
 
-// We implement sort.Interface - Len, Less, and Swap - on our type so we can use the sort package's generic Sort function
+// We implement "sort.Interface": "Len", "Less", and "Swap" - on our type so we can use the sort package's generic Sort function
 // Len and Swap will usually be similar across types and Less will hold the actual custom sorting logic
 // In our case we want to sort in order of increasing string length,
 // so we use len(s[i]) and len(s[j]) here
