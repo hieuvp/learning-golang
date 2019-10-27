@@ -1311,22 +1311,23 @@ import (
 
 func main() {
 
-	// Sort methods are specific to the builtin type;
-	// here's an example for strings
+	// Sort methods are specific to the builtin type
 	// Note that sorting is in-place,
-	// so it changes the given slice and doesn't return a new one
-	strs := []string{"c", "a", "b"}
-	sort.Strings(strs)
-	fmt.Println("Strings:", strs)
+	// so it changes the given slice and does not return a new one
 
-	// An example of sorting ints
-	ints := []int{7, 2, 4}
-	sort.Ints(ints)
-	fmt.Println("Ints:   ", ints)
+	// An example of sorting strings
+	strings := []string{"c", "a", "b"}
+	sort.Strings(strings)
+	fmt.Println("strings  :", strings)
 
-	// We can also use sort to check if a slice is already in sorted order
-	s := sort.IntsAreSorted(ints)
-	fmt.Println("Sorted: ", s)
+	// An example of sorting integers
+	integers := []int{7, 2, 4}
+	sort.Ints(integers)
+	fmt.Println("integers :", integers)
+
+	// We can also use "sort" to check if a slice is already in sorted order
+	sorted := sort.IntsAreSorted(integers)
+	fmt.Println("sorted   : ", sorted)
 }
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -1336,9 +1337,9 @@ func main() {
 ```bash
 $ go run sorting.go
 
-# Strings: [a b c]
-# Ints:    [2 4 7]
-# Sorted:  true
+# strings  : [a b c]
+# integers : [2 4 7]
+# sorted   :  true
 ```
 
 
