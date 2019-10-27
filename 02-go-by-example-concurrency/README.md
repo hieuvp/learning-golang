@@ -999,10 +999,8 @@ $ go run rate-limiting.go
 
 ## Atomic Counters
 
-> The primary mechanism for managing state in Go is communication over channels.
-> We saw this for example with worker pools.
-> There are a few other options for managing state though.
-> Here we'll look at using the sync/atomic package for atomic counters accessed by multiple goroutines.
+- The primary mechanism for **managing state** in Go is **communication over channels**, we saw this for example with **worker pools**.
+- There are a few other options for **managing state** though, here we will look at using the `sync/atomic` package for atomic counters accessed by multiple goroutines.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=atomic-counters.go) -->
 <!-- The below code snippet is automatically added from atomic-counters.go -->
@@ -1055,8 +1053,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- We expect to get exactly 50,000 operations. Had we used the non-atomic ops++ to increment the counter, we'd likely get a different number, changing between runs, because the goroutines would interfere with each other. Moreover, we'd get data race failures when running with the -race flag.
-
 ```bash
 $ go run atomic-counters.go
 
@@ -1066,6 +1062,7 @@ $ go run atomic-counters.go
 # atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
+- With `nonAtomicCounter`, we'd likely get a different number, changing between runs, because the goroutines would interfere with each other.
 
 ## Mutexes
 
