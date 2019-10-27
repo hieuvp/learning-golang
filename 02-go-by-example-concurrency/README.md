@@ -996,8 +996,6 @@ $ go run rate-limiting.go
 # Request 15                 : at 7.404023068
 ```
 
-- For the second batch of requests we serve the first 3 immediately because of the burstable rate limiting, then serve the remaining 2 with ~200ms delays each.
-
 
 ## Atomic Counters
 
