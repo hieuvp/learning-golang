@@ -1106,14 +1106,19 @@ func main() {
 			total := 0
 			for {
 
-				// For each read we pick a key to access,
-				// "Lock()" the mutex to ensure exclusive access to the state,
-				// read the value at the chosen key,
-				// "Unlock()" the mutex, and increment the readOps count
+				// For each read we pick a key to access
 				key := rand.Intn(5)
+
+				// "Lock()" the mutex to ensure exclusive access to the "state"
 				mutex.Lock()
+
+				// Read the value at the chosen key
 				total += state[key]
+
+				// "Unlock()" the mutex
 				mutex.Unlock()
+
+				// Increment the "readOps" count
 				atomic.AddUint64(&readOps, 1)
 
 				// Wait a bit between reads
