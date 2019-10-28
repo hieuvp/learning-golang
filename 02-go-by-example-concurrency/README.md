@@ -1170,7 +1170,7 @@ $ go run mutexes.go
 # state    : map[0:69 1:12 2:88 3:17 4:48]
 ```
 
-- Next we'll look at implementing this same state management task using only goroutines and channels.
+- Next we will look at implementing this same state management task using only goroutines and channels.
 
 
 ## Stateful Goroutines
