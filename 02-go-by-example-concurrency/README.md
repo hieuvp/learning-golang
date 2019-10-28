@@ -1069,9 +1069,6 @@ $ go run atomic-counters.go
 
 > Mutual exclusion lock.
 
-> In the previous example we saw how to manage simple counter state using atomic operations.
-> For more complex state we can use a mutex to safely access data across multiple goroutines.
-
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=mutexes.go) -->
 <!-- The below code snippet is automatically added from mutexes.go -->
 ```go
@@ -1087,14 +1084,15 @@ import (
 
 func main() {
 
-	// For our example the state will be a map
+	// Previously, we saw how to manage "simple" counter state using "atomic" operations
+	// For more "complex" state (e.g. map), we can use a "mutex" to safely access data across multiple goroutines
 	var state = make(map[int]int)
 
 	// A "Mutex" is used to provide a locking mechanism to ensure that
 	// only one goroutine is running the critical section of code at any point of time
 	// to prevent race condition from happening
 
-	// This mutex will synchronize access to state
+	// This "mutex" will synchronize access to "state"
 	var mutex = &sync.Mutex{}
 
 	// We will keep track of how many read and write operations we do
