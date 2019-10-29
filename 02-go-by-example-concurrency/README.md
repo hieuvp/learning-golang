@@ -1418,8 +1418,12 @@ func main() {
 	// Syntax
 	panic("a problem")
 
-	// A common use of "panic" is to abort if a function returns an error value that we don't know how to (or want to) handle
-	// Here is an example of panicking if we get an unexpected error when creating a new file
+	// A common use of "panic" is to abort
+	// if a function returns an error value
+	// that we do not know how to (or want to) handle
+
+	// Here is an example of panicking
+	// if we get an unexpected error when creating a new file
 	_, err := os.Create("/tmp/file")
 	if err != nil {
 		panic(err)
@@ -1435,12 +1439,9 @@ $ go run panic.go
 
 # panic: a problem
 #
-#
-#
 # goroutine 1 [running]:
 # main.main()
-#     /.../panic.go:12 +0x47
-# ...
+#     panic.go:7 +0x39
 # exit status 2
 ```
 
