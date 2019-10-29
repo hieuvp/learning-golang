@@ -1404,9 +1404,8 @@ $ go run sorting-by-functions.go
 
 ## Panic
 
-> A `panic` typically means something went unexpectedly wrong.
-> Mostly we use it to fail fast on errors that shouldn't occur during normal operation,
-> or that we aren't prepared to handle gracefully
+- A `panic` typically means something went unexpectedly wrong.
+- Mostly we use it to fail fast on errors that should not occur during normal operation, or that we are not prepared to handle gracefully.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=panic.go) -->
 <!-- The below code snippet is automatically added from panic.go -->
