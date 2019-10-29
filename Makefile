@@ -1,15 +1,14 @@
 # Automatically format source code
-# Print out style mistakes
+# Print out coding style mistakes
 lint:
 	cd 01-go-by-example-basics && go fmt && golint -set_exit_status
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
-	cd 03-go-by-example-advance && go fmt && golint -set_exit_status
 
 # Examine source code and report suspicious constructs
+# xargs: construct argument list(s) and execute utility
 vet:
 	ls 01-go-by-example-basics/*.go | xargs -L 1 go vet
 	ls 02-go-by-example-concurrency/*.go | xargs -L 1 go vet
-	ls 03-go-by-example-advance/*.go | xargs -L 1 go vet
 
 # Generate table of contents
 # Keep docs up-to-date from local or remote code sources
