@@ -9,7 +9,7 @@ func main() {
 	i := 1
 	for i <= 3 {
 		fmt.Println(i)
-		i += 1
+		i++
 	}
 
 	// A classic initial/condition/after for loop
