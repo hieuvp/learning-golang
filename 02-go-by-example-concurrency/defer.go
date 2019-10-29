@@ -11,13 +11,13 @@ import (
 // 3. Then close when we are done
 func main() {
 
-	f := createFile("/tmp/defer.txt")
+	file := createFile("/tmp/defer.txt")
 
 	// This will be executed at the end of the enclosing "func main()",
 	// after "writeFile" has finished
-	defer closeFile(f)
+	defer writeFile(file)
 
-	writeFile(f)
+	writeFile(file)
 }
 
 func createFile(path string) *os.File {
