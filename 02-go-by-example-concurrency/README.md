@@ -1175,7 +1175,7 @@ $ go run mutexes.go
 
 ## Stateful Goroutines
 
-> In the previous example we used explicit locking with mutexes to synchronize access to shared state across multiple goroutines.
+> In the previous example, we used explicit locking with **mutexes** to synchronize access to shared state across multiple goroutines.
 > Another option is to use the built-in synchronization features of goroutines and channels to achieve the same result.
 > This channel-based approach aligns with Go's ideas of sharing memory by communicating and having each piece of data owned by exactly 1 goroutine.
 
@@ -1302,8 +1302,7 @@ $ go run stateful-goroutines.go
 
 ## Sorting
 
-> Go's sort package implements sorting for builtins and user-defined types.
-> We'll look at sorting for builtins first.
+> `sort` package implements sorting for builtins and user-defined types.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting.go) -->
 <!-- The below code snippet is automatically added from sorting.go -->
