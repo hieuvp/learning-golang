@@ -1,7 +1,7 @@
 # Automatically format source code
 # Print out coding style mistakes
 lint:
-	cd 01-go-by-example-basics && go fmt && golint -set_exit_status
+	cd 01-go-by-example-basics && go fmt
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
 
 # Examine source code and report suspicious constructs
