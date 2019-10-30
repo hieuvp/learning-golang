@@ -7,9 +7,10 @@ import (
 	"time"
 )
 
-// In this example our state will be owned by a single goroutine
+// In this example, our "state" will be owned by a single goroutine
 // This will guarantee that the data is never corrupted with concurrent access
-// In order to "read" or "write" that "state",
+
+// In order to read or write that "state",
 // other goroutines will send messages to the owning goroutine and receive corresponding replies
 
 // These "readOperation" and "writeOperation" structs
@@ -26,16 +27,17 @@ type writeOperation struct {
 
 func main() {
 
-	// As before we will count how many operations we perform
+	// As before, we will count how many operations we perform
 	var readOps uint64
 	var writeOps uint64
 
-	// The "reads" and "writes" channels will be used by other goroutines to issue read and write requests, respectively
+	// The "reads" and "writes" channels will be used by other goroutines
+	// to issue read and write requests, respectively
 	reads := make(chan readOperation)
 	writes := make(chan writeOperation)
 
 	// Here is the goroutine that owns the "state",
-	// which is a map as in the previous example but now private to the stateful goroutine
+	// which is a "map" as in the previous example but now private to the "stateful goroutine"
 	go func() {
 		var state = make(map[int]int)
 
@@ -44,21 +46,22 @@ func main() {
 		for {
 
 			// A response is executed by first performing the requested operation
-			// and then sending a value on the "response" channel to indicate success
-			// (and the desired value in the case of reads)
+			// and then sending a value on the "response" channel
 			select {
 			case read := <-reads:
+				// Send desired value
 				read.response <- state[read.key]
 			case write := <-writes:
 				state[write.key] = write.value
+				// Indicate success
 				write.response <- true
 			}
 		}
 	}()
 
-	// This starts "100" goroutines to issue reads to the state-owning goroutine via the reads channel
-	// Each read requires constructing a readOperation, sending it over the reads channel,
-	// and the receiving the result over the provided response channel
+	// This starts "100" goroutines to issue reads to the state-owning goroutine via the "reads" channel
+	// Each read requires constructing a "readOperation", sending it over the "reads" channel,
+	// and the receiving the result over the provided "response" channel
 	for r := 0; r < 100; r++ {
 		go func() {
 			for {
