@@ -5,7 +5,9 @@ lint:
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
 
 # Examine source code and report suspicious constructs
-# xargs: construct argument list(s) and execute utility
+# xargs:
+# - A command that takes output of a command and passes it as argument of another command
+# - If no command is specified, "xargs" executes "echo" by default
 vet:
 	ls 01-go-by-example-basics/*.go | xargs -L 1 go vet
 	ls 02-go-by-example-concurrency/*.go | xargs -L 1 go vet
