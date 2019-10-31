@@ -65,13 +65,12 @@ func main() {
 				mutex.Unlock()
 
 				atomic.AddUint64(&writeOps, 1)
-
 				time.Sleep(time.Millisecond)
 			}
 		}()
 	}
 
-	// Let the "10" goroutines work on the "state" and "mutex" for a second
+	// Let our goroutines work on the "state" and "mutex" for a second
 	time.Sleep(time.Second)
 
 	// Take and report final operation counts
