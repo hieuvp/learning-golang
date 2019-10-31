@@ -1278,8 +1278,8 @@ func main() {
 		}()
 	}
 
-	// Let the goroutines work for a second
-	time.Sleep(time.Second)
+	// Let the goroutines work for "3s"
+	time.Sleep(3 * time.Second)
 
 	// Finally, capture and report the operation counts
 	finalReadOps := atomic.LoadUint64(&readOps)
