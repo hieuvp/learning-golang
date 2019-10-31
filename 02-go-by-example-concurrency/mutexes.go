@@ -11,7 +11,8 @@ import (
 func main() {
 
 	// Previously, we saw how to manage "simple" counter state using "atomic" operations
-	// For more "complex" state (e.g. map), we can use a "mutex" to safely access data across multiple goroutines
+	// For more "complex" state (e.g. map),
+	// we can use a "Mutex" to safely access data across multiple goroutines
 	var state = make(map[int]int)
 
 	// A "Mutex" is used to provide a locking mechanism to ensure that
