@@ -38,7 +38,7 @@ func main() {
 				// "Lock()" the "mutex" to ensure exclusive access to the "state"
 				mutex.Lock()
 
-				// Read the value at the chosen key
+				// Read the value at the chosen "key"
 				total += state[key]
 
 				// "Unlock()" the "mutex"
@@ -53,8 +53,7 @@ func main() {
 		}()
 	}
 
-	// We will also start "10" goroutines to simulate writes,
-	// using the same pattern we did for reads
+	// We will also start "10" goroutines to simulate writes
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
