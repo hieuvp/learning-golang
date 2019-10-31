@@ -38,7 +38,7 @@ func main() {
 	writes := make(chan writeOperation)
 
 	// Here is the goroutine that owns the "state",
-	// which is a "map" as in the previous example but now private to the "stateful goroutine"
+	// which is a "map" as in the previous example but now private to this "stateful goroutine"
 	go func() {
 		var state = make(map[int]int)
 
