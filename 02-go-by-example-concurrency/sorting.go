@@ -7,8 +7,7 @@ import (
 
 func main() {
 
-	// Sort methods are specific to the built-in type
-	// Note that, the sorting changes the given slice and does not return a new one
+	// Note: sorting changes the given slice and does not return a new one
 
 	// Sorting strings
 	strings := []string{"c", "a", "b"}
