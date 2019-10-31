@@ -1243,17 +1243,23 @@ func main() {
 		}
 	}()
 
-	// This starts "100" goroutines to issue reads to the state-owning goroutine via the "reads" channel
-	// Each read requires constructing a "readOperation", sending it over the "reads" channel,
-	// and the receiving the result over the provided "response" channel
+	// This starts "100" goroutines to
+	// issue reads to the state-owning goroutine via the "reads" channel
 	for r := 0; r < 100; r++ {
 		go func() {
 			for {
+
+				// Each read requires constructing a "readOperation"
 				read := readOperation{
 					key:      rand.Intn(5),
 					response: make(chan int)}
+
+				// Sending it over the "reads" channel
 				reads <- read
+
+				// Receiving the result over the provided "response" channel
 				<-read.response
+
 				atomic.AddUint64(&readOps, 1)
 				time.Sleep(time.Millisecond)
 			}
