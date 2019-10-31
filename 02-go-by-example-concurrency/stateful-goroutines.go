@@ -46,8 +46,6 @@ func main() {
 		// responding to requests as they arrive
 		for {
 
-			// A response is executed by first performing the requested operation
-			// and then sending a value on the "response" channel
 			select {
 			case read := <-reads:
 				// Send desired value
