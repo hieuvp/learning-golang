@@ -1144,8 +1144,8 @@ func main() {
 		}()
 	}
 
-	// Let our goroutines work on the "state" and "mutex" for a second
-	time.Sleep(time.Second)
+	// Let our goroutines work on the "state" and "mutex" for "3s"
+	time.Sleep(3 * time.Second)
 
 	// Take and report final operation counts
 	finalReadOps := atomic.LoadUint64(&readOps)
