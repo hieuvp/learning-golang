@@ -26,8 +26,7 @@ func main() {
 	var readOps uint64
 	var writeOps uint64
 
-	// Here we start "100" goroutines to execute repeated reads against the "state",
-	// once per millisecond in each goroutine
+	// Here we start "100" goroutines to execute repeated reads against the "state"
 	for r := 0; r < 100; r++ {
 		go func() {
 			total := 0
@@ -45,7 +44,7 @@ func main() {
 				// "Unlock()" the mutex
 				mutex.Unlock()
 
-				// Increment the "readOps" count
+				// Increase the "readOps" count
 				atomic.AddUint64(&readOps, 1)
 
 				// Wait a bit between reads

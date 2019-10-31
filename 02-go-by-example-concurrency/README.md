@@ -1100,8 +1100,7 @@ func main() {
 	var readOps uint64
 	var writeOps uint64
 
-	// Here we start "100" goroutines to execute repeated reads against the "state",
-	// once per millisecond in each goroutine
+	// Here we start "100" goroutines to execute repeated reads against the "state"
 	for r := 0; r < 100; r++ {
 		go func() {
 			total := 0
@@ -1119,7 +1118,7 @@ func main() {
 				// "Unlock()" the mutex
 				mutex.Unlock()
 
-				// Increment the "readOps" count
+				// Increase the "readOps" count
 				atomic.AddUint64(&readOps, 1)
 
 				// Wait a bit between reads
@@ -1166,9 +1165,9 @@ func main() {
 ```bash
 $ go run mutexes.go
 
-# readOps  : 76248
-# writeOps : 7626
-# state    : map[0:69 1:12 2:88 3:17 4:48]
+# readOps  : 75794
+# writeOps : 7580
+# state    : map[0:79 1:52 2:30 3:11 4:64]
 ```
 
 - Next we will look at implementing this same state management task using only goroutines and channels.
