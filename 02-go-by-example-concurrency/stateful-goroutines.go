@@ -89,8 +89,10 @@ func main() {
 					key:      rand.Intn(5),
 					value:    rand.Intn(100),
 					response: make(chan bool)}
+
 				writes <- write
 				<-write.response
+
 				atomic.AddUint64(&writeOps, 1)
 				time.Sleep(time.Millisecond)
 			}
