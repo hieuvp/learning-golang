@@ -59,10 +59,13 @@ func main() {
 			for {
 				key := rand.Intn(5)
 				value := rand.Intn(100)
+
 				mutex.Lock()
 				state[key] = value
 				mutex.Unlock()
+
 				atomic.AddUint64(&writeOps, 1)
+
 				time.Sleep(time.Millisecond)
 			}
 		}()
