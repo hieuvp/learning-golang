@@ -1324,21 +1324,20 @@ import (
 
 func main() {
 
-	// Sort methods are specific to the builtin type
-	// Note that sorting is in-place,
-	// so it changes the given slice and does not return a new one
+	// Sort methods are specific to the built-in type
+	// Note that, the sorting changes the given slice and does not return a new one
 
-	// An example of sorting strings
+	// Sorting strings
 	strings := []string{"c", "a", "b"}
 	sort.Strings(strings)
 	fmt.Println("strings  :", strings)
 
-	// An example of sorting integers
+	// Sorting integers
 	integers := []int{7, 2, 4}
 	sort.Ints(integers)
 	fmt.Println("integers :", integers)
 
-	// We can also use "sort" to check if a slice is already in sorted order
+	// Check if a slice is already in sorted order
 	sorted := sort.IntsAreSorted(integers)
 	fmt.Println("sorted   : ", sorted)
 }
