@@ -1257,7 +1257,7 @@ func main() {
 				// Sending it over the "reads" channel
 				reads <- read
 
-				// Receiving the result over the provided "response" channel
+				// Receiving the result over the provided "read.response" channel
 				<-read.response
 
 				atomic.AddUint64(&readOps, 1)
