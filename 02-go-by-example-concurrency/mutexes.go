@@ -79,7 +79,7 @@ func main() {
 	fmt.Println("readOps  :", finalReadOps)
 	fmt.Println("writeOps :", finalWriteOps)
 
-	// With a final lock of state, show how it ended up
+	// Show how the final "state" ended up
 	mutex.Lock()
 	fmt.Println("state    :", state)
 	mutex.Unlock()

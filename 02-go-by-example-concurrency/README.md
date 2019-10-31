@@ -1153,7 +1153,7 @@ func main() {
 	fmt.Println("readOps  :", finalReadOps)
 	fmt.Println("writeOps :", finalWriteOps)
 
-	// With a final lock of state, show how it ended up
+	// Show how the final "state" ended up
 	mutex.Lock()
 	fmt.Println("state    :", state)
 	mutex.Unlock()
@@ -1166,9 +1166,9 @@ func main() {
 ```bash
 $ go run mutexes.go
 
-# readOps  : 75794
-# writeOps : 7580
-# state    : map[0:79 1:52 2:30 3:11 4:64]
+# readOps  : 231585
+# writeOps : 23159
+# state    : map[0:8 1:39 2:46 3:89 4:30]
 ```
 
 - Next we will look at implementing this same state management task using only goroutines and channels.
