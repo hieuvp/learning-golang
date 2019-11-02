@@ -35,7 +35,7 @@ func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 
 	// Convert the original "fruits" "slice" to "byLength",
-	// and use the "Sort"
+	// and then use the "Sort" function
 	sort.Sort(byLength(fruits))
 
 	fmt.Println(fruits)
