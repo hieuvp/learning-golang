@@ -5,8 +5,9 @@ import (
 	"sort"
 )
 
-// Sometimes we will want to sort a collection by something other than its natural order
-// For example, suppose we wanted to sort strings by their length instead of alphabetically
+// Sometimes, we will want to sort a collection by something other than its natural order
+// e.g. to sort strings by their length instead of alphabetically
+
 // Here is an example of custom "sort.Sort", "func Sort(data Interface)"
 
 // Create a "byLength" type that is an "alias" for the built-in "[]string" type
@@ -28,11 +29,13 @@ func (s byLength) Less(i, j int) bool {
 	return len(s[i]) < len(s[j])
 }
 
-// With all of this in-place,
-// we can now implement our custom sort by converting the original fruits slice to byLength,
-// and then use "sort.Sort" on that typed slice
 func main() {
+
 	fruits := []string{"peach", "banana", "kiwi"}
+
+	// Convert the original "fruits" "slice" to "byLength"
+	// Use "sort.Sort" on that typed slice
 	sort.Sort(byLength(fruits))
+
 	fmt.Println(fruits)
 }
