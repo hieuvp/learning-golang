@@ -13,7 +13,7 @@ vet:
 	ls 02-go-by-example-concurrency/*.go | xargs -L 1 go vet
 
 # Generate table of contents
-# Keep docs up-to-date from local or remote code sources
+# Keep docs up-to-date from local or remote sources
 docs:
 	cd 01-go-by-example-basics && doctoc README.md && md-magic README.md
 	cd 02-go-by-example-concurrency && doctoc README.md && md-magic README.md
