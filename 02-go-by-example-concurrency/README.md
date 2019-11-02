@@ -1376,8 +1376,8 @@ type byLength []string
 
 // We implement "sort.Interface"
 // - Len() int: the number of elements in the collection
-// - Less(i, j int) bool: report whether the element with index i should sort before the element with index j
-// - Swap(i, j int): swap the elements with indexes i and j
+// - Less(i, j int) bool: report whether the element with index "i" should sort before the element with index "j"
+// - Swap(i, j int): swap the elements with indexes "i" and "j"
 func (s byLength) Len() int {
 	return len(s)
 }
