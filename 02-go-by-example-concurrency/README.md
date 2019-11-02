@@ -1407,7 +1407,7 @@ func main() {
 
 ```bash
 $ go run sorting-by-functions.go
- 
+
 # [kiwi peach banana]
 ```
 
