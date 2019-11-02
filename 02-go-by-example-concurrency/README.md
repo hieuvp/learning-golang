@@ -1480,7 +1480,7 @@ func main() {
 
 	// This will be executed at the end of the enclosing "func main()",
 	// after "writeFile" has finished
-	defer writeFile(file)
+	defer closeFile(file)
 
 	writeFile(file)
 }
