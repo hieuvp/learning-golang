@@ -1067,20 +1067,451 @@ $ go run atomic-counters.go
 
 ## Mutexes
 
+> Mutual exclusion lock.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=mutexes.go) -->
+<!-- The below code snippet is automatically added from mutexes.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"sync"
+	"sync/atomic"
+	"time"
+)
+
+func main() {
+
+	// Previously, we saw how to manage "simple" counter state using "atomic" operations
+	// For more "complex" state (e.g. map),
+	// we can use a "Mutex" to safely access data across multiple goroutines
+	var state = make(map[int]int)
+
+	// A "Mutex" is used to provide a locking mechanism to ensure that
+	// only one goroutine is running the critical section of code at any point of time
+	// to prevent race condition from happening
+
+	// This "mutex" will synchronize access to "state"
+	var mutex = &sync.Mutex{}
+
+	// We will keep track of how many read and write operations we do
+	var readOps uint64
+	var writeOps uint64
+
+	// Here we start "100" goroutines to execute repeated reads against the "state"
+	for r := 0; r < 100; r++ {
+		go func() {
+			total := 0
+			for {
+
+				// For each read, we pick a random "key" to access
+				key := rand.Intn(5)
+
+				// "Lock()" the "mutex" to ensure exclusive access to the "state"
+				mutex.Lock()
+
+				// Read the value at the chosen "key"
+				total += state[key]
+
+				// "Unlock()" the "mutex"
+				mutex.Unlock()
+
+				// Increase the "readOps" count
+				atomic.AddUint64(&readOps, 1)
+
+				// Wait a bit between reads
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	// We will also start "10" goroutines to simulate writes
+	for w := 0; w < 10; w++ {
+		go func() {
+			for {
+				key := rand.Intn(5)
+				value := rand.Intn(100)
+
+				mutex.Lock()
+				state[key] = value
+				mutex.Unlock()
+
+				atomic.AddUint64(&writeOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	// Let our goroutines work on the "state" and "mutex" for "3s"
+	time.Sleep(3 * time.Second)
+
+	// Take and report final operation counts
+	finalReadOps := atomic.LoadUint64(&readOps)
+	finalWriteOps := atomic.LoadUint64(&writeOps)
+	fmt.Println("readOps  :", finalReadOps)
+	fmt.Println("writeOps :", finalWriteOps)
+
+	// Show how the final "state" ended up
+	mutex.Lock()
+	fmt.Println("state    :", state)
+	mutex.Unlock()
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run mutexes.go
+
+# readOps  : 231585
+# writeOps : 23159
+# state    : map[0:8 1:39 2:46 3:89 4:30]
+```
+
 
 ## Stateful Goroutines
+
+- In the previous example, we used explicit locking with **mutexes** to synchronize access to shared state across multiple goroutines.
+- Another option is to use the built-in synchronization features of **goroutines** and **channels** to achieve the same result.
+- This **channel-based** approach aligns with Go's ideas of sharing memory by communicating and having each piece of data owned by exactly **1 goroutine**.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=stateful-goroutines.go) -->
+<!-- The below code snippet is automatically added from stateful-goroutines.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"sync/atomic"
+	"time"
+)
+
+// Our "state" will be owned by "a single goroutine"
+// This will guarantee that the data is never corrupted with concurrent access
+
+// In order to read or write that "state",
+// other goroutines will send messages to the owning goroutine
+// and receive corresponding replies
+
+// These "readOperation" and "writeOperation" structs
+// encapsulate those requests and a way for the owning goroutine to respond
+type readOperation struct {
+	key      int
+	response chan int
+}
+type writeOperation struct {
+	key      int
+	value    int
+	response chan bool
+}
+
+func main() {
+
+	// As before, we will count how many operations we perform
+	var readOps uint64
+	var writeOps uint64
+
+	// The "reads" and "writes" channels will be used by other goroutines
+	// to issue read and write requests, respectively
+	reads := make(chan readOperation)
+	writes := make(chan writeOperation)
+
+	// Here is the goroutine that owns the "state",
+	// which is a "map" as in the previous example but now private to this "stateful goroutine"
+	go func() {
+		var state = make(map[int]int)
+
+		// Repeatedly "select" on the "reads" and "writes" channels,
+		// responding to requests as they arrive
+		for {
+
+			select {
+			case read := <-reads:
+				// Send desired value
+				read.response <- state[read.key]
+			case write := <-writes:
+				state[write.key] = write.value
+				// Indicate success
+				write.response <- true
+			}
+		}
+	}()
+
+	// This starts "100" goroutines to
+	// issue reads to the state-owning goroutine via the "reads" channel
+	for r := 0; r < 100; r++ {
+		go func() {
+			for {
+
+				// Each read requires constructing a "readOperation"
+				read := readOperation{
+					key:      rand.Intn(5),
+					response: make(chan int)}
+
+				// Sending it over the "reads" channel
+				reads <- read
+
+				// Receiving the result over the provided "read.response" channel
+				<-read.response
+
+				atomic.AddUint64(&readOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	// We start "10" writes as well, using a similar approach
+	for w := 0; w < 10; w++ {
+		go func() {
+			for {
+				write := writeOperation{
+					key:      rand.Intn(5),
+					value:    rand.Intn(100),
+					response: make(chan bool)}
+
+				writes <- write
+				<-write.response
+
+				atomic.AddUint64(&writeOps, 1)
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	// Let the goroutines work for "3s"
+	time.Sleep(3 * time.Second)
+
+	// Finally, capture and report the operation counts
+	finalReadOps := atomic.LoadUint64(&readOps)
+	finalWriteOps := atomic.LoadUint64(&writeOps)
+	fmt.Println("readOps  :", finalReadOps)
+	fmt.Println("writeOps :", finalWriteOps)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run stateful-goroutines.go
+
+# readOps  : 231834
+# writeOps : 23212
+```
 
 
 ## Sorting
 
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting.go) -->
+<!-- The below code snippet is automatically added from sorting.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+
+	// Note: sorting changes the given slice and does not return a new one
+
+	// Sorting strings
+	strings := []string{"c", "a", "b"}
+	sort.Strings(strings)
+	fmt.Println("strings  :", strings)
+
+	// Sorting integers
+	integers := []int{7, 2, 4}
+	sort.Ints(integers)
+	fmt.Println("integers :", integers)
+
+	// Check if a slice is already in sorted order
+	sorted := sort.IntsAreSorted(integers)
+	fmt.Println("sorted   : ", sorted)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run sorting.go
+
+# strings  : [a b c]
+# integers : [2 4 7]
+# sorted   :  true
+```
+
 
 ## Sorting by Functions
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting-by-functions.go) -->
+<!-- The below code snippet is automatically added from sorting-by-functions.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+// Sometimes, we will want to sort a collection by something other than its natural order
+// e.g. to sort strings by their length instead of alphabetically
+
+// Here is an example of custom "sort.Sort", "func Sort(data Interface)"
+
+// Create a "byLength" type that is an "alias" for the built-in "[]string" type
+type byLength []string
+
+// We implement "sort.Interface"
+// - Len() int: the number of elements in the collection
+// - Less(i, j int) bool: report whether the element with index "i" should sort before the element with index "j"
+// - Swap(i, j int): swap the elements with indexes "i" and "j"
+func (s byLength) Len() int {
+	return len(s)
+}
+func (s byLength) Less(i, j int) bool {
+	// In our case,
+	// we want to sort in order of increasing string length
+	return len(s[i]) < len(s[j])
+}
+func (s byLength) Swap(i, j int) {
+	// Reassign values
+	s[i], s[j] = s[j], s[i]
+}
+
+func main() {
+
+	fruits := []string{"peach", "banana", "kiwi"}
+
+	// Convert the original "fruits" "slice" to "byLength",
+	// and then use the "Sort" function
+	sort.Sort(byLength(fruits))
+
+	fmt.Println(fruits)
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run sorting-by-functions.go
+
+# [kiwi peach banana]
+```
 
 
 ## Panic
 
+> A `panic` typically means something went unexpectedly wrong.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=panic.go) -->
+<!-- The below code snippet is automatically added from panic.go -->
+```go
+package main
+
+import "os"
+
+func main() {
+	// Syntax
+	panic("a problem")
+
+	// A common use of "panic" is
+	// to abort if a function returns an error value
+	// that we do not know how to handle or do not want to handle
+
+	// Panicking if we get an unexpected error when creating a new file
+	_, err := os.Create("/tmp/file")
+	if err != nil {
+		panic(err)
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run panic.go
+
+# panic: a problem
+#
+# goroutine 1 [running]:
+# main.main()
+#     panic.go:7 +0x39
+# exit status 2
+```
+
+- In Go, it is idiomatic to use **error-indicating return values** wherever possible.
+
 
 ## Defer
+
+> `defer` is used to ensure that a function call is performed later in a program's execution, usually for purposes of cleanup.
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=defer.go) -->
+<!-- The below code snippet is automatically added from defer.go -->
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+// Suppose we wanted to:
+// 1. Create a file
+// 2. Write to it
+// 3. Then close when we are done
+func main() {
+
+	file := createFile("/tmp/defer.txt")
+
+	// This will be executed at the end of the enclosing "func main()",
+	// after "writeFile" has finished
+	defer closeFile(file)
+
+	writeFile(file)
+}
+
+func createFile(path string) *os.File {
+	fmt.Println("Creating...")
+	file, err := os.Create(path)
+
+	if err != nil {
+		panic(err)
+	}
+	return file
+}
+
+func writeFile(file *os.File) {
+	fmt.Println("Writing...")
+	fmt.Fprintln(file, "data")
+}
+
+func closeFile(file *os.File) {
+	fmt.Println("Closing...")
+	err := file.Close()
+
+	// It is important to check for errors when closing a file,
+	// even in a deferred function
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+}
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+```bash
+$ go run defer.go
+
+# Creating...
+# Writing...
+# Closing...
+```
+
+```bash
+$ cat /tmp/defer.txt
+
+# data
+```
 
 
 ## References
