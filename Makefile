@@ -1,16 +1,13 @@
 # Automatically format source code
+# Examine source code and report suspicious constructs
 # Print out coding style mistakes
 lint:
-	cd 01-go-by-example-basics && go fmt
+	cd 01-go-by-example-basics && go fmt && ls *.go | xargs -L 1 go vet
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
 
-# Examine source code and report suspicious constructs
 # xargs:
 # - A command that takes output of a command and passes it as argument of another command
 # - If no command is specified, "xargs" executes "echo" by default
-vet:
-	ls 01-go-by-example-basics/*.go | xargs -L 1 go vet
-	ls 02-go-by-example-concurrency/*.go | xargs -L 1 go vet
 
 # Generate table of contents
 # Keep docs up-to-date from local or remote sources
@@ -22,4 +19,4 @@ docs:
 # Makefile will get confused if there are files and folders with the names of recipes
 # Unless we mark them as 'PHONY'
 # @see http://www.gnu.org/software/make/manual/make.html#Phony-Targets
-.PHONY: lint vet docs
+.PHONY: lint docs
