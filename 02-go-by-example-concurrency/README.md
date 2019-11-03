@@ -1161,8 +1161,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running the program shows that we executed about 90,000 total operations against our mutex-synchronized state.
-
 ```bash
 $ go run mutexes.go
 
@@ -1170,8 +1168,6 @@ $ go run mutexes.go
 # writeOps : 23159
 # state    : map[0:8 1:39 2:46 3:89 4:30]
 ```
-
-- Next we will look at implementing this same state management task using only goroutines and channels.
 
 
 ## Stateful Goroutines
