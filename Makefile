@@ -1,6 +1,6 @@
-# Automatically format source code
-# Examine source code and report suspicious constructs
-# Print out coding style mistakes
+# go fmt - automatically format source code
+# go vet - examine source code and report suspicious constructs
+# golint - print out coding style mistakes
 lint:
 	cd 01-go-by-example-basics && go fmt && ls *.go | xargs -L 1 go vet
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
