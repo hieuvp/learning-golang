@@ -1499,8 +1499,6 @@ func closeFile(file *os.File) {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running the program confirms that the file is closed after being written.
-
 ```bash
 $ go run defer.go
 
