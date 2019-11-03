@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// In this example, our "state" will be owned by "a single goroutine"
+// Our "state" will be owned by "a single goroutine"
 // This will guarantee that the data is never corrupted with concurrent access
 
 // In order to read or write that "state",
