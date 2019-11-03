@@ -1333,8 +1333,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running our program prints the sorted string and int slices and true as the result of our AreSorted test.
-
 ```bash
 $ go run sorting.go
 
