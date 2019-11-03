@@ -1292,8 +1292,6 @@ func main() {
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-- Running our program shows that the goroutine-based state management example completes about 80,000 total operations.
-
 ```bash
 $ go run stateful-goroutines.go
 
@@ -1301,12 +1299,8 @@ $ go run stateful-goroutines.go
 # writeOps : 23212
 ```
 
-- For this particular case the goroutine-based approach was a bit more involved than the mutex-based one. It might be useful in certain cases though, for example where you have other channels involved or when managing multiple such mutexes would be error-prone. You should use whichever approach feels most natural, especially with respect to understanding the correctness of your program.
-
 
 ## Sorting
-
-> `sort` package implements sorting for builtins and user-defined types.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting.go) -->
 <!-- The below code snippet is automatically added from sorting.go -->
