@@ -6,7 +6,7 @@ lint:
 	cd 02-go-by-example-concurrency && go fmt && golint -set_exit_status
 
 # xargs:
-# - A command that takes output of a command and passes it as argument of another command
+# - Take output of a command and pass it as argument to another command
 # - If no command is specified, "xargs" executes "echo" by default
 
 # Generate table of contents
