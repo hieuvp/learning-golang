@@ -1438,7 +1438,7 @@ $ go run panic.go
 # exit status 2
 ```
 
-- In Go it is idiomatic to use **error-indicating return values** wherever possible.
+- In Go, it is idiomatic to use **error-indicating return values** wherever possible.
 
 
 ## Defer
