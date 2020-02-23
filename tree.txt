@@ -1,0 +1,74 @@
+$ tree -I '\.git|\.idea' -a .
+.
+├── .DS_Store
+├── .env
+├── .gitignore
+├── Makefile
+├── README.md
+├── concurrent-programming-with-go
+│   └── README.md
+├── creating-web-applications-with-go
+│   └── README.md
+├── creating-well-tested-applications-in-go
+│   └── README.md
+├── go-by-example-advance
+│   └── README.md
+├── go-by-example-basics
+│   ├── README.md
+│   ├── arrays.go
+│   ├── closures.go
+│   ├── constants.go
+│   ├── errors.go
+│   ├── for.go
+│   ├── functions.go
+│   ├── hello-world.go
+│   ├── if-else.go
+│   ├── interfaces.go
+│   ├── maps.go
+│   ├── methods.go
+│   ├── multiple-return-values.go
+│   ├── pointers.go
+│   ├── range.go
+│   ├── recursion.go
+│   ├── slices.go
+│   ├── structs.go
+│   ├── switch.go
+│   ├── type-assertions.go
+│   ├── values.go
+│   ├── variables.go
+│   └── variadic-functions.go
+├── go-by-example-concurrency
+│   ├── README.md
+│   ├── atomic-counters.go
+│   ├── channel-buffering.go
+│   ├── channel-directions.go
+│   ├── channel-synchronization.go
+│   ├── channels.go
+│   ├── closing-channels.go
+│   ├── defer.go
+│   ├── goroutines.go
+│   ├── mutexes.go
+│   ├── non-blocking-channel-operations.go
+│   ├── panic.go
+│   ├── range-over-channels.go
+│   ├── rate-limiting.go
+│   ├── select.go
+│   ├── sorting-by-functions.go
+│   ├── sorting.go
+│   ├── stateful-goroutines.go
+│   ├── tickers.go
+│   ├── timeouts.go
+│   ├── timers.go
+│   ├── wait-groups.go
+│   └── worker-pools.go
+├── go-getting-started
+│   └── README.md
+├── go-templates
+│   └── README.md
+├── go-the-big-picture
+│   └── README.md
+├── scripts
+│   └── lint-go.sh
+└── tree.txt
+
+10 directories, 60 files
