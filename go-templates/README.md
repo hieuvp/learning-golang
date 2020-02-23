@@ -1,5 +1,8 @@
 # Go Templates
 
+JetBrains
+- https://blog.jetbrains.com/go/2018/12/14/go-templates-made-easy/
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
