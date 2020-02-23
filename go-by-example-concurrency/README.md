@@ -99,7 +99,8 @@ $ go run goroutines.go
 ## Channels
 
 > **Channels** are the pipes that connect concurrent goroutines.
-> You can send values into **channels** from one goroutine and receive those values into another goroutine.
+> You can send values into **channels** from one goroutine
+> and receive those values into another goroutine.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channels.go) -->
 <!-- The below code snippet is automatically added from channels.go -->
@@ -139,8 +140,11 @@ $ go run channels.go
 
 ## Channel Buffering
 
-- By default, **channels** are **unbuffered**, meaning that they will only accept sends (`chan <-`) if there is a corresponding receive (`<-chan`) ready to receive the sent value.
-- **Buffered channels** accept a limited number of values without a corresponding receiver for those values.
+- By default, **channels** are **unbuffered**,
+  meaning that they will only accept sends (`chan <-`)
+  if there is a corresponding receive (`<-chan`) ready to receive the sent value.
+- **Buffered channels** accept a limited number of values
+  without a corresponding receiver for those values.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-buffering.go) -->
 <!-- The below code snippet is automatically added from channel-buffering.go -->
@@ -229,11 +233,13 @@ $ go run channel-synchronization.go
 # Working... Done
 ```
 
-- If you removed the `<-done` line from this program, the program would exit before the worker even started.
+- If you removed the `<-done` line from this program,
+  the program would exit before the worker even started.
 
 ## Channel Directions
 
-> When using **channels** as function parameters, you can specify if a **channel** is meant to only send or receive values.
+> When using **channels** as function parameters,
+> you can specify if a **channel** is meant to only send or receive values.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-directions.go) -->
 <!-- The below code snippet is automatically added from channel-directions.go -->
@@ -395,7 +401,8 @@ $ go run timeouts.go
 
 ## Non-Blocking Channel Operations
 
-> Use `select` with a `default` clause to implement non-blocking sends, receives, and non-blocking multi-way selects.
+> Use `select` with a `default` clause to implement
+> non-blocking sends, receives, and non-blocking multi-way selects.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
@@ -816,8 +823,10 @@ $ go run wait-groups.go
 
 ## Rate Limiting
 
-- **Rate limiting** is an important mechanism for controlling resource utilization and maintaining quality of service.
-- Go elegantly supports **rate limiting** with **goroutines**, **channels**, and **tickers**.
+- **Rate limiting** is an important mechanism
+  for controlling resource utilization and maintaining quality of service.
+- Go elegantly supports **rate limiting**
+  with **goroutines**, **channels**, and **tickers**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=rate-limiting.go) -->
 <!-- The below code snippet is automatically added from rate-limiting.go -->
@@ -1012,8 +1021,11 @@ $ go run rate-limiting.go
 
 ## Atomic Counters
 
-- The primary mechanism for **managing state** in Go is **communication over channels**, we saw this for example with [**Worker Pools**](#worker-pools).
-- There are a few other options for **managing state** though, here we will look at using the `sync/atomic` package for **atomic counters** accessed by multiple goroutines.
+- The primary mechanism for **managing state** in Go is **communication over channels**,
+  we saw this for example with [**Worker Pools**](#worker-pools).
+- There are a few other options for **managing state** though,
+  here we will look at using the `sync/atomic` package
+  for **atomic counters** accessed by multiple goroutines.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=atomic-counters.go) -->
 <!-- The below code snippet is automatically added from atomic-counters.go -->
@@ -1077,7 +1089,8 @@ $ go run atomic-counters.go
 # atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
-- With `nonAtomicCounter`, we would likely get a different number, changing between runs, because the goroutines interfere with each other, **race condition**.
+- With `nonAtomicCounter`, we would likely get a different number, changing between runs,
+  because the goroutines interfere with each other, **race condition**.
 
 ## Mutexes
 
@@ -1187,9 +1200,12 @@ $ go run mutexes.go
 
 ## Stateful Goroutines
 
-- In the previous example, we used explicit locking with **mutexes** to synchronize access to shared state across multiple goroutines.
-- Another option is to use the built-in synchronization features of **goroutines** and **channels** to achieve the same result.
-- This **channel-based** approach aligns with Go's ideas of sharing memory by communicating and having each piece of data owned by exactly **1 goroutine**.
+- In the previous example, we used explicit locking with **mutexes**
+  to synchronize access to shared state across multiple goroutines.
+- Another option is to use the built-in synchronization features
+  of **goroutines** and **channels** to achieve the same result.
+- This **channel-based** approach aligns with Go's ideas of sharing memory
+  by communicating and having each piece of data owned by exactly **1 goroutine**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=stateful-goroutines.go) -->
 <!-- The below code snippet is automatically added from stateful-goroutines.go -->
@@ -1381,9 +1397,10 @@ import (
 type byLength []string
 
 // We implement "sort.Interface"
-// - Len() int: the number of elements in the collection
-// - Less(i, j int) bool: report whether the element with index "i" should sort before the element with index "j"
-// - Swap(i, j int): swap the elements with indexes "i" and "j"
+// - Len() int           : the number of elements in the collection
+// - Less(i, j int) bool : report whether the element with index "i"
+//						   should sort before the element with index "j"
+// - Swap(i, j int)      : swap the elements with indexes "i" and "j"
 func (s byLength) Len() int {
 	return len(s)
 }
@@ -1462,7 +1479,9 @@ $ go run panic.go
 
 ## Defer
 
-> `defer` is used to ensure that a function call is performed later in a program's execution, usually for purposes of cleanup.
+> `defer` is used to ensure that
+> a function call is performed later in a program's execution,
+> usually for purposes of cleanup.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=defer.go) -->
 <!-- The below code snippet is automatically added from defer.go -->
