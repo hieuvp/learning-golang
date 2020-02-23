@@ -3,6 +3,7 @@ $ tree -I '\.git|\.idea' -a .
 ├── .DS_Store
 ├── .env
 ├── .gitignore
+├── .tree.txt
 ├── Makefile
 ├── README.md
 ├── concurrent-programming-with-go
@@ -67,8 +68,7 @@ $ tree -I '\.git|\.idea' -a .
 │   └── README.md
 ├── go-the-big-picture
 │   └── README.md
-├── scripts
-│   └── lint-go.sh
-└── tree.txt
+└── scripts
+    └── lint-go.sh
 
 10 directories, 60 files
