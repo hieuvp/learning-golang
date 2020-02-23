@@ -24,8 +24,11 @@
 
 ```gohtml
 <h1>Hello, {{.Name}}!</h1>
-https://github.com/yosssi/gohtml
-==> Formatter
+- https://github.com/yosssi/gohtml ==> formatter
+
+- html formatter:
+    - prettier
+    - ...
 ```
 
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -61,9 +64,18 @@ func main() {
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```shell script
-$ go run hello.go                                                                                                                                           1 ↵
-<h1>Hello, John Smith!</h1>
+go run hello.go > hello.html
 ```
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.html) -->
+<!-- The below code snippet is automatically added from ./hello.html -->
+
+```html
+<h1>Hello, Harrison Van!</h1>
+- https://github.com/yosssi/gohtml ==> formatter - html formatter: - prettier - ...
+```
+
+<!-- AUTO-GENERATED-CONTENT:END -->
 
 ### A Contextual Encoding
 
@@ -149,27 +161,38 @@ func main() {
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```shell script
-$ go run context.go
-Backslash! An in depth look at the &#34;\&#34; character.
-&lt;h1&gt;A header!&lt;/h1&gt;
+go run context.go > context.html
+```
+
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./context.html) -->
+<!-- The below code snippet is automatically added from ./context.html -->
+
+```html
+Backslash! An in depth look at the &#34;\&#34; character. &lt;h1&gt;A header!&lt;/h1&gt;
 <h1>A Safe header</h1>
-{&lt;h1&gt;A header!&lt;/h1&gt; &lt;h1&gt;A Safe header&lt;/h1&gt; Backslash! An in depth look at the &#34;\&#34; character. /dashboard/settings {Fido 6} map[key:value other_key:other_value]}
+{&lt;h1&gt;A header!&lt;/h1&gt; &lt;h1&gt;A Safe header&lt;/h1&gt; Backslash! An in depth look
+at the &#34;\&#34; character. /dashboard/settings {Fido 6} map[key:value other_key:other_value]}
 
 <a title="Backslash! An in depth look at the &#34;\&#34; character.">
-<a title="&lt;h1&gt;A header!&lt;/h1&gt;">
-
-<a href="%3ch1%3eA%20header!%3c/h1%3e">
-<a href="?q=%3ch1%3eA%20header%21%3c%2fh1%3e">
-<a href="/dashboard/settings">
-<a href="?q=%2fdashboard%2fsettings">
-
-
-<script>
-    var dog = {"Name":"Fido","Age":6};
-    var map = {"key":"value","other_key":"other_value"};
-    doWork("Backslash! An in depth look at the \"\\\" character.");
-</script>
+  <a title="&lt;h1&gt;A header!&lt;/h1&gt;">
+    <a href="%3ch1%3eA%20header!%3c/h1%3e">
+      <a href="?q=%3ch1%3eA%20header%21%3c%2fh1%3e">
+        <a href="/dashboard/settings">
+          <a href="?q=%2fdashboard%2fsettings">
+            <script>
+              var dog = { Name: "Fido", Age: 6 };
+              var map = { key: "value", other_key: "other_value" };
+              doWork('Backslash! An in depth look at the "\\" character.');
+            </script></a
+          ></a
+        ></a
+      ></a
+    ></a
+  ></a
+>
 ```
+
+<!-- AUTO-GENERATED-CONTENT:END -->
 
 ## Template Actions
 
