@@ -1,21 +1,58 @@
 package main
 
 import (
-	"html/template"
+	"io/ioutil"
 	"os"
+	"text/template"
+)
+
+type (
+	// Location struct
+	Location struct {
+		Street  string
+		ZipCode string
+	}
+
+	// User struct
+	User struct {
+		Username  string
+		Locations map[string]Location
+	}
+
+	// UsersPage struct
+	UsersPage struct {
+		Title string
+		Users []User
+	}
 )
 
 func main() {
-	t, err := template.ParseFiles("hello.gohtml")
+	message, err := ioutil.ReadFile("hello.gohtml")
 	if err != nil {
 		panic(err)
 	}
 
-	data := struct {
-		Name string
-	}{"Harrison Van"}
+	t, err := template.New("UsersPage").Parse(string(message))
+	if err != nil {
+		panic(err)
+	}
 
-	err = t.Execute(os.Stdout, data)
+	p := UsersPage{
+		Title: "Users location",
+		Users: []User{
+			{
+				Username: "Florin",
+				Locations: map[string]Location{
+					"Home": {
+						Street:  "GoLand",
+						ZipCode: "2018.3",
+					},
+				},
+			},
+		},
+	}
+
+	err = t.Execute(os.Stdout, p)
 	if err != nil {
 		panic(err)
 	}
