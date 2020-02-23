@@ -1,10 +1,9 @@
 # Go by Example - Basics
 
-
 ## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Hello World](#hello-world)
 - [Values](#values)
@@ -32,11 +31,11 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 ## Hello World
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=hello-world.go) -->
 <!-- The below code snippet is automatically added from hello-world.go -->
+
 ```go
 package main
 
@@ -46,10 +45,11 @@ func main() {
 	fmt.Println("Hello, World")
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
-$ go run hello-world.go
+go run hello-world.go
 ```
 
 ```bash
@@ -58,11 +58,11 @@ $ go build hello-world.go
 $ ./hello-world
 ```
 
-
 ## Values
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=values.go) -->
 <!-- The below code snippet is automatically added from values.go -->
+
 ```go
 package main
 
@@ -79,6 +79,7 @@ func main() {
 	fmt.Println(!true)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -94,11 +95,11 @@ $ go run values.go
 # false
 ```
 
-
 ## Variables
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=variables.go) -->
 <!-- The below code snippet is automatically added from variables.go -->
+
 ```go
 package main
 
@@ -129,6 +130,7 @@ func main() {
 	fmt.Println(f)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -141,11 +143,11 @@ $ go run variables.go
 # apple
 ```
 
-
 ## Constants
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=constants.go) -->
 <!-- The below code snippet is automatically added from constants.go -->
+
 ```go
 package main
 
@@ -166,6 +168,7 @@ func main() {
 	fmt.Println(int64(d))
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -176,11 +179,11 @@ $ go run constants.go
 # 600000000000
 ```
 
-
 ## For
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=for.go) -->
 <!-- The below code snippet is automatically added from for.go -->
+
 ```go
 package main
 
@@ -221,6 +224,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -241,11 +245,11 @@ $ go run for.go
 # 5
 ```
 
-
 ## If/Else
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=if-else.go) -->
 <!-- The below code snippet is automatically added from if-else.go -->
+
 ```go
 package main
 
@@ -277,6 +281,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -289,11 +294,11 @@ $ go run if-else.go
 
 - There is no **Ternary Conditional Operator** (`condition ? exprIfTrue : exprIfFalse`) in Go, so you will need to use a full if statement even for basic conditions.
 
-
 ## Switch
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=switch.go) -->
 <!-- The below code snippet is automatically added from switch.go -->
+
 ```go
 package main
 
@@ -355,6 +360,7 @@ func main() {
 	whatAmI("hey")
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -369,11 +375,11 @@ $ go run switch.go
 # Don't know type string
 ```
 
-
 ## Arrays
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=arrays.go) -->
 <!-- The below code snippet is automatically added from arrays.go -->
+
 ```go
 package main
 
@@ -410,6 +416,7 @@ func main() {
 	fmt.Println("2D array:", twoD)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -423,13 +430,13 @@ $ go run arrays.go
 # 2D array: [[0 1 2] [1 2 3]]
 ```
 
-
 ## Slices
 
 > **Slices** are a key data type in Go, giving a more powerful interface to sequences than **Arrays**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=slices.go) -->
 <!-- The below code snippet is automatically added from slices.go -->
+
 ```go
 package main
 
@@ -493,6 +500,7 @@ func main() {
 	fmt.Println("2D slice: ", twoD)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -516,11 +524,11 @@ $ go run slices.go
 # 2D slice:  [[0] [1 2] [2 3 4]]
 ```
 
-
 ## Maps
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=maps.go) -->
 <!-- The below code snippet is automatically added from maps.go -->
+
 ```go
 package main
 
@@ -559,6 +567,7 @@ func main() {
 	fmt.Println("Init:", n)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -572,13 +581,13 @@ $ go run maps.go
 # Init: map[bar:2 foo:1]
 ```
 
-
 ## Range
 
 > `range` iterates over elements in a variety of data structures.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range.go) -->
 <!-- The below code snippet is automatically added from range.go -->
+
 ```go
 package main
 
@@ -620,6 +629,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -638,11 +648,11 @@ $ go run range.go
 # 1 111
 ```
 
-
 ## Functions
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=functions.go) -->
 <!-- The below code snippet is automatically added from functions.go -->
+
 ```go
 package main
 
@@ -670,6 +680,7 @@ func main() {
 	fmt.Println("1 + 2 + 3 =", result)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -679,13 +690,13 @@ $ go run functions.go
 # 1 + 2 + 3 = 6
 ```
 
-
 ## Multiple Return Values
 
 > This feature is used often in idiomatic Go e.g. to return both **result** and **error** values from a function.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=multiple-return-values.go) -->
 <!-- The below code snippet is automatically added from multiple-return-values.go -->
+
 ```go
 package main
 
@@ -710,6 +721,7 @@ func main() {
 	fmt.Println(c)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -721,13 +733,13 @@ $ go run multiple-return-values.go
 # 7
 ```
 
-
 ## Variadic Functions
 
 > Variadic functions can be called with any number of trailing arguments (e.g. `fmt.Println`).
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=variadic-functions.go) -->
 <!-- The below code snippet is automatically added from variadic-functions.go -->
+
 ```go
 package main
 
@@ -754,6 +766,7 @@ func main() {
 	sum(nums...)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -765,13 +778,13 @@ $ go run variadic-functions.go
 # [1 2 3 4] 10
 ```
 
-
 ## Closures
 
 > Go supports **anonymous functions**, which can form **closures**. **Anonymous functions** are useful when you want to define a function inline without having to name it.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closures.go) -->
 <!-- The below code snippet is automatically added from closures.go -->
+
 ```go
 package main
 
@@ -803,6 +816,7 @@ func main() {
 	fmt.Println(newInt())
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -815,11 +829,11 @@ $ go run closures.go
 # 1
 ```
 
-
 ## Recursion
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=recursion.go) -->
 <!-- The below code snippet is automatically added from recursion.go -->
+
 ```go
 package main
 
@@ -837,6 +851,7 @@ func main() {
 	fmt.Println(fact(7))
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -845,11 +860,11 @@ $ go run recursion.go
 # 5040
 ```
 
-
 ## Pointers
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=pointers.go) -->
 <!-- The below code snippet is automatically added from pointers.go -->
+
 ```go
 package main
 
@@ -885,6 +900,7 @@ func main() {
 	fmt.Println("zeroPointer:", i)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -898,13 +914,13 @@ $ go run pointers.go
 # zeroPointer: 0
 ```
 
-
 ## Structs
 
 > **Structs** are typed collections of **fields**, they're useful for grouping data together to form records.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=structs.go) -->
 <!-- The below code snippet is automatically added from structs.go -->
+
 ```go
 package main
 
@@ -957,6 +973,7 @@ func main() {
 	fmt.Println(sp)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -975,13 +992,13 @@ $ go run structs.go
 # &{Sean 51}
 ```
 
-
 ## Methods
 
 > Go supports **methods** defined on **struct types**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=methods.go) -->
 <!-- The below code snippet is automatically added from methods.go -->
+
 ```go
 package main
 
@@ -1018,6 +1035,7 @@ func main() {
 	fmt.Println("perimeter:", rp.perimeter())
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1030,13 +1048,13 @@ $ go run methods.go
 # perimeter: 30
 ```
 
-
 ## Interfaces
 
 > **Interfaces** are named collections of **method** signatures.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=interfaces.go) -->
 <!-- The below code snippet is automatically added from interfaces.go -->
+
 ```go
 package main
 
@@ -1098,6 +1116,7 @@ func main() {
 	measure(c)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1112,11 +1131,11 @@ $ go run interfaces.go
 # 31.41592653589793
 ```
 
-
 ## Type Assertions
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=type-assertions.go) -->
 <!-- The below code snippet is automatically added from type-assertions.go -->
+
 ```go
 package main
 
@@ -1145,6 +1164,7 @@ func main() {
 	fmt.Println(f)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1157,13 +1177,13 @@ $ go run type-assertions.go
 # panic: interface conversion: interface {} is string, not float64
 ```
 
-
 ## Errors
 
 > In Go, it is idiomatic to communicate **errors** via an explicit, separate **return value**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=errors.go) -->
 <!-- The below code snippet is automatically added from errors.go -->
+
 ```go
 package main
 
@@ -1231,6 +1251,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1247,7 +1268,6 @@ $ go run errors.go
 ```
 
 - This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
-
 
 ## References
 
