@@ -17,12 +17,12 @@
 
 ## Hello World
 
-Go ships with its own template engine, split into two packages,
-`text/template` and `html/template`.
-These packages are similar in functionality,
-with the difference that `html/template` allows
-a user to generate HTML code that is safe against code injection,
-making it suitable for use on web pages and emails.
+- Go ships with its own template engine, split into two packages,
+  `text/template` and `html/template`.
+- These packages are similar in functionality,
+  with the difference that `html/template` allows
+  a user to generate HTML code that is safe against code injection,
+  making it suitable for use on web pages and emails.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./output/hello.html) -->
 <!-- The below code snippet is automatically added from ./output/hello.html -->
