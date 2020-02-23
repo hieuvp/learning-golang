@@ -27,5 +27,5 @@ lint:
 .PHONY: git-add
 git-add: fmt lint
 	@printf "\n"
-	git add .
+	git add --all .
 	@printf "\n"
