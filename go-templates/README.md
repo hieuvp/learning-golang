@@ -5,9 +5,21 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Contextual Encoding](#contextual-encoding)
+- [Template Actions](#template-actions)
+- [Using Functions Inside Templates](#using-functions-inside-templates)
+- [Creating the V in MVC](#creating-the-v-in-mvc)
 - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Contextual Encoding
+
+## Template Actions
+
+## Using Functions Inside Templates
+
+## Creating the V in MVC
 
 ## References
 
