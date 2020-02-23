@@ -11,6 +11,6 @@
 
 ## References
 
-- [An Introduction to Templates in Go](https://www.calhoun.io/intro-to-templates/)
-- [Go Template Examples and Code Generator](https://github.com/phcollignon/Go-Template)
-- [Using Go Templates](https://blog.gopheracademy.com/advent-2017/using-go-templates/)
+- [ ] [An Introduction to Templates in Go](https://www.calhoun.io/intro-to-templates/)
+- [ ] [Go Template Examples and Code Generator](https://github.com/phcollignon/Go-Template)
+- [ ] [Using Go Templates](https://blog.gopheracademy.com/advent-2017/using-go-templates/)
