@@ -1,7 +1,8 @@
 # Go Templates
 
 JetBrains
-- https://blog.jetbrains.com/go/2018/12/14/go-templates-made-easy/
+
+- <https://blog.jetbrains.com/go/2018/12/14/go-templates-made-easy/>
 
 ## Table of Contents
 
@@ -30,8 +31,11 @@ JetBrains
 - https://github.com/yosssi/gohtml ==> formatter
 
 - html formatter:
-    - prettier
-    - ...
+- prettier
+prettier --loglevel warn --print-width 96 --write context.html
+- ...
+- https://github.com/Prettyhtml/prettyhtml
+- https://github.com/google/code-prettify
 ```
 
 <!-- AUTO-GENERATED-CONTENT:END -->
@@ -75,7 +79,9 @@ go run hello.go > hello.html
 
 ```html
 <h1>Hello, Harrison Van!</h1>
-- https://github.com/yosssi/gohtml ==> formatter - html formatter: - prettier - ...
+- https://github.com/yosssi/gohtml ==> formatter - html formatter: - prettier prettier
+--loglevel warn --print-width 96 --write context.html - ... -
+https://github.com/Prettyhtml/prettyhtml - https://github.com/google/code-prettify
 ```
 
 <!-- AUTO-GENERATED-CONTENT:END -->
