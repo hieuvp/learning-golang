@@ -31,6 +31,9 @@ To check your GOPATH, open settings ⌘, and navigate to Go | GOPATH.
 <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
 <https://github.com/apronichev/documentation-code-examples/tree/master/goTemplates>
 
+Go supports a much better way to manage your project using Go Modules.
+Follow this article to know more. Go workspaces (GOPATH) will be deprecated soon.
+
 ## Contextual Encoding
 
 ## Template Actions

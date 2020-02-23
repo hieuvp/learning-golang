@@ -34,7 +34,6 @@ I don't think it really matters on if you use new vs short variable declaration 
 
 ## Topics
 
-1. [ ] [`GOPATH`](go-path/README.md)
 1. [ ] [Go Templates](go-templates/README.md)
 
 ## Courses
