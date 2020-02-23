@@ -783,8 +783,8 @@ $ go run variadic-functions.go
 ## Closures
 
 > Go supports **anonymous functions**, which can form **closures**.
-> **Anonymous functions** are useful when you want to define a function inline
-> without having to name it.
+> **Anonymous functions** are useful
+> when you want to define a function inline without having to name it.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closures.go) -->
 <!-- The below code snippet is automatically added from closures.go -->
