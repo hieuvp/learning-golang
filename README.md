@@ -12,6 +12,7 @@
 1. [Go by Example - Basics](go-by-example-basics/README.md)
 1. [Go by Example - Concurrency](go-by-example-concurrency/README.md)
 1. [ ] [Go by Example - Advance](go-by-example-advance/README.md)
+1. [ ] [Go Templates](go-templates/README.md)
 1. [ ] [Go: The Big Picture](go-the-big-picture/README.md)
 1. [ ] [Go: Getting Started](go-getting-started/README.md)
 1. [ ] [Concurrent Programming with Go](concurrent-programming-with-go/README.md)
