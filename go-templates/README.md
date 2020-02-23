@@ -16,6 +16,22 @@
 
 ## Hello World
 
+Go ships with its own template engine, split into two packages,
+`text/template` and `html/template`.
+These packages are similar in functionality,
+with the difference that `html/template` allows a user to generate HTML code that is safe against code injection,
+making it suitable for use on web pages and emails.
+
+
+To use code assistance in Go templates,
+ensure that your project folder is under GOPATH (for example, go/src/myProject).
+To check your GOPATH, open settings ⌘, and navigate to Go | GOPATH. 
+
+https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath
+https://www.jetbrains.com/help/go/integration-with-go-templates.html
+https://github.com/apronichev/documentation-code-examples/tree/master/goTemplates
+
+
 ## Contextual Encoding
 
 ## Template Actions
