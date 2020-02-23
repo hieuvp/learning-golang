@@ -7,7 +7,11 @@ fmt:
 	@printf "\n"
 
 	@printf "\n"
-	$(SCRIPT_PATH)/fmt-go.sh
+	scripts/fmt-go.sh
+	@printf "\n"
+
+	@printf "\n"
+	cd go-templates && make render
 	@printf "\n"
 
 	@printf "\n"
