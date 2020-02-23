@@ -19,14 +19,4 @@
 1. [ ] [Creating Well-tested Applications in Go](creating-well-tested-applications-in-go/README.md)
 1. [ ] [Creating Web Applications with Go](creating-web-applications-with-go/README.md)
 
-├── concurrent-programming-with-go
-├── creating-web-applications-with-go
-├── creating-well-tested-applications-in-go
-├── go-by-example-advance
-├── go-by-example-basics
-├── go-by-example-concurrency
-├── go-getting-started
-├── go-templates
-├── go-the-big-picture
-
 ## References
