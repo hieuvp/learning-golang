@@ -1,5 +1,18 @@
 # Learning Golang
 
+```text
+Iota => Add to learning golang list
+- What is it?
+https://www.youtube.com/watch?v=0fcQmWEygU4
+
+GO111MODULE=on? => local Go modules?
+ => Add to learning golang list
+
+new keyword => Add to learning list
+new allocates zeroed storage for a new item or type whatever and then returns a pointer to it.
+I don't think it really matters on if you use new vs short variable declaration := type{} it's mostly just preference
+```
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
