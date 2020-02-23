@@ -4,7 +4,7 @@ import "os"
 
 func main() {
 	// Syntax
-	panic("a problem")
+	// panic("a problem")
 
 	// A common use of "panic" is
 	// to abort if a function returns an error value

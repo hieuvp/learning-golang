@@ -1,10 +1,9 @@
 # Go by Example - Concurrency
 
-
 ## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Goroutines](#goroutines)
 - [Channels](#channels)
@@ -32,13 +31,13 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 ## Goroutines
 
 > A **goroutine** is a lightweight thread of execution.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=goroutines.go) -->
 <!-- The below code snippet is automatically added from goroutines.go -->
+
 ```go
 package main
 
@@ -76,6 +75,7 @@ func main() {
 	fmt.Println("Done")
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -96,14 +96,15 @@ $ go run goroutines.go
 # Done
 ```
 
-
 ## Channels
 
 > **Channels** are the pipes that connect concurrent goroutines.
-> You can send values into **channels** from one goroutine and receive those values into another goroutine.
+> You can send values into **channels** from one goroutine
+> and receive those values into another goroutine.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channels.go) -->
 <!-- The below code snippet is automatically added from channels.go -->
+
 ```go
 package main
 
@@ -127,6 +128,7 @@ func main() {
 	fmt.Println(msg)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -136,14 +138,17 @@ $ go run channels.go
 # ping
 ```
 
-
 ## Channel Buffering
 
-- By default, **channels** are **unbuffered**, meaning that they will only accept sends (`chan <-`) if there is a corresponding receive (`<-chan`) ready to receive the sent value.
-- **Buffered channels** accept a limited number of values without a corresponding receiver for those values.
+- By default, **channels** are **unbuffered**,
+  meaning that they will only accept sends (`chan <-`)
+  if there is a corresponding receive (`<-chan`) ready to receive the sent value.
+- **Buffered channels** accept a limited number of values
+  without a corresponding receiver for those values.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-buffering.go) -->
 <!-- The below code snippet is automatically added from channel-buffering.go -->
+
 ```go
 package main
 
@@ -168,6 +173,7 @@ func main() {
 	fmt.Println(<-messages)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -182,13 +188,13 @@ $ go run channel-buffering.go
 - **Sends** to a buffered channel block only when the buffer is **full**.
 - **Receives** block when the buffer is **empty**.
 
-
 ## Channel Synchronization
 
 > We can use **channels** to synchronize execution across **goroutines**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-synchronization.go) -->
 <!-- The below code snippet is automatically added from channel-synchronization.go -->
+
 ```go
 package main
 
@@ -218,6 +224,7 @@ func main() {
 	<-done
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -226,15 +233,17 @@ $ go run channel-synchronization.go
 # Working... Done
 ```
 
-- If you removed the `<-done` line from this program, the program would exit before the worker even started.
-
+- If you removed the `<-done` line from this program,
+  the program would exit before the worker even started.
 
 ## Channel Directions
 
-> When using **channels** as function parameters, you can specify if a **channel** is meant to only send or receive values.
+> When using **channels** as function parameters,
+> you can specify if a **channel** is meant to only send or receive values.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=channel-directions.go) -->
 <!-- The below code snippet is automatically added from channel-directions.go -->
+
 ```go
 package main
 
@@ -262,6 +271,7 @@ func main() {
 	fmt.Println(<-pongs)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -270,13 +280,13 @@ $ go run channel-directions.go
 # passed message
 ```
 
-
 ## Select
 
 > `select` lets you wait on multiple channel operations.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=select.go) -->
 <!-- The below code snippet is automatically added from select.go -->
+
 ```go
 package main
 
@@ -312,6 +322,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -325,11 +336,11 @@ $ time go run select.go
 
 - The total execution time is only `~4s` since both `4s Sleep` and `2s Sleep` execute concurrently.
 
-
 ## Timeouts
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timeouts.go) -->
 <!-- The below code snippet is automatically added from timeouts.go -->
+
 ```go
 package main
 
@@ -378,6 +389,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -387,13 +399,14 @@ $ go run timeouts.go
 # result from c2
 ```
 
-
 ## Non-Blocking Channel Operations
 
-> Use `select` with a `default` clause to implement non-blocking sends, receives, and non-blocking multi-way selects.
+> Use `select` with a `default` clause to implement
+> non-blocking sends, receives, and non-blocking multi-way selects.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=non-blocking-channel-operations.go) -->
 <!-- The below code snippet is automatically added from non-blocking-channel-operations.go -->
+
 ```go
 package main
 
@@ -436,6 +449,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -446,11 +460,11 @@ $ go run non-blocking-channel-operations.go
 # no activity
 ```
 
-
 ## Closing Channels
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closing-channels.go) -->
 <!-- The below code snippet is automatically added from closing-channels.go -->
+
 ```go
 package main
 
@@ -497,6 +511,7 @@ func main() {
 	<-done
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -515,11 +530,11 @@ $ go run closing-channels.go
 # received all jobs
 ```
 
-
 ## Range over Channels
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=range-over-channels.go) -->
 <!-- The below code snippet is automatically added from range-over-channels.go -->
+
 ```go
 package main
 
@@ -542,6 +557,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -551,13 +567,13 @@ $ go run range-over-channels.go
 # two
 ```
 
-
 ## Timers
 
 > `Timer` is for when you want to do something once in the future.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=timers.go) -->
 <!-- The below code snippet is automatically added from timers.go -->
+
 ```go
 package main
 
@@ -590,6 +606,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -599,13 +616,13 @@ $ go run timers.go
 # Timer 2 stopped
 ```
 
-
 ## Tickers
 
 > `Ticker` is for when you want to do something repeatedly at regular intervals.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=tickers.go) -->
 <!-- The below code snippet is automatically added from tickers.go -->
+
 ```go
 package main
 
@@ -643,6 +660,7 @@ func main() {
 	time.Sleep(2000 * time.Millisecond)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -655,13 +673,13 @@ $ go run tickers.go
 # Ticker stopped
 ```
 
-
 ## Worker Pools
 
 > In this example, we will look at how to implement a **worker pool** using **goroutines** and **channels**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=worker-pools.go) -->
 <!-- The below code snippet is automatically added from worker-pools.go -->
+
 ```go
 package main
 
@@ -714,6 +732,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -738,13 +757,13 @@ $ time go run worker-pools.go
 # go run worker-pools.go  0.28s user 0.21s system 14% cpu 3.264 total
 ```
 
-
 ## WaitGroups
 
 > To wait for multiple goroutines to finish, we can use a `WaitGroup`.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=wait-groups.go) -->
 <!-- The below code snippet is automatically added from wait-groups.go -->
+
 ```go
 package main
 
@@ -783,6 +802,7 @@ func main() {
 	wg.Wait()
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -801,14 +821,16 @@ $ go run wait-groups.go
 # Worker : 2 -> Done
 ```
 
-
 ## Rate Limiting
 
-- **Rate limiting** is an important mechanism for controlling resource utilization and maintaining quality of service.
-- Go elegantly supports **rate limiting** with **goroutines**, **channels**, and **tickers**.
+- **Rate limiting** is an important mechanism
+  for controlling resource utilization and maintaining quality of service.
+- Go elegantly supports **rate limiting**
+  with **goroutines**, **channels**, and **tickers**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=rate-limiting.go) -->
 <!-- The below code snippet is automatically added from rate-limiting.go -->
+
 ```go
 package main
 
@@ -893,6 +915,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -996,14 +1019,17 @@ $ go run rate-limiting.go
 # Request 15                 : at 7.404023068
 ```
 
-
 ## Atomic Counters
 
-- The primary mechanism for **managing state** in Go is **communication over channels**, we saw this for example with [**Worker Pools**](#worker-pools).
-- There are a few other options for **managing state** though, here we will look at using the `sync/atomic` package for **atomic counters** accessed by multiple goroutines.
+- The primary mechanism for **managing state** in Go is **communication over channels**,
+  we saw this for example with [**Worker Pools**](#worker-pools).
+- There are a few other options for **managing state** though,
+  here we will look at using the `sync/atomic` package
+  for **atomic counters** accessed by multiple goroutines.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=atomic-counters.go) -->
 <!-- The below code snippet is automatically added from atomic-counters.go -->
+
 ```go
 package main
 
@@ -1051,6 +1077,7 @@ func main() {
 
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1062,8 +1089,8 @@ $ go run atomic-counters.go
 # atomic.LoadUint64(&atomicCounter) = 50000
 ```
 
-- With `nonAtomicCounter`, we would likely get a different number, changing between runs, because the goroutines interfere with each other, **race condition**.
-
+- With `nonAtomicCounter`, we would likely get a different number, changing between runs,
+  because the goroutines interfere with each other, **race condition**.
 
 ## Mutexes
 
@@ -1071,6 +1098,7 @@ $ go run atomic-counters.go
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=mutexes.go) -->
 <!-- The below code snippet is automatically added from mutexes.go -->
+
 ```go
 package main
 
@@ -1159,6 +1187,7 @@ func main() {
 	mutex.Unlock()
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1169,15 +1198,18 @@ $ go run mutexes.go
 # state    : map[0:8 1:39 2:46 3:89 4:30]
 ```
 
-
 ## Stateful Goroutines
 
-- In the previous example, we used explicit locking with **mutexes** to synchronize access to shared state across multiple goroutines.
-- Another option is to use the built-in synchronization features of **goroutines** and **channels** to achieve the same result.
-- This **channel-based** approach aligns with Go's ideas of sharing memory by communicating and having each piece of data owned by exactly **1 goroutine**.
+- In the previous example, we used explicit locking with **mutexes**
+  to synchronize access to shared state across multiple goroutines.
+- Another option is to use the built-in synchronization features
+  of **goroutines** and **channels** to achieve the same result.
+- This **channel-based** approach aligns with Go's ideas of sharing memory
+  by communicating and having each piece of data owned by exactly **1 goroutine**.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=stateful-goroutines.go) -->
 <!-- The below code snippet is automatically added from stateful-goroutines.go -->
+
 ```go
 package main
 
@@ -1290,6 +1322,7 @@ func main() {
 	fmt.Println("writeOps :", finalWriteOps)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1299,11 +1332,11 @@ $ go run stateful-goroutines.go
 # writeOps : 23212
 ```
 
-
 ## Sorting
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting.go) -->
 <!-- The below code snippet is automatically added from sorting.go -->
+
 ```go
 package main
 
@@ -1331,6 +1364,7 @@ func main() {
 	fmt.Println("sorted   : ", sorted)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1341,11 +1375,11 @@ $ go run sorting.go
 # sorted   :  true
 ```
 
-
 ## Sorting by Functions
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=sorting-by-functions.go) -->
 <!-- The below code snippet is automatically added from sorting-by-functions.go -->
+
 ```go
 package main
 
@@ -1390,6 +1424,7 @@ func main() {
 	fmt.Println(fruits)
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1398,13 +1433,13 @@ $ go run sorting-by-functions.go
 # [kiwi peach banana]
 ```
 
-
 ## Panic
 
 > A `panic` typically means something went unexpectedly wrong.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=panic.go) -->
 <!-- The below code snippet is automatically added from panic.go -->
+
 ```go
 package main
 
@@ -1412,7 +1447,7 @@ import "os"
 
 func main() {
 	// Syntax
-	panic("a problem")
+	// panic("a problem")
 
 	// A common use of "panic" is
 	// to abort if a function returns an error value
@@ -1425,6 +1460,7 @@ func main() {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1440,13 +1476,15 @@ $ go run panic.go
 
 - In Go, it is idiomatic to use **error-indicating return values** wherever possible.
 
-
 ## Defer
 
-> `defer` is used to ensure that a function call is performed later in a program's execution, usually for purposes of cleanup.
+> `defer` is used to ensure that
+> a function call is performed later in a program's execution,
+> usually for purposes of cleanup.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=defer.go) -->
 <!-- The below code snippet is automatically added from defer.go -->
+
 ```go
 package main
 
@@ -1497,6 +1535,7 @@ func closeFile(file *os.File) {
 	}
 }
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 ```bash
@@ -1512,7 +1551,6 @@ $ cat /tmp/defer.txt
 
 # data
 ```
-
 
 ## References
 
