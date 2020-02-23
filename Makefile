@@ -3,6 +3,10 @@ include .env
 .PHONY: fmt
 fmt:
 	@printf "\n"
+	$(SCRIPT_PATH)/fmt-shell.sh
+	@printf "\n"
+
+	@printf "\n"
 	$(SCRIPT_PATH)/fmt-go.sh
 	@printf "\n"
 
@@ -12,6 +16,10 @@ fmt:
 
 .PHONY: lint
 lint:
+	@printf "\n"
+	$(SCRIPT_PATH)/lint-shell.sh
+	@printf "\n"
+
 	@printf "\n"
 	$(SCRIPT_PATH)/lint-go.sh
 	@printf "\n"
