@@ -292,7 +292,8 @@ $ go run if-else.go
 # 9 has 1 digit
 ```
 
-- There is no **Ternary Conditional Operator** (`condition ? exprIfTrue : exprIfFalse`) in Go, so you will need to use a full if statement even for basic conditions.
+- There is no **Ternary Conditional Operator** (`condition ? exprIfTrue : exprIfFalse`) in Go,
+  so you will need to use a full if statement even for basic conditions.
 
 ## Switch
 
@@ -692,7 +693,8 @@ $ go run functions.go
 
 ## Multiple Return Values
 
-> This feature is used often in idiomatic Go e.g. to return both **result** and **error** values from a function.
+> This feature is used often in idiomatic Go
+> e.g. to return both **result** and **error** values from a function.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=multiple-return-values.go) -->
 <!-- The below code snippet is automatically added from multiple-return-values.go -->
@@ -780,7 +782,9 @@ $ go run variadic-functions.go
 
 ## Closures
 
-> Go supports **anonymous functions**, which can form **closures**. **Anonymous functions** are useful when you want to define a function inline without having to name it.
+> Go supports **anonymous functions**, which can form **closures**.
+> **Anonymous functions** are useful when you want to define a function inline
+> without having to name it.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=closures.go) -->
 <!-- The below code snippet is automatically added from closures.go -->
@@ -916,7 +920,8 @@ $ go run pointers.go
 
 ## Structs
 
-> **Structs** are typed collections of **fields**, they're useful for grouping data together to form records.
+> **Structs** are typed collections of **fields**,
+> they're useful for grouping data together to form records.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=structs.go) -->
 <!-- The below code snippet is automatically added from structs.go -->
@@ -1267,7 +1272,9 @@ $ go run errors.go
 # cannot work with it
 ```
 
-- This approach makes it easy to see which functions return errors and to handle them using the same language constructs employed for any other, non-error tasks.
+- This approach makes it easy to see which functions return errors
+  and to handle them using the same language
+  constructs employed for any other, non-error tasks.
 
 ## References
 
