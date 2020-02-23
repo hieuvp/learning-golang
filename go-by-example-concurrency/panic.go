@@ -1,7 +1,5 @@
 package main
 
-import "os"
-
 func main() {
 	// Syntax
 	panic("a problem")
@@ -11,8 +9,9 @@ func main() {
 	// that we do not know how to handle or do not want to handle
 
 	// Panicking if we get an unexpected error when creating a new file
-	_, err := os.Create("/tmp/file")
-	if err != nil {
-		panic(err)
-	}
+	// Unreachable code
+	// _, err := os.Create("/tmp/file")
+	// if err != nil {
+	//	panic(err)
+	// }
 }
