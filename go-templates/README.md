@@ -6,6 +6,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Hello World](#hello-world)
+- [JetBrains Code Assistance](#jetbrains-code-assistance)
 - [Contextual Encoding](#contextual-encoding)
 - [Template Actions](#template-actions)
 - [Using Functions Inside Templates](#using-functions-inside-templates)
@@ -23,6 +24,8 @@ with the difference that `html/template` allows
 a user to generate HTML code that is safe against code injection,
 making it suitable for use on web pages and emails.
 
+## JetBrains Code Assistance
+
 To use code assistance in Go templates,
 ensure that your project folder is under GOPATH (for example, go/src/myProject).
 To check your GOPATH, open settings ⌘, and navigate to Go | GOPATH.
@@ -33,6 +36,10 @@ To check your GOPATH, open settings ⌘, and navigate to Go | GOPATH.
 
 Go supports a much better way to manage your project using Go Modules.
 Follow this article to know more. Go workspaces (GOPATH) will be deprecated soon.
+
+```shell script
+go mod init templating
+```
 
 ## Contextual Encoding
 

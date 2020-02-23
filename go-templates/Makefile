@@ -1,4 +1,7 @@
+OUTPUT_DIR := output
+
 .PHONY: render
 render:
-	go run hello.go > output/hello.html
-	go run context.go > output/context.html
+	rm -rf $(OUTPUT_DIR) && mkdir $(OUTPUT_DIR)
+	go run hello.go   > $(OUTPUT_DIR)/hello.html
+	go run context.go > $(OUTPUT_DIR)/context.html

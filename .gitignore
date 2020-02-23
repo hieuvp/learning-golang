@@ -9,3 +9,5 @@
 
 # Local Environment Variables
 .env
+
+output/

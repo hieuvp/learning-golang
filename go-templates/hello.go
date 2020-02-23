@@ -38,14 +38,14 @@ func main() {
 	}
 
 	p := UsersPage{
-		Title: "Users location",
+		Title: "Users Location",
 		Users: []User{
 			{
-				Username: "Florin",
+				Username: "Harrison Van",
 				Locations: map[string]Location{
 					"Home": {
-						Street:  "GoLand",
-						ZipCode: "2018.3",
+						Street:  "ShopBack",
+						ZipCode: "2020",
 					},
 				},
 			},
