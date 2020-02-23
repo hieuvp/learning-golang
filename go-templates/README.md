@@ -41,6 +41,15 @@ Follow this article to know more. Go workspaces (GOPATH) will be deprecated soon
 go mod init templating
 ```
 
+To use code assistance in Go templates,
+ensure that this project folder is under GOROOT (for example, 'go/src/myProject').
+Place the caret at the head tag and press Alt+Enter, select Add 'title'
+Inside the title tag, type {\{.}}
+Place the caret inside {\{.}} and press Alt+Enter, select Specify dot type
+In auto-completion popup, select goTemplates.UsersPage
+Inside {\{.}}, press Ctrl+Space and select Title
+You can use tpl_example.gohtml as a reference
+
 ## Contextual Encoding
 
 ## Template Actions

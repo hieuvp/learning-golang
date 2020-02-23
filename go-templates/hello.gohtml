@@ -6,6 +6,11 @@
     <title>{{.Title}}</title>
 </head>
 <body>
-
+{{range .Users}}
+    <div>Username: {{.Username}} </div>
+    <div>Location: {{.Locations.Home.Street}}</div>
+{{else}}
+    <div>No users found</div>
+{{end}}
 </body>
 </html>
