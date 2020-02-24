@@ -155,15 +155,15 @@ To use code assistance in Go templates:
 - Ensure that your project folder is under `GOPATH`.
   To check your `GOPATH`, open settings `⌘`, and navigate to `Go | GOPATH`.
 
-- `GOPATH` will be deprecated soon.
+- However, `GOPATH` will be deprecated soon.
   As of `1.11`, Go supports a much better way to manage your project using `Go Modules`.
   It enables the use of modules when the current directory
   or any parent directory has a `go.mod`, provided the directory is outside `GOPATH`.
 
-```shell script
-$ go mod init templating
-go: creating new go.mod: module templating
-```
+  ```shell script
+  $ go mod init templating
+  go: creating new go.mod: module templating
+  ```
 
 - <https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath>
 - <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
