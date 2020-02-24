@@ -151,21 +151,20 @@ go run hello.go
 ## JetBrains Code Assistance
 
 To use code assistance in Go templates,
-ensure that your project folder is under GOPATH (for example, go/src/myProject).
-To check your GOPATH, open settings ⌘, and navigate to Go | GOPATH.
-
-<https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath>
-<https://www.jetbrains.com/help/go/integration-with-go-templates.html>
+ensure that your project folder is under `GOPATH` (for example, go/src/myProject).
+To check your `GOPATH`, open settings `⌘`, and navigate to `Go | GOPATH`.
 
 Go supports a much better way to manage your project using Go Modules.
 Follow this article to know more. Go workspaces (GOPATH) will be deprecated soon.
 
+- <https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath>
+- <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
+
 ```shell script
-go mod init templating
+$ go mod init templating
+go: creating new go.mod: module templating
 ```
 
-To use code assistance in Go templates,
-ensure that this project folder is under GOROOT (for example, 'go/src/myProject').
 Place the caret at the head tag and press Alt+Enter, select Add 'title'
 Inside the title tag, type {\{.}}
 Place the caret inside {\{.}} and press Alt+Enter, select Specify dot type
