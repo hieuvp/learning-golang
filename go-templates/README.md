@@ -175,6 +175,11 @@ In auto-completion popup, select goTemplates.UsersPage
 Inside {\{.}}, press Ctrl+Space and select Title
 You can use tpl_example.gohtml as a reference
 
+```text
+Alternatively, type {{- /*gotype: */ -}},
+place the caret after gotype:, press ⌃Space, and select the necessary type. 
+```
+
 ## Contextual Encoding
 
 ## Template Actions
