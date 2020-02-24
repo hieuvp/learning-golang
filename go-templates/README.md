@@ -24,6 +24,8 @@
   a user to generate HTML code that is safe against code injection,
   making it suitable for use on web pages and emails.
 
+<br />
+
 **`hello.go`**
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.go) -->
@@ -93,6 +95,8 @@ func main() {
 
 <!-- AUTO-GENERATED-CONTENT:END -->
 
+<br />
+
 **`hello.gohtml`**
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.gohtml) -->
@@ -118,6 +122,8 @@ func main() {
 ```
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+<br />
 
 ```shell script
 go run hello.go
