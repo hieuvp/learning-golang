@@ -6,6 +6,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Hello World](#hello-world)
+  - [`hello.go`](#hellogo)
 - [JetBrains Code Assistance](#jetbrains-code-assistance)
 - [Contextual Encoding](#contextual-encoding)
 - [Template Actions](#template-actions)
@@ -24,7 +25,7 @@
   a user to generate HTML code that is safe against code injection,
   making it suitable for use on web pages and emails.
 
-**`hello.go`**
+### `hello.go`
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.go) -->
 <!-- The below code snippet is automatically added from ./hello.go -->
