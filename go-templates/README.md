@@ -24,7 +24,7 @@
   a user to generate HTML code that is safe against code injection,
   making it suitable for use on web pages and emails.
 
-__**hello.go**__
+_**hello.go**_
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./hello.go) -->
 <!-- The below code snippet is automatically added from ./hello.go -->
