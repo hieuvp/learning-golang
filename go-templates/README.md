@@ -159,7 +159,7 @@ go run hello.go
 ```text
 Supported by JetBrains plugin Go Template by default
 ├── example.gohtml
-├── example.goyaml
+├── example.goyaml (not supported by default but a similar example)
 
 Used by Helm Template
 Used by PHP Smarty Template Engine (Supported by Smarty plugin in IntelliJ and PhpStorm)
