@@ -6,6 +6,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Hello World](#hello-world)
+- [File Extensions](#file-extensions)
 - [JetBrains Code Assistance](#jetbrains-code-assistance)
 - [Contextual Encoding](#contextual-encoding)
 - [Template Actions](#template-actions)
@@ -23,6 +24,11 @@
   with the difference that `html/template` allows
   a user to generate HTML code that is safe against code injection,
   making it suitable for use on web pages and emails.
+
+There two packages in go to work with templates:
+
+- `text/templates` (Used for generating textual output)
+- `html/templates` (Used for generating HTML output safe against code injection)
 
 <br />
 
@@ -147,6 +153,24 @@ go run hello.go
 ```
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## File Extensions
+
+```text
+Supported by JetBrains plugin Go Template by default
+├── example.gohtml
+├── example.goyaml
+
+Used by Helm Template
+├── example.tpl
+├── example.html.tpl
+
+Most used, even mentioned in
+https://golang.org/pkg/html/template/
+├── example.tmpl
+├── example.html.tmpl
+
+```
 
 ## JetBrains Code Assistance
 
