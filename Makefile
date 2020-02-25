@@ -11,7 +11,8 @@ fmt:
 	@printf "\n"
 
 	@printf "\n"
-	cd go-templates && make render
+	# Make a scripts to find sub-Makefile and run some short of targets
+	cd go-template-engine && make render
 	@printf "\n"
 
 	@printf "\n"

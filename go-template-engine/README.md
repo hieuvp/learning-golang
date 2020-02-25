@@ -231,14 +231,6 @@ complete these actions.
 
 <https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-3-optimized.gif>
 
-
-from the IDE when using the built-in  and
-work with it more effectively.
-
-Please let us know your feedback in the comments section below,
-on Twitter, or on our issue tracker,
-and tell us what would you like to learn more about in future articles.
-
 ## Contextual Encoding
 
 ## Template Actions
