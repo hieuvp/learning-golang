@@ -162,6 +162,7 @@ Supported by JetBrains plugin Go Template by default
 ├── example.goyaml
 
 Used by Helm Template
+Used by PHP Smarty Template Engine (Supported by Smarty plugin in IntelliJ and PhpStorm)
 ├── example.tpl
 ├── example.html.tpl
 
@@ -169,7 +170,6 @@ Most used, even mentioned in
 https://golang.org/pkg/html/template/
 ├── example.tmpl
 ├── example.html.tmpl
-
 ```
 
 ## JetBrains Code Assistance
