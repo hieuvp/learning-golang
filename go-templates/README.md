@@ -163,6 +163,7 @@ Supported by JetBrains plugin Go Template by default
 
 Used by Helm Template
 Used by PHP Smarty Template Engine (Supported by Smarty plugin in IntelliJ and PhpStorm)
+Most prefer personally
 ├── example.tpl
 ├── example.html.tpl
 
