@@ -1,4 +1,4 @@
-# Go Templates
+# Go Template Engine
 
 ## Table of Contents
 
@@ -231,9 +231,8 @@ complete these actions.
 
 <https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-3-optimized.gif>
 
-That's it for today.
-We learned how we can get better code assistance
-from the IDE when using the built-in Go template engine and
+
+from the IDE when using the built-in  and
 work with it more effectively.
 
 Please let us know your feedback in the comments section below,
