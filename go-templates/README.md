@@ -205,6 +205,41 @@ Alternatively, type {{- /*gotype: */ -}},
 place the caret after gotype:, press ⌃Space, and select the necessary type.
 ```
 
+Now let’s start to add some output to our page so that we can deliver the data to it.
+Normally you’d start typing something like `“<title>{{.”`
+and expect the IDE to be smart enough and give you completion options
+for the options after the dot.
+
+This is where GoLand comes to help us.
+We can now specify the type beforehand by
+invoking the “Specify dot type” action via Alt + Enter and
+select the type from the list of types available in the project.
+
+<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-optimized.gif>
+
+This doesn’t work only for structure fields as the “Title” of the page works,
+but it works for slices, slice elements, and even for elements that are
+part of a map and are a more complex type.
+
+<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-2-optimized.gif>
+
+Besides completion options,
+once you specify the type of the dot in the template,
+other functionality such as Navigate to Declaration, Find Usages,
+or even Rename refactoring will work as the IDE has enough information to
+complete these actions.
+
+<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-3-optimized.gif>
+
+That's it for today.
+We learned how we can get better code assistance
+from the IDE when using the built-in Go template engine and
+work with it more effectively.
+
+Please let us know your feedback in the comments section below,
+on Twitter, or on our issue tracker,
+and tell us what would you like to learn more about in future articles.
+
 ## Contextual Encoding
 
 ## Template Actions
