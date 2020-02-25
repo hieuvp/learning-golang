@@ -193,11 +193,9 @@ To use code assistance in Go templates:
 - <https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath>
 - <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
 
-Place the caret at the head tag and press Alt+Enter, select Add 'title'
-Inside the title tag, type {\{.}}
-Place the caret inside {\{.}} and press Alt+Enter, select Specify dot type
+Place the caret inside `{{.}}` and press `Option+Enter`, select `Specify dot type`
 In auto-completion popup, select goTemplates.UsersPage
-Inside {\{.}}, press Ctrl+Space and select Title
+Inside `{{.}}`, press `Ctrl+Space` and select Title
 You can use tpl_example.gohtml as a reference
 
 ```text
