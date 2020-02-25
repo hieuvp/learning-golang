@@ -215,13 +215,13 @@ We can now specify the type beforehand by
 invoking the "Specify dot type" action via Alt + Enter and
 select the type from the list of types available in the project.
 
-<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-optimized.gif>
+<div align="center"><img src="assets/Go-Template-optimized.gif" width="900"></div>
 
 This doesn't work only for structure fields as the "Title" of the page works,
 but it works for slices, slice elements, and even for elements that are
 part of a map and are a more complex type.
 
-<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-2-optimized.gif>
+<div align="center"><img src="assets/Go-Template-2-optimized.gif" width="900"></div>
 
 Besides completion options,
 once you specify the type of the dot in the template,
@@ -229,7 +229,7 @@ other functionality such as Navigate to Declaration, Find Usages,
 or even Rename refactoring will work as the IDE has enough information to
 complete these actions.
 
-<https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-3-optimized.gif>
+<div align="center"><img src="assets/Go-Template-3-optimized.gif" width="900"></div>
 
 ## Contextual Encoding
 
