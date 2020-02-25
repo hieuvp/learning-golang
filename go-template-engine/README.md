@@ -205,19 +205,19 @@ Alternatively, type {{- /*gotype: */ -}},
 place the caret after gotype:, press ⌃Space, and select the necessary type.
 ```
 
-Now let’s start to add some output to our page so that we can deliver the data to it.
-Normally you’d start typing something like `“<title>{{.”`
+Now let's start to add some output to our page so that we can deliver the data to it.
+Normally you'd start typing something like `"<title>{{."`
 and expect the IDE to be smart enough and give you completion options
 for the options after the dot.
 
 This is where GoLand comes to help us.
 We can now specify the type beforehand by
-invoking the “Specify dot type” action via Alt + Enter and
+invoking the "Specify dot type" action via Alt + Enter and
 select the type from the list of types available in the project.
 
 <https://d3nmt5vlzunoa1.cloudfront.net/go/files/2018/12/Go-Template-optimized.gif>
 
-This doesn’t work only for structure fields as the “Title” of the page works,
+This doesn't work only for structure fields as the "Title" of the page works,
 but it works for slices, slice elements, and even for elements that are
 part of a map and are a more complex type.
 
