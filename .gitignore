@@ -10,4 +10,5 @@
 # Local Environment Variables
 .env
 
+# Generated Build Output
 output/
