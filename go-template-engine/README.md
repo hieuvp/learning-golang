@@ -197,27 +197,15 @@ GoLand uses the `gotype` comment of the following structure:
 `{{- /*gotype: package/import/path.type_name*/ -}}`.
 
 1. Type `{{.}}`.
-1. Place the caret after the dot, press `⌥⏎`, and select `Specify dot type`.
+1. Place the caret inside `{{.}}`, press `⌥⏎`, and select `Specify dot type`.
 1. In the `gotype` comment section,
    select the necessary type from the code completion popup `⌃Space`.
 
 Alternatively, type `{{- /*gotype: */ -}}`,
 place the caret after `gotype:`, press `⌃Space`, and select the necessary type.
 
-Place the caret inside `{{.}}` and press `Option+Enter`, select `Specify dot type`
-In auto-completion popup, select goTemplates.UsersPage
 Inside `{{.}}`, press `Ctrl+Space` and select Title
 You can use tpl_example.gohtml as a reference
-
-Now let's start to add some output to our page so that we can deliver the data to it.
-Normally you'd start typing something like `"<title>{{."`
-and expect the IDE to be smart enough and give you completion options
-for the options after the dot.
-
-This is where GoLand comes to help us.
-We can now specify the type beforehand by
-invoking the "Specify dot type" action via Alt + Enter and
-select the type from the list of types available in the project.
 
 <div align="center"><img src="assets/Go-Template-optimized.gif" width="900"></div>
 
