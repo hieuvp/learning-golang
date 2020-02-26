@@ -190,8 +190,7 @@ To use code assistance in Go templates:
   go: creating new go.mod: module templating
   ```
 
-- <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
-  Define mapping of a type between Go template and application
+Define mapping of a type between Go template and application
 
 To specify mapping of a type between a Go template and an application,
 GoLand uses the `gotype` comment of the following structure:
@@ -247,5 +246,6 @@ complete these actions.
 ## References
 
 - [Go Templates Made Easy](https://blog.jetbrains.com/go/2018/12/14/go-templates-made-easy/)
+- [Integration with Go Templates](https://www.jetbrains.com/help/go/integration-with-go-templates.html)
 - [ ] [An Introduction to Templates in Go](https://www.calhoun.io/intro-to-templates/)
 - [ ] [Go Template Examples and Code Generator](https://github.com/phcollignon/Go-Template)
