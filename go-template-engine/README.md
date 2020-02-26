@@ -190,18 +190,25 @@ To use code assistance in Go templates:
   go: creating new go.mod: module templating
   ```
 
-- <https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html#gopath>
 - <https://www.jetbrains.com/help/go/integration-with-go-templates.html>
+  Define mapping of a type between Go template and application
+
+To specify mapping of a type between a Go template and an application,
+GoLand uses the `gotype` comment of the following structure:
+`{{- /*gotype: package/import/path.type_name*/ -}}`.
+
+1. Type `{{.}}`.
+1. Place the caret after the dot, press `⌥⏎`, and select `Specify dot type`.
+1. In the `gotype` comment section,
+   select the necessary type from the code completion popup `⌃Space`.
+
+Alternatively, type `{{- /*gotype: */ -}}`,
+place the caret after `gotype:`, press `⌃Space`, and select the necessary type.
 
 Place the caret inside `{{.}}` and press `Option+Enter`, select `Specify dot type`
 In auto-completion popup, select goTemplates.UsersPage
 Inside `{{.}}`, press `Ctrl+Space` and select Title
 You can use tpl_example.gohtml as a reference
-
-```text
-Alternatively, type {{- /*gotype: */ -}},
-place the caret after gotype:, press ⌃Space, and select the necessary type.
-```
 
 Now let's start to add some output to our page so that we can deliver the data to it.
 Normally you'd start typing something like `"<title>{{."`
