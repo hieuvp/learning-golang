@@ -209,7 +209,7 @@ You can use tpl_example.gohtml as a reference
 
 <div align="center"><img src="assets/Go-Template-optimized.gif" width="900"></div>
 
-This doesn't work only for structure fields as the "Title" of the page works,
+This doesn't work only for structure fields as the `Title` of the page works,
 but it works for slices, slice elements, and even for elements that are
 part of a map and are a more complex type.
 
@@ -217,8 +217,8 @@ part of a map and are a more complex type.
 
 Besides completion options,
 once you specify the type of the dot in the template,
-other functionality such as Navigate to Declaration, Find Usages,
-or even Rename refactoring will work as the IDE has enough information to
+other functionality such as `Navigate to Declaration`, `Find Usages`,
+or even `Rename` refactoring will work as the IDE has enough information to
 complete these actions.
 
 <div align="center"><img src="assets/Go-Template-3-optimized.gif" width="900"></div>
