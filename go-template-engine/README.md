@@ -46,19 +46,9 @@ import (
 	"os"
 )
 
-// panic: template: Page:10:21:
-// executing "Page" at <.username>: username
-// is an unexported field of struct type main.User
+// Templates (or Encoding Packages like JSON, YAML, Viper,...)
+// cannot access "unexported" data members, so we have to export them somehow.
 
-// It's not really intuitive,
-// but templates (and encoding packages like JSON, for that matter)
-// can't access unexported data members,
-// so you have to export them somehow:
-
-// “export” means “public” => with upper case first letter
-// the reason is simple:
-// the renderer package use the reflect package in order to get/set fields values
-// the reflect package can only access public/exported struct fields.
 type (
 	// Location struct
 	Location struct {
@@ -85,12 +75,12 @@ func main() {
 		panic(err)
 	}
 
-	t, err := template.New("Page").Parse(string(message))
+	tpl, err := template.New("Page").Parse(string(message))
 	if err != nil {
 		panic(err)
 	}
 
-	p := Page{
+	page := Page{
 		Title: "Users Location",
 		Users: []User{
 			{
@@ -114,7 +104,7 @@ func main() {
 		},
 	}
 
-	err = t.Execute(os.Stdout, p)
+	err = tpl.Execute(os.Stdout, page)
 	if err != nil {
 		panic(err)
 	}
