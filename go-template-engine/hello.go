@@ -6,8 +6,8 @@ import (
 	"os"
 )
 
-// panic: template: UsersPage:10:21:
-// executing "UsersPage" at <.username>: username
+// panic: template: Page:10:21:
+// executing "Page" at <.username>: username
 // is an unexported field of struct type main.User
 
 // It's not really intuitive,
@@ -32,8 +32,8 @@ type (
 		Locations map[string]Location
 	}
 
-	// UsersPage struct
-	UsersPage struct {
+	// Page struct
+	Page struct {
 		Title string
 		Users []User
 	}
@@ -45,12 +45,12 @@ func main() {
 		panic(err)
 	}
 
-	t, err := template.New("UsersPage").Parse(string(message))
+	tpl, err := template.New("Page").Parse(string(message))
 	if err != nil {
 		panic(err)
 	}
 
-	p := UsersPage{
+	page := Page{
 		Title: "Users Location",
 		Users: []User{
 			{
@@ -62,10 +62,19 @@ func main() {
 					},
 				},
 			},
+			{
+				Username: "Hieu Van",
+				Locations: map[string]Location{
+					"Home": {
+						Street:  "GitHub",
+						ZipCode: "2020",
+					},
+				},
+			},
 		},
 	}
 
-	err = t.Execute(os.Stdout, p)
+	err = tpl.Execute(os.Stdout, page)
 	if err != nil {
 		panic(err)
 	}

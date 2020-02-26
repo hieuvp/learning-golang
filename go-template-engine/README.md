@@ -46,8 +46,8 @@ import (
 	"os"
 )
 
-// panic: template: UsersPage:10:21:
-// executing "UsersPage" at <.username>: username
+// panic: template: Page:10:21:
+// executing "Page" at <.username>: username
 // is an unexported field of struct type main.User
 
 // It's not really intuitive,
@@ -72,8 +72,8 @@ type (
 		Locations map[string]Location
 	}
 
-	// UsersPage struct
-	UsersPage struct {
+	// Page struct
+	Page struct {
 		Title string
 		Users []User
 	}
@@ -85,12 +85,12 @@ func main() {
 		panic(err)
 	}
 
-	t, err := template.New("UsersPage").Parse(string(message))
+	t, err := template.New("Page").Parse(string(message))
 	if err != nil {
 		panic(err)
 	}
 
-	p := UsersPage{
+	p := Page{
 		Title: "Users Location",
 		Users: []User{
 			{
@@ -98,6 +98,15 @@ func main() {
 				Locations: map[string]Location{
 					"Home": {
 						Street:  "ShopBack",
+						ZipCode: "2020",
+					},
+				},
+			},
+			{
+				Username: "Hieu Van",
+				Locations: map[string]Location{
+					"Home": {
+						Street:  "GitHub",
 						ZipCode: "2020",
 					},
 				},
@@ -122,7 +131,7 @@ func main() {
 <!-- The below code snippet is automatically added from ./hello.gohtml -->
 
 ```gohtml
-{{- /*gotype: templating.UsersPage*/ -}}
+{{- /*gotype: templating.Page*/ -}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,6 +170,9 @@ go run hello.go
   <body>
     <div>Username: Harrison Van</div>
     <div>Location: ShopBack</div>
+
+    <div>Username: Hieu Van</div>
+    <div>Location: GitHub</div>
   </body>
 </html>
 ```
