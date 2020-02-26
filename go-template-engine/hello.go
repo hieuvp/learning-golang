@@ -1,11 +1,24 @@
 package main
 
 import (
+	"html/template"
 	"io/ioutil"
 	"os"
-	"text/template"
 )
 
+// panic: template: UsersPage:10:21:
+// executing "UsersPage" at <.username>: username
+// is an unexported field of struct type main.User
+
+// It's not really intuitive,
+// but templates (and encoding packages like JSON, for that matter)
+// can't access unexported data members,
+// so you have to export them somehow:
+
+// “export” means “public” => with upper case first letter
+// the reason is simple:
+// the renderer package use the reflect package in order to get/set fields values
+// the reflect package can only access public/exported struct fields.
 type (
 	// Location struct
 	Location struct {
