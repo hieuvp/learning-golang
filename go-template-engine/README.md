@@ -75,23 +75,20 @@ func main() {
 		panic(err)
 	}
 
-	// Parsing Templates
-	//
 	// The three most important and most frequently used functions are:
-	//
-	// New — allocates new, undefined template,
-	// Parse — parses given template string and return parsed template,
-	// Execute — applies parsed template to the data structure and writes result to the given writer.
 
-	// Go standard library function template.New allocate a new undefined template with associated name.
+	// 1. New — allocates new, undefined template,
+	// New allocates a new, undefined template with the given name.
 
 	// The name of the template–unsurprisingly–is to name the template.
 
 	// What is it good for?
-	// As long as you don't want to refer to the template, it doesn't really matter.
-	// But if you want to refer to it, then yes, you refer to it by its name.
+	// As long as you don't want to refer to the template,
+	// it doesn't really matter.
+	// But if you want to refer to it,
+	// then yes, you refer to it by its name.
 
-	// When would you want to refer to it?\
+	// When would you want to refer to it?
 	// When you want to include a template in another
 	// e.g. using the {{template}} action,
 	// or when you want to execute a specific template
@@ -106,6 +103,12 @@ func main() {
 
 	// Executes explicit, "other":
 	// t.ExecuteTemplate(os.Stdout, "other", nil)
+
+	// 2. Parse — parses given template string and return parsed template,
+	// Parse parses text as a template body for t (t *Template).
+
+	// 3. Execute — applies parsed template to the data structure and writes result to the given writer.
+	// Execute applies a parsed template to the specified data object, and writes the output to wr.
 
 	tpl, err := template.New("hello").Parse(string(message))
 	if err != nil {
