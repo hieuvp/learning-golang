@@ -1,9 +1,0 @@
-- https://github.com/yosssi/gohtml ==> formatter
-
-- html formatter:
-- prettier
-prettier --loglevel warn --print-width 96 --write context.html
-prettier **/*.hbs --write --parser=glimmer
-- ...
-- https://github.com/Prettyhtml/prettyhtml
-- https://github.com/google/code-prettify
