@@ -7,7 +7,8 @@ import (
 )
 
 // Templates (or Encoding Packages like JSON, YAML, Viper,...)
-// cannot access "unexported" data members, so we have to export them somehow.
+// cannot access "unexported" data members,
+// so we have to export them somehow.
 
 type (
 	// Location struct
