@@ -288,6 +288,7 @@ complete these actions.
 - [Integration with Go Templates](https://www.jetbrains.com/help/go/integration-with-go-templates.html)
 - [ ] [An Introduction to Templates in Go](https://www.calhoun.io/intro-to-templates/)
 - [ ] [Go Template Examples and Code Generator](https://github.com/phcollignon/Go-Template)
+- [ ] [Using Go Templates](https://blog.gopheracademy.com/advent-2017/using-go-templates/)
 - [ ] [Golang Templates Cheatsheet](https://curtisvermeeren.github.io/2017/09/14/Golang-Templates-Cheatsheet)
 - [ ] [Introduction to Hugo Templating](https://gohugo.io/templates/introduction/)
 - [ ] [Template Debugging](https://gohugo.io/templates/template-debugging/)
