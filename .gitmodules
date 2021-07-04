@@ -1,0 +1,3 @@
+[submodule "gotemplate-fmt"]
+	path = gotemplate-fmt
+	url = https://hieuvp@github.com/hieuvp/gotemplate-fmt.git
